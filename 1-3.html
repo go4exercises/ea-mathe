@@ -537,7 +537,7 @@ window.MathJax = {
 </section>
 </main>
 
-<footer><span>Raphael Arnold Kohler</span><span>IDM EA Mathematik · Klasse EA2025 · Lehrplan 1.3 Geometrie</span></footer>
+<footer><span>Raphael Arnold Kohler</span><span>IDM EA Mathematik · Lehrplan 1.3 Geometrie</span></footer>
 
 <script src="common.js"></script>
 <script src="kon.js"></script>
@@ -1093,7 +1093,7 @@ window.MathJax = {
   function inlineSvg(svg){svg.querySelectorAll('[class]').forEach(el=>{const cs=getComputedStyle(el);
     for(const p of['stroke','stroke-width','fill','font-family','font-size','font-style','font-weight','paint-order','stroke-linejoin'])el.style.setProperty(p,cs.getPropertyValue(p))})}
   function page(inner,no,total){const pg=document.createElement('div');pg.className='pg';
-    pg.innerHTML=`<div class="pg-kopf"><span>IDM EA Mathematik · Klasse EA2025</span><span>Geometrie 1.3 · Konstruktionen</span></div>${inner}<div class="pg-fuss"><span>Raphael Arnold Kohler</span><span>Seite ${no} / ${total}</span></div>`;return pg}
+    pg.innerHTML=`<div class="pg-kopf"><span>IDM EA Mathematik</span><span>Geometrie 1.3 · Konstruktionen</span></div>${inner}<div class="pg-fuss"><span>Raphael Arnold Kohler</span><span>Seite ${no} / ${total}</span></div>`;return pg}
   function taskInner(t,i){const {task,T}=t;return`<div class="pg-name"><span>Name: ______________________________</span><span>Datum: ______________</span></div>
     <h2 class="pg-h">Aufgabe ${i+1}: ${task.t}</h2><p>Gegeben ist das Dreieck <i>A</i>${ptI(T.A)}, <i>B</i>${ptI(T.B)}, <i>C</i>${ptI(T.C)}.</p><p>${task.q}</p>
     <p class="pg-klein">Hilfsmittel: Bleistift, Zirkel, Lineal bzw. Geodreieck. Konstruktionslinien stehen lassen. 1 Einheit = 1 cm (beim Drucken «Tatsächliche Grösse / 100 %» wählen).</p><div class="pg-fig"></div><p class="pg-mess"><b>Messwerte:</b> ${task.mess}</p>`}

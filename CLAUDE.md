@@ -1,6 +1,6 @@
 # CLAUDE.md — EA Mathe begreifbar
 
-Statisches HTML/CSS/JS-Unterrichtsmaterial Mathematik für die Klasse EA2025 (IDM EA Mathematik),
+Statisches HTML/CSS/JS-Unterrichtsmaterial Mathematik (IDM EA Mathematik),
 gehostet via GitHub Pages unter `ea-mathe.begreifbar.ch` (Repo `go4exercises/ea-mathe`, Branch `main`,
 Wurzel), verlinkt von einer Kachel auf `begreifbar.ch`. Eingespielt am 23.11.2026 aus `~/Mathematik-EA.zip`.
 Vorbild für Hosting und Repo-Aufbau: `~/sek1-mathe` (sek1-mathe.begreifbar.ch).
@@ -16,6 +16,10 @@ Vorbild für Hosting und Repo-Aufbau: `~/sek1-mathe` (sek1-mathe.begreifbar.ch).
 - `common.css`, `common.js` (Geometrie-Helfer, SVG-Figuren, Quiz-Gerüst `QZ`), `quiz-<kapitel>.js`
   (Quizfragen je Kapitel), dazu kapitelspezifische Skripte (`2-1.js`, `2-2.js`, `2-3.js`, `alg.js`,
   `b2.js`, `kon.js`, `rat.js`).
+- **Kopfleiste** (`.blocknav`, gebaut von `nav.js`) im Stil von sek1-mathe: weiss, Serif-Logo
+  «IDM EA Mathematik», Block-Menüs, Trennstrich, «Über ▾» mit Reitern Autor/Lizenz (`UEBER_AUTOR`,
+  `UEBER_LIZENZ` in `nav.js`, Texte aus sek1-mathe angepasst; Porträt `autor.jpg`).
+- Keine Klassenbezeichnung auf den Seiten (Entscheid Auftraggeber 24.11.2026).
 - `CNAME` (genau `ea-mathe.begreifbar.ch`), `.nojekyll` (leer) — nicht entfernen.
 
 ## Keine Drittanbieter

@@ -1,6 +1,6 @@
 # EA Mathe begreifbar
 
-Unterrichtsmaterial Mathematik für die Klasse EA2025 (IDM EA Mathematik) — https://ea-mathe.begreifbar.ch/
+Unterrichtsmaterial Mathematik (IDM EA Mathematik) — https://ea-mathe.begreifbar.ch/
 
 Unterrichtsblöcke mit Kapitelseiten (Erklärungen, interaktive Figuren, Quiz) und Übungsaufgaben:
 Block 1 (`index.html`): Grundoperationen, Algebra, Geometrie · Block 2 (`index2.html`):

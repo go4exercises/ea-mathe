@@ -16,6 +16,18 @@
   for(const b of BLOCKS){if(b.home===page)curB=b;for(const c of b.ch){if(c.p===page||c.a===page){curB=b;curC=c;isAuf=c.a===page}}}
   if(!curB&&/^index/.test(page))curB=BLOCKS[0];
 
+  /* ---------- «Über»-Inhalte (Autor, Lizenz) — Texte wie sek1-mathe ---------- */
+  const UEBER_AUTOR=`<div class="meta-titel">Autor</div>
+    <img class="meta-portrait" src="autor.jpg" width="96" height="96" loading="lazy" alt="Porträt von Raphael Arnold Kohler (Aquarell)">
+    <p><strong>Autor:</strong> Raphael Arnold Kohler, Elektroingenieur und BM-Fachlehrperson für Mathematik und Physik mit über 30 Jahren Unterrichtserfahrung.</p>
+    <p>Bei der Erstellung und technischen Umsetzung wurden KI-Werkzeuge eingesetzt. Alle veröffentlichten Inhalte werden redaktionell geprüft; die Verantwortung für die Veröffentlichung liegt bei Raphael Arnold Kohler.</p>`;
+  const UEBER_LIZENZ=`<div class="meta-titel">Lizenz</div>
+    <p><strong>Autor:</strong> Raphael Arnold Kohler. Soweit nicht anders angegeben, stehen die von ihm erstellten Lerninhalte unter der Lizenz <strong>Creative Commons Namensnennung – Nicht kommerziell 4.0 International (CC BY-NC 4.0)</strong>.</p>
+    <p>Die Inhalte dürfen für nicht-kommerzielle Zwecke geteilt und bearbeitet werden. Dabei sind Raphael Arnold Kohler als Urheber zu nennen, die Lizenz zu verlinken und Änderungen kenntlich zu machen. Inhalte Dritter und verlinkte externe Angebote unterliegen ihren eigenen Rechten und Nutzungsbedingungen.</p>
+    <p><em>Empfohlene Namensnennung:</em> Raphael Arnold Kohler, EA Mathe begreifbar, https://ea-mathe.begreifbar.ch/, CC BY-NC 4.0.</p>
+    <p><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener" class="meta-link">→ Lizenztext (CC BY-NC 4.0)</a></p>
+    <p><a href="https://github.com/go4exercises/ea-mathe" target="_blank" rel="noopener" class="meta-link">→ Quelltext und Inhalte des Lehrmittels (GitHub)</a></p>`;
+
   /* ---------- obere Leiste ---------- */
   const bar=document.querySelector('.blocknav');
   if(bar){
@@ -29,14 +41,18 @@
         h+=`<a role="menuitem" href="${c.p}"${c===curC&&!isAuf?' class="cur"':''}>${c.t}</a>`;
         if(c.a)h+=`<a role="menuitem" class="sub${c===curC&&isAuf?' cur':''}" href="${c.a}" target="_blank" rel="noopener">✎ Übungsaufgaben ${c.t.split(' ')[0]}</a>`}
       h+='</div></div>'}
-    const where=curC?`Block ${curB.n} › ${curC.t}${isAuf?' › Übungsaufgaben':''}`:curB?`Block ${curB.n} › Übersicht`:'';
-    h+=`<span class="bn-where">${where}</span></div>`;
+    h+=`<span class="bn-sep" aria-hidden="true"></span><div class="bn-dd bn-ueber"><button type="button" class="bn-b" aria-haspopup="true" aria-expanded="false">Über<span class="bn-car">▾</span></button><div class="bn-m bn-m-ueber">
+      <div class="ueber-tabs" role="tablist"><button type="button" class="ueber-tab aktiv" role="tab" data-target="ueber-autor">Autor</button><button type="button" class="ueber-tab" role="tab" data-target="ueber-lizenz">Lizenz</button></div>
+      <div class="ueber-panels"><div class="ueber-panel aktiv" id="ueber-autor" role="tabpanel">${UEBER_AUTOR}</div><div class="ueber-panel" id="ueber-lizenz" role="tabpanel">${UEBER_LIZENZ}</div></div></div></div></div>`;
     bar.innerHTML=h;
     const dds=[...bar.querySelectorAll('.bn-dd')];
     const close=except=>dds.forEach(d=>{if(d!==except){d.classList.remove('open');d.querySelector('.bn-b').setAttribute('aria-expanded','false')}});
     dds.forEach(d=>{const b=d.querySelector('.bn-b');b.addEventListener('click',e=>{e.stopPropagation();const o=!d.classList.contains('open');close(d);d.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o))})});
     document.addEventListener('click',e=>{if(!bar.contains(e.target))close(null)});
     document.addEventListener('keydown',e=>{if(e.key==='Escape')close(null)});
+    bar.querySelectorAll('.ueber-tab').forEach(t=>t.addEventListener('click',e=>{e.stopPropagation();const w=t.closest('.bn-m-ueber');
+      w.querySelectorAll('.ueber-tab').forEach(x=>x.classList.toggle('aktiv',x===t));w.querySelectorAll('.ueber-panel').forEach(p=>p.classList.toggle('aktiv',p.id===t.dataset.target))}));
+    bar.querySelector('.bn-m-ueber').addEventListener('click',e=>e.stopPropagation());
   }
 
   /* ---------- Kapitelmenü rechts (folgt beim Scrollen mit) ---------- */
