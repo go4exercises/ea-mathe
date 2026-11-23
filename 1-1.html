@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.1 Grundoperationen – Unterrichtsblock 1</title>
+<link rel="stylesheet" href="schriften.css">
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},startup:{typeset:true}};
+</script>
+<script defer src="vendor/mathjax/tex-svg.js"></script>
+<link rel="stylesheet" href="common.css">
+<style>
+body.alg{--kopf:#5b7f95;--kopf-d:#46677d;--titel:#2f5f7c}
+.chipnum{font:600 15px "Source Sans 3",sans-serif}
+.pvwrap{overflow-x:auto}
+.pvbox{position:relative;width:552px;margin:0 auto}
+.pvdig{position:absolute;top:0;width:46px;height:46px;line-height:46px;text-align:center;font:24px "Source Serif 4",serif;transition:left .7s cubic-bezier(.4,0,.2,1)}
+.pvdig.z{color:#a8b5bf}
+.pvpt{position:absolute;top:30px;width:10px;height:10px;border-radius:50%;background:var(--or);left:323px}
+</style>
+</head>
+<body class="alg">
+<div class="blocknav"><div class="in"><span class="bl">Block 1</span><a href="index.html">Übersicht</a><a href="1-1.html" class="on">1.1 Grundoperationen</a><a href="1-2.html">1.2 Algebra</a><a href="1-3.html">1.3 Geometrie</a><span class="bl">Block 2</span><a href="index2.html">Übersicht</a><a href="2-1.html">2.1</a><a href="2-2.html">2.2</a><a href="2-3.html">2.3</a></div></div>
+<header class="kopf">
+  <div class="kopf-in">
+    <div class="crumb">IDM EA Mathematik · Unterrichtsblock 1 · 1.1 Grundoperationen</div>
+    <h1>Zahlenmengen, Rechenregeln, Teiler, Zehnerpotenzen und Brüche</h1>
+    <p class="lead">Die Grundlagen aller Berechnungen. Alle Figuren sind interaktiv: Knöpfe mit <b>▶</b> spielen Animationen ab, Felder und Regler lassen sich verändern.</p>
+  </div>
+</header>
+<nav class="top"><div class="in">
+  <a href="#zahlen">1 Zahlenmengen</a><a href="#stufen">2 Operationsstufen</a><a href="#teilbar">3 Teiler, ggT, kgV</a><a href="#potenzen">4 Zehnerpotenzen</a><a href="#brueche">5 Brüche</a><a href="#training">6 Trainer</a><a href="#quiz">7 Quiz</a>
+</div></nav>
+<div class="register">Arithmetik</div>
+<main>
+
+<div class="kasten">
+  <h3>Lernziele</h3>
+  <div class="inhalt voll">
+    <ul class="lz">
+      <li>Ich kann Zahlen den Mengen \(\mathbb{N}\), \(\mathbb{Z}\), \(\mathbb{Q}\) und \(\mathbb{R}\) zuordnen und die Symbole \(\in\), \(\notin\), \(\subset\) korrekt verwenden.</li>
+      <li>Ich kann Terme nach den Operationsstufen (Klammer, Potenz, Punkt, Strich) schrittweise berechnen.</li>
+      <li>Ich kenne die Teilbarkeitsregeln und kann Zahlen in Primfaktoren zerlegen.</li>
+      <li>Ich kann ggT und kgV bestimmen und weiss, wofür man sie braucht.</li>
+      <li>Ich kann mit Zehnerpotenzen rechnen, Zahlen in wissenschaftlicher Schreibweise angeben und Einheiten umwandeln.</li>
+      <li>Ich kann Brüche erweitern, kürzen, addieren, subtrahieren, multiplizieren und dividieren und das Resultat vollständig gekürzt angeben.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= 1 ZAHLENMENGEN ================= -->
+<section id="zahlen">
+<h2><span class="nr">1</span>Zahlenmengen und Symbole</h2>
+<div class="kasten">
+  <h3>Die Zahlenmengen \(\mathbb{N}\), \(\mathbb{Z}\), \(\mathbb{Q}\), \(\mathbb{R}\)</h3>
+  <div class="inhalt">
+    <div class="fig" id="f1">
+      <div class="ctrl">
+        <button class="btn play" id="c1next">▶ nächste Zahl einordnen</button>
+        <button class="btn" id="c1all">alle einordnen</button>
+        <button class="btn" id="c1reset">zurücksetzen</button>
+      </div>
+      <div class="ctrl"><span class="hint" style="margin:0 4px 0 0">Warum braucht es grössere Mengen?</span>
+        <button class="btn" data-x="0">3 − 5</button><button class="btn" data-x="1">3 : 4</button><button class="btn" data-x="2">\(x^2=2\)</button>
+      </div>
+      <div class="cap" id="cap1"><p>Jede Zahl landet in der <b>kleinsten</b> Menge, zu der sie gehört. Weil die Mengen ineinander liegen, gehört sie damit automatisch auch zu allen grösseren Mengen.</p></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Natürliche Zahlen:</b> \(\mathbb{N}=\{1;\,2;\,3;\,\ldots\}\), mit der Null: \(\mathbb{N}_0=\{0;\,1;\,2;\,3;\,\ldots\}\)</p>
+      <p class="def"><b>Ganze Zahlen:</b> \(\mathbb{Z}=\{\ldots;\,-2;\,-1;\,0;\,1;\,2;\,\ldots\}\)</p>
+      <p class="def"><b>Rationale Zahlen:</b> alle Brüche \(\dfrac{p}{q}\) mit \(p\in\mathbb{Z}\) und \(q\in\mathbb{N}\). Als Dezimalzahl sind sie <b>endlich</b> oder <b>periodisch</b>.</p>
+      <p class="def"><b>Reelle Zahlen</b> \(\mathbb{R}\): alle Zahlen auf der Zahlengeraden. Dazu gehören auch die <b>irrationalen</b> Zahlen wie \(\sqrt2\) oder \(\pi\): unendlich viele Nachkommastellen ohne Periode.</p>
+      <p>Die Mengen liegen ineinander: \(\mathbb{N}\subset\mathbb{Z}\subset\mathbb{Q}\subset\mathbb{R}\)</p>
+      <div class="live"><span class="k">Einordnung</span><span id="r1">–</span></div>
+    </div>
+  </div>
+  <div class="inhalt voll" style="padding-top:0"><div class="fig" id="f1b"><p class="hint">Alle eingeordneten Zahlen auf der Zahlengeraden: Auch die irrationalen Zahlen haben dort einen festen Platz.</p></div></div>
+</div>
+
+<div class="kasten">
+  <h3>Symbole</h3>
+  <div class="inhalt voll">
+    <div class="tw"><table class="t">
+      <tr><th>Symbol</th><th>Bedeutung</th><th>Beispiel</th><th>Symbol</th><th>Bedeutung</th><th>Beispiel</th></tr>
+      <tr><td>\(\in\)</td><td>ist Element von</td><td>\(-3\in\mathbb{Z}\)</td><td>\(=\)</td><td>gleich</td><td>\(\tfrac{6}{8}=\tfrac34\)</td></tr>
+      <tr><td>\(\notin\)</td><td>ist nicht Element von</td><td>\(-3\notin\mathbb{N}\)</td><td>\(\neq\)</td><td>ungleich</td><td>\(2^3\neq 3^2\)</td></tr>
+      <tr><td>\(\subset\)</td><td>ist Teilmenge von</td><td>\(\mathbb{N}\subset\mathbb{Z}\)</td><td>\(\approx\)</td><td>ungefähr gleich (gerundet)</td><td>\(\pi\approx3.14\)</td></tr>
+      <tr><td>\(\{\ldots\}\)</td><td>Menge</td><td>\(\{2;\,3;\,5;\,7\}\)</td><td>\(<,\ \le\)</td><td>kleiner, kleiner oder gleich</td><td>\(-5<-2\)</td></tr>
+      <tr><td>\(\cap,\ \cup\)</td><td>Schnittmenge, Vereinigungsmenge</td><td>\(\{1;2;3\}\cap\{2;3;4\}=\{2;3\}\)</td><td>\(>,\ \ge\)</td><td>grösser, grösser oder gleich</td><td>\(0.5>\tfrac13\)</td></tr>
+    </table></div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-11.html#zahlen" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 2 OPERATIONSSTUFEN ================= -->
+<section id="stufen">
+<h2><span class="nr">2</span>Operationsstufen und Klammern</h2>
+<div class="kasten">
+  <h3>Prioritätsregeln: Schritt für Schritt</h3>
+  <div class="inhalt">
+    <div>
+      <div class="ctrl">
+        <select class="sel" id="c2pre"></select>
+        <button class="btn" id="c2rnd">Zufallsterm</button>
+      </div>
+      <div class="ctrl"><input class="inp w" id="c2in" placeholder="eigener Term, z. B. 3+4·(5−2)^2"><button class="btn" id="c2own">übernehmen</button></div>
+      <div class="stufen" id="stf"><div class="st1">1. Klammern<br>( )</div><div class="st2">2. Potenzen<br>x², √</div><div class="st3">3. Punktrechnung<br>· :</div><div class="st4">4. Strichrechnung<br>+ −</div></div>
+      <div class="term" id="t2"></div>
+      <div class="ctrl"><button class="btn play" id="c2step">Schritt ›</button><button class="btn play" id="c2play">▶ alle Schritte</button><button class="btn" id="c2back">von vorn</button></div>
+      <div class="cap" id="e2"><p>Klicke auf «Schritt»: Zuerst wird markiert, was als Nächstes gerechnet wird, beim nächsten Klick wird gerechnet.</p></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Reihenfolge:</b> 1. Klammern (von innen nach aussen), 2. Potenzen und Wurzeln, 3. Punktrechnung (· und :), 4. Strichrechnung (+ und −).</p>
+      <p class="def">Operationen der <b>gleichen Stufe</b> werden von <b>links nach rechts</b> ausgeführt: \(18-6:3\cdot2=18-2\cdot2=18-4=14\)</p>
+      <p class="def"><b>Achtung Vorzeichen:</b> \(-3^2=-9\), denn die Potenz bindet stärker als das Minus. Aber \((-3)^2=9\).</p>
+      <h4>Rechenweg</h4>
+      <div class="weg" id="w2"></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Rechengesetze</h3>
+  <div class="inhalt">
+    <div class="fig" id="f3">
+      <div class="ctrl kv">
+        <label class="hint" style="margin:0"><i>a</i> = <input type="range" id="c3a" min="1" max="5" value="3"></label>
+        <label class="hint" style="margin:0"><i>b</i> = <input type="range" id="c3b" min="1" max="6" value="4"></label>
+        <label class="hint" style="margin:0"><i>c</i> = <input type="range" id="c3c" min="1" max="5" value="2"></label>
+        <button class="btn play" id="c3play">▶ Rechteck aufteilen</button>
+      </div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Kommutativgesetz</b> (Vertauschen): \(a+b=b+a\) und \(a\cdot b=b\cdot a\)</p>
+      <p class="def"><b>Assoziativgesetz</b> (Zusammenfassen): \((a+b)+c=a+(b+c)\) und \((a\cdot b)\cdot c=a\cdot(b\cdot c)\)</p>
+      <p class="def"><b>Distributivgesetz</b> (Verteilen): \(a\cdot(b+c)=a\cdot b+a\cdot c\)</p>
+      <p>Subtraktion und Division sind <b>nicht</b> kommutativ: \(7-3\neq3-7\), \(8:2\neq2:8\).</p>
+      <div class="live"><span class="k">Distributivgesetz am Rechteck</span><span id="r3"></span></div>
+      <p class="hint">Das Distributivgesetz ist die Grundlage für das Ausmultiplizieren und Ausklammern in <a href="1-2.html#mult">1.2 Algebra</a>.</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-11.html#stufen" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 3 TEILBARKEIT ================= -->
+<section id="teilbar">
+<h2><span class="nr">3</span>Teilbarkeit, Primfaktoren, ggT und kgV</h2>
+<div class="kasten">
+  <h3>Teilbarkeitsregeln</h3>
+  <div class="inhalt">
+    <div>
+      <div class="ctrl"><span class="hint" style="margin:0">Zahl:</span><input class="inp" id="c4n" value="4716"><button class="btn play" id="c4go">▶ prüfen</button><button class="btn" id="c4rnd">Zufallszahl</button></div>
+      <div class="tw"><table class="t" id="t4"></table></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Teiler:</b> \(a\) ist ein Teiler von \(b\), wenn die Division \(b:a\) ohne Rest aufgeht. Beispiel: Die Teiler von 12 sind \(\{1;\,2;\,3;\,4;\,6;\,12\}\).</p>
+      <p class="def"><b>Quersumme:</b> Summe aller Ziffern, z. B. Quersumme von 4′716 ist \(4+7+1+6=18\).</p>
+      <p class="def"><b>Primzahl:</b> eine natürliche Zahl mit genau zwei Teilern (1 und sich selbst): \(2;\,3;\,5;\,7;\,11;\,13;\,17;\,19;\,23;\,\ldots\) Die Zahl 1 ist keine Primzahl.</p>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Primfaktorzerlegung</h3>
+  <div class="inhalt">
+    <div class="fig" id="f5">
+      <div class="ctrl"><input class="inp" id="c5n" value="360"><button class="btn play" id="c5go">▶ zerlegen</button><button class="btn" id="c5rnd">Zufallszahl</button></div>
+    </div>
+    <div class="txt">
+      <p class="def">Jede natürliche Zahl grösser als 1 lässt sich <b>eindeutig</b> als Produkt von Primzahlen schreiben.</p>
+      <p class="def"><b>Vorgehen:</b> Immer durch die kleinstmögliche Primzahl teilen (2, 3, 5, 7, …), bis nur noch 1 übrig bleibt. Gleiche Faktoren fasst man zu Potenzen zusammen.</p>
+      <div class="live"><span class="k">Ergebnis</span><span id="r5"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Grösster gemeinsamer Teiler (ggT) und kleinstes gemeinsames Vielfaches (kgV)</h3>
+  <div class="inhalt">
+    <div class="fig" id="f6">
+      <div class="ctrl"><input class="inp" id="c6a" value="24" style="width:80px"><input class="inp" id="c6b" value="36" style="width:80px"><button class="btn play" id="c6go">▶ bestimmen</button><button class="btn" id="c6rnd">Zufallspaar</button></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>ggT:</b> das Produkt der <b>gemeinsamen</b> Primfaktoren (Schnittmenge).</p>
+      <p class="def"><b>kgV:</b> das Produkt <b>aller</b> Primfaktoren, gemeinsame nur einmal gezählt (Vereinigungsmenge).</p>
+      <p class="def"><b>Wofür?</b> Mit dem ggT kürzt man Brüche vollständig und klammert in der Algebra aus. Das kgV ist der <b>Hauptnenner</b> beim Addieren von Brüchen.</p>
+      <div class="live"><span class="k">Ergebnis</span><span id="r6"></span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-11.html#teilbar" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 4 ZEHNERPOTENZEN ================= -->
+<section id="potenzen">
+<h2><span class="nr">4</span>Zehnerpotenzen, Dezimalzahlen und Einheiten</h2>
+<div class="kasten">
+  <h3>Stellenwerttafel: Multiplizieren und Dividieren mit Zehnerpotenzen</h3>
+  <div class="inhalt voll">
+    <div class="big" id="r7"></div>
+    <div class="pvwrap"><div class="pvbox"><table class="pv" id="pv" style="width:552px"></table><div id="pvd" style="position:absolute;left:0;top:41px;height:46px;width:552px"></div><div class="pvpt"></div></div></div>
+    <div class="ctrl" style="justify-content:center"><button class="btn" data-f="3">· 1000</button><button class="btn" data-f="2">· 100</button><button class="btn" data-f="1">· 10</button><button class="btn" data-f="-1">: 10</button><button class="btn" data-f="-2">: 100</button><button class="btn" data-f="-3">: 1000</button><button class="btn" id="c7rnd">andere Zahl</button></div>
+    <p style="text-align:center;margin:6px 0 0">Bei \(\cdot\,10\) rückt jede Ziffer um <b>eine Stelle nach links</b>, bei \(:\,10\) um eine Stelle nach rechts. Der Dezimalpunkt (orange) bleibt stehen; leere Stellen werden mit Nullen aufgefüllt.</p>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Sehr grosse und sehr kleine Zahlen: wissenschaftliche Schreibweise</h3>
+  <div class="inhalt">
+    <div class="fig" id="f8">
+      <div class="ctrl"><input class="inp w" id="c8n" value="0.0000482"><button class="btn play" id="c8go">▶ umwandeln</button></div>
+      <div class="ctrl"><span class="hint" style="margin:0">Beispiele:</span><button class="btn" data-n="36200000">36′200′000</button><button class="btn" data-n="0.0148">0.0148</button><button class="btn" data-n="299792458">299′792′458</button><button class="btn" data-n="0.000000706">0.000000706</button><button class="btn" data-n="5.97">5.97</button></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Wissenschaftliche Schreibweise:</b> \(a\cdot10^{n}\) mit \(1\le a<10\) und \(n\in\mathbb{Z}\).</p>
+      <p class="def">Der Dezimalpunkt wird hinter die <b>erste von null verschiedene Ziffer</b> verschoben. Die Anzahl Stellen ergibt den Exponenten: nach links → \(n\) positiv (grosse Zahl), nach rechts → \(n\) negativ (kleine Zahl).</p>
+      <p class="def">\(10^{-n}=\dfrac{1}{10^{n}}\), z. B. \(10^{-3}=\dfrac{1}{1000}=0.001\)</p>
+      <p>Taschenrechner zeigen \(4.82\cdot10^{-5}\) oft als <code>4.82E-5</code> an.</p>
+      <div class="live"><span class="k">Ergebnis</span><span id="r8"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Einheiten umwandeln</h3>
+  <div class="inhalt">
+    <div class="fig" id="f9">
+      <div class="ctrl"><select class="sel" id="c9k"><option value="L">Länge</option><option value="F">Fläche</option><option value="V">Volumen</option><option value="M">Masse</option></select>
+        <input class="inp" id="c9v" value="36200000" style="width:140px"><select class="sel" id="c9from"></select><span>in</span><select class="sel" id="c9to"></select><button class="btn play" id="c9go">▶ umwandeln</button></div>
+    </div>
+    <div class="txt">
+      <div class="tw"><table class="t">
+        <tr><th>Vorsatz</th><th>Zeichen</th><th>Faktor</th><th>Vorsatz</th><th>Zeichen</th><th>Faktor</th></tr>
+        <tr><td>Giga</td><td>G</td><td>\(10^{9}\)</td><td>Dezi</td><td>d</td><td>\(10^{-1}\)</td></tr>
+        <tr><td>Mega</td><td>M</td><td>\(10^{6}\)</td><td>Zenti</td><td>c</td><td>\(10^{-2}\)</td></tr>
+        <tr><td>Kilo</td><td>k</td><td>\(10^{3}\)</td><td>Milli</td><td>m</td><td>\(10^{-3}\)</td></tr>
+        <tr><td>Hekto</td><td>h</td><td>\(10^{2}\)</td><td>Mikro</td><td>µ</td><td>\(10^{-6}\)</td></tr>
+      </table></div>
+      <p class="def"><b>Umwandlungszahl:</b> Länge 10, Fläche \(10^2=100\), Volumen \(10^3=1000\) pro Stufe. Grosse Einheit → kleine Einheit: multiplizieren; klein → gross: dividieren.</p>
+      <p>\(1\ \text{dm}^3=1\ \ell\), \(1\ \text{cm}^3=1\ \text{m}\ell\), \(1\ \text{a}=100\ \text{m}^2\), \(1\ \text{ha}=100\ \text{a}\)</p>
+      <div class="live"><span class="k">Ergebnis</span><span id="r9"></span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-11.html#potenzen" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 5 BRÜCHE ================= -->
+<section id="brueche">
+<h2><span class="nr">5</span>Gewöhnliche Brüche</h2>
+<div class="kasten">
+  <h3>Erweitern und Kürzen</h3>
+  <div class="inhalt">
+    <div class="fig" id="f10">
+      <div class="ctrl kv"><span class="hint" style="margin:0">Bruch</span><select class="sel" id="c10z"></select><span>/</span><select class="sel" id="c10n"></select>
+        <label class="hint" style="margin:0">erweitern mit <input type="range" id="c10k" min="1" max="6" value="1" style="vertical-align:middle"> <b id="c10kv">1</b></label>
+        <button class="btn play" id="c10kurz">▶ Beispiel: vollständig kürzen</button></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Bezeichnungen:</b> \(\dfrac{\text{Zähler}}{\text{Nenner}}\). Der Nenner sagt, in wie viele gleiche Teile das Ganze geteilt wird, der Zähler, wie viele davon genommen werden.</p>
+      <p class="def"><b>Erweitern:</b> Zähler und Nenner mit der gleichen Zahl multiplizieren: \(\dfrac{a}{b}=\dfrac{a\cdot k}{b\cdot k}\). Die Teile werden feiner, der Wert bleibt gleich.</p>
+      <p class="def"><b>Kürzen:</b> Zähler und Nenner durch die gleiche Zahl dividieren. <b>Vollständig gekürzt</b> ist ein Bruch, wenn Zähler und Nenner keinen gemeinsamen Teiler mehr haben (ggT = 1). Das erreicht man in einem Schritt, indem man durch den ggT teilt.</p>
+      <div class="live"><span class="k">Bruch</span><span id="r10"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Addition und Subtraktion</h3>
+  <div class="inhalt">
+    <div class="fig" id="f11">
+      <div class="ctrl"><select class="sel" id="c11op"><option value="+">Addition</option><option value="-">Subtraktion</option></select><button class="btn" id="c11rnd">neue Brüche</button><button class="btn play" id="c11play">▶ Schritt für Schritt</button></div>
+      <div class="cap" id="cap11"></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Gleichnamige Brüche</b> (gleicher Nenner): Zähler addieren bzw. subtrahieren, Nenner beibehalten.</p>
+      <p class="def"><b>Ungleichnamige Brüche:</b> zuerst auf den <b>Hauptnenner</b> (kgV der Nenner) erweitern, dann wie oben.
+      \[\frac{a}{b}\pm\frac{c}{d}=\frac{a\cdot\frac{N}{b}\ \pm\ c\cdot\frac{N}{d}}{N},\quad N=\text{kgV}(b;\,d)\]</p>
+      <p><b>Häufiger Fehler:</b> \(\dfrac12+\dfrac13\neq\dfrac25\). Nenner werden <b>nicht</b> addiert.</p>
+      <div class="live"><span class="k">Rechnung</span><span id="r11"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Multiplikation</h3>
+  <div class="inhalt">
+    <div class="fig" id="f12">
+      <div class="ctrl"><button class="btn" id="c12rnd">neue Brüche</button><button class="btn play" id="c12play">▶ Flächenmodell</button></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Regel:</b> Zähler mal Zähler, Nenner mal Nenner: \(\dfrac{a}{b}\cdot\dfrac{c}{d}=\dfrac{a\cdot c}{b\cdot d}\)</p>
+      <p class="def"><b>Tipp:</b> Vor dem Ausmultiplizieren kürzen (auch «über Kreuz»): \(\dfrac{4}{9}\cdot\dfrac{3}{8}=\dfrac{\cancel{4}^{\,1}\cdot\cancel{3}^{\,1}}{\cancel{9}_{\,3}\cdot\cancel{8}_{\,2}}=\dfrac16\)</p>
+      <p>«\(\tfrac{a}{b}\) von \(\tfrac{c}{d}\)» bedeutet \(\tfrac{a}{b}\cdot\tfrac{c}{d}\). Im Flächenmodell ist das Produkt die Fläche, wo sich die beiden Streifen überlappen.</p>
+      <div class="live"><span class="k">Rechnung</span><span id="r12"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Division</h3>
+  <div class="inhalt">
+    <div class="fig" id="f13">
+      <div class="ctrl"><button class="btn" id="c13rnd">neue Brüche</button><button class="btn play" id="c13play">▶ Wie oft passt es hinein?</button></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Regel:</b> Durch einen Bruch wird dividiert, indem man mit seinem <b>Kehrwert</b> multipliziert: \(\dfrac{a}{b}:\dfrac{c}{d}=\dfrac{a}{b}\cdot\dfrac{d}{c}\)</p>
+      <p class="def"><b>Bedeutung:</b> \(\dfrac{a}{b}:\dfrac{c}{d}\) gibt an, wie oft \(\dfrac{c}{d}\) in \(\dfrac{a}{b}\) hineinpasst.</p>
+      <p>Durch 0 kann man nicht dividieren.</p>
+      <div class="live"><span class="k">Rechnung</span><span id="r13"></span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-11.html#brueche" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 6 TRAINER ================= -->
+<section id="training">
+<h2><span class="nr">6</span>Trainer: Aufgaben wie an der Aufnahmeprüfung</h2>
+<div class="kasten">
+  <h3>Unbegrenzt viele Aufgaben mit Lösungsweg</h3>
+  <div class="inhalt voll">
+    <div class="ctrl" style="margin:0 0 12px"><select class="sel" id="ttyp"></select><button class="btn play" id="tneu">Neue Aufgabe</button><span class="score" id="tscore"></span></div>
+    <p class="sans" style="font-weight:700;color:var(--kopf-d);margin:0 0 4px" id="ttitel"></p>
+    <div id="tq" class="trainer-q"></div>
+    <div class="antwort"><span id="tziel"></span><input id="tin" class="inp w" autocomplete="off"><button class="btn" id="tcheck">Prüfen</button><button class="btn" id="tsol">Lösungsweg</button></div>
+    <div class="fb" id="tfb"></div>
+    <div class="loesung" id="tl"></div>
+    <p class="hint">Eingabe: Brüche als <code>7/12</code>, Zehnerpotenzen als <code>4.82*10^-5</code> oder <code>4.82e-5</code>. Tausender-Apostrophe dürfen weggelassen werden.</p>
+  </div>
+</div>
+</section>
+
+<!-- ================= 7 QUIZ ================= -->
+<section id="quiz">
+<h2><span class="nr">7</span>Quiz</h2>
+<div class="kasten">
+  <h3>Quiz zu allen Bereichen von 1.1</h3>
+  <div class="inhalt voll">
+    <div class="ctrl" style="margin:0 0 4px"><select class="sel" id="qarea"></select>
+      <select class="sel" id="qn"><option value="5">5 Fragen</option><option value="10" selected>10 Fragen</option><option value="15">15 Fragen</option><option value="20">20 Fragen</option></select>
+      <button class="btn play" id="qneu">Neue Runde</button><span class="score" id="qstat" style="margin-left:auto"></span></div>
+    <div class="bar"><div id="qbar" style="width:0"></div></div>
+    <div class="uebung">
+      <div><div class="ctrl" id="qsk" style="margin:0 0 6px"></div><div class="qbox" id="qbox"></div><p class="hint" id="qhint"></p></div>
+      <div><p class="qtopic" id="qtop"></p><div id="qq"></div><div class="opts" id="qo"></div><div id="qfb"></div><div class="ctrl"><button class="btn" id="qnext" hidden>Nächste Frage ›</button></div></div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+<footer><span>Raphael Arnold Kohler</span><span>IDM EA Mathematik · Klasse EA2025 · Lehrplan 1.1 Grundoperationen</span></footer>
+
+<script src="common.js"></script>
+<script src="quiz-11.js"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+
+/* ======================= 1 Zahlenmengen ======================= */
+(function(){
+  const f=new Fig($('f1'),{h:400,grid:false});
+  const SETS=[{k:'R',c:{x:0,y:0},rx:7.6,ry:4.7,fill:'#f1f6fa',st:'#5b7f95',lab:'ℝ',lp:{x:6.2,y:2.6}},{k:'Q',c:{x:-1.3,y:-0.2},rx:5.9,ry:3.9,fill:'#e4eef6',st:'#3f7fa8',lab:'ℚ',lp:{x:3.6,y:1.9}},
+    {k:'Z',c:{x:-2.6,y:-0.4},rx:4.2,ry:3.0,fill:'#d4e6f2',st:'#2f78a8',lab:'ℤ',lp:{x:-2.6,y:2.0}},{k:'N',c:{x:-3.7,y:-0.6},rx:2.6,ry:2.0,fill:'#c3dcec',st:'#1f6f99',lab:'ℕ',lp:{x:-3.7,y:0.9}}];
+  const SLOTS={N:[{x:-4.6,y:-0.1},{x:-2.9,y:-0.3},{x:-4.3,y:-1.5},{x:-3.0,y:-1.5}],Z:[{x:-0.9,y:1.3},{x:-0.6,y:-0.8},{x:-1.2,y:-2.2},{x:-2.4,y:-2.7}],
+    Q:[{x:2.4,y:1.0},{x:2.8,y:-0.6},{x:2.0,y:-2.2},{x:0.5,y:2.7},{x:0.9,y:-3.1}],R:[{x:5.7,y:0.9},{x:5.5,y:-1.2},{x:4.6,y:-3.0},{x:3.9,y:3.3}]};
+  const NAME={N:'ℕ',Z:'ℤ',Q:'ℚ',R:'ℝ'},ORD=['N','Z','Q','R'];
+  const NUMS=[{t:'7',s:'N',v:7,e:'7 ist eine natürliche Zahl'},{t:'−4',s:'Z',v:-4,e:'Negative ganze Zahlen gehören zu ℤ, aber nicht zu ℕ'},
+    {t:'3/4',s:'Q',v:0.75,e:'3/4 = 0.75 ist ein Bruch, aber keine ganze Zahl'},{t:'√2',s:'R',v:Math.SQRT2,e:'√2 = 1.414213… hat unendlich viele Nachkommastellen ohne Periode und lässt sich nicht als Bruch schreiben (irrational)'},
+    {t:'0',s:'Z',v:0,e:'0 ist eine ganze Zahl. Nach ℕ = {1; 2; 3; …} gehört 0 nicht zu ℕ, aber zu ℕ₀'},{t:'−2.5',s:'Q',v:-2.5,e:'Endliche Dezimalzahlen sind Brüche: −2.5 = −5/2'},
+    {t:'√9',s:'N',v:3,e:'Achtung: √9 = 3. Zuerst ausrechnen, dann einordnen'},{t:'π',s:'R',v:Math.PI,e:'π = 3.14159… ist irrational'},
+    {t:'0.333…',s:'Q',v:1/3,e:'Periodische Dezimalzahlen sind Brüche: 0.333… = 1/3'},{t:'12/4',s:'N',v:3,e:'12/4 = 3 lässt sich zu einer natürlichen Zahl kürzen'},
+    {t:'−√16',s:'Z',v:-4,e:'−√16 = −4 ist eine negative ganze Zahl'},{t:'1.7',s:'Q',v:1.7,e:'1.7 = 17/10 ist ein Bruch'}];
+  const EXT=[{t:'−2',s:'Z',v:-2,e:'3 − 5 = −2: In ℕ ist diese Subtraktion nicht ausführbar. Darum erweitert man ℕ zu ℤ'},
+    {t:'0.75',s:'Q',v:0.75,e:'3 : 4 = 0.75: In ℤ geht diese Division nicht auf. Darum erweitert man ℤ zu ℚ'},
+    {t:'√2',s:'R',v:Math.SQRT2,e:'x² = 2 hat die Lösung x = √2. Diese Zahl ist kein Bruch. Darum erweitert man ℚ zu ℝ'}];
+  let placed=[],idx=0,anim=null;const used={N:0,Z:0,Q:0,R:0};
+  function slotFor(s){const i=used[s]++%SLOTS[s].length;return SLOTS[s][i]}
+  function chip(p,t,hl,op=1){const w=0.3+0.27*t.length;f.poly([{x:p.x-w,y:p.y-0.34},{x:p.x+w,y:p.y-0.34},{x:p.x+w,y:p.y+0.34},{x:p.x-w,y:p.y+0.34}],{c:hl?C.or:'#7f95a5',w:hl?2:1.2,f:hl?'#fff3e4':'#fff',o:op});f.text(p,t,'lbl sm',{fontStyle:'normal',opacity:op})}
+  f.draw=()=>{for(const S of SETS){const[x,y]=f.S(S.c);mk('ellipse',{cx:x,cy:y,rx:S.rx*f.s,ry:S.ry*f.s,fill:S.fill,stroke:S.st,'stroke-width':2},f.g);f.text(S.lp,S.lab,'lbl',{fontSize:'28px',fontStyle:'normal',fill:S.st})}
+    placed.forEach((q,i)=>chip(q.p,q.t,i===placed.length-1&&!anim));if(anim)chip(anim.p,anim.t,true)};
+  const cap=$('cap1');
+  function info(n){const k=ORD.indexOf(n.s);const ins=ORD.slice(k).map(s=>NAME[s]).join(', '),outs=ORD.slice(0,k).map(s=>NAME[s]);
+    $('r1').innerHTML=`<b>${n.t}</b>: ${n.e}.<br>${n.t} ∈ ${ins}${outs.length?` &nbsp;·&nbsp; ${n.t} ∉ ${outs.join(', ')}`:''}`}
+  function place(n,done){const target=slotFor(n.s);const start={x:0,y:5.3};anim={p:start,t:n.t};
+    tween(900,t=>{anim.p=V.lerp(start,target,ease(t));f.render()},()=>{anim=null;placed.push({p:target,t:n.t,v:n.v});f.render();info(n);nl.render();done&&done()})}
+  $('c1next').addEventListener('click',()=>{if(anim)return;if(idx>=NUMS.length){cap.innerHTML='<p>Alle Zahlen sind eingeordnet. «zurücksetzen» startet von vorn.</p>';return}place(NUMS[idx++])});
+  $('c1all').addEventListener('click',()=>{if(anim)return;const go=()=>{if(idx<NUMS.length)place(NUMS[idx++],()=>setTimeout(go,150))};go()});
+  $('c1reset').addEventListener('click',()=>{placed=[];idx=0;for(const k in used)used[k]=0;f.render();nl.render();$('r1').textContent='–'});
+  document.querySelectorAll('#f1 [data-x]').forEach(b=>b.addEventListener('click',()=>{if(anim)return;const n=EXT[+b.dataset.x];place(n);cap.innerHTML=`<p>${n.e}.</p>`}));
+  f.render();
+  // Zahlengerade
+  const nl=new Fig($('f1b'),{w:1000,h:120,s:90,oy:62,grid:false});
+  nl.draw=()=>{nl.seg({x:-5.4,y:0},{x:5.4,y:0},{w:1.8,me:'k'});for(let x=-5;x<=5;x++){nl.seg({x,y:-0.08},{x,y:0.08},{w:1.4});nl.text({x,y:-0.3},mn(x),'ann')}
+    const pts=placed.map(q=>({v:q.v,t:q.t})).sort((a,b)=>a.v-b.v);let lastX=-99,lev=0;
+    pts.forEach(q=>{const x=q.v;lev=Math.abs(x-lastX)<0.45?lev+1:0;lastX=x;nl.dot({x,y:0},4.5,C.or);nl.seg({x,y:0.06},{x,y:0.32+lev*0.22},{c:C.or,w:1});nl.text({x,y:0.44+lev*0.22},q.t,'lbl sm',{fontStyle:'normal'})})};
+  nl.render();
+})();
+
+/* ======================= 2 Operationsstufen ======================= */
+(function(){
+  const PRE=['18 − 6 : 3 · 2','(4 + 2)² : 3 − 5','2 · 3² − (7 − 4) · 5','48 : (2 · 4) − 2³','−3² + (−3)²','100 − 4 · (12 − 3 · 2)²','5 + 3 · (8 − 2 · 3)³ : 4','(15 − 3 · 4) · (2 + 6 : 3)'];
+  const sel=$('c2pre');sel.innerHTML=PRE.map((t,i)=>`<option value="${i}">${t}</option>`).join('');
+  let T=null,pend=null,timer=null,start='';
+  const stf=[...$('stf').children];
+  function setStage(st){stf.forEach((d,i)=>d.classList.toggle('on',!!st&&((i===0&&st.inBr)||i===st.stage-1)))}
+  function load(str){if(!String(str).trim()){$('e2').innerHTML='<p class="warn">Bitte zuerst einen Term eingeben, z. B. 3+4·(5−2)^2.</p>';return}try{T=termNorm(tokTerm(str))}catch(e){$('e2').innerHTML=`<p class="warn">${e.message}</p>`;return}
+    start=str;pend=null;stop();$('t2').innerHTML=termHTML(T);$('w2').innerHTML=`<div>${termHTML(T)}</div>`;setStage(null);$('e2').innerHTML='<p>Klicke auf «Schritt»: Zuerst wird markiert, was als Nächstes gerechnet wird, beim nächsten Klick wird gerechnet.</p>'}
+  function step(){if(!T)return false;if(!pend){const st=termStep(T);if(!st){setStage(null);$('e2').innerHTML=`<p><b>Fertig.</b> Ergebnis: ${sep(T[0].v)}</p>`;stop();return false}
+      pend=st;$('t2').innerHTML=termHTML(st.T,st);setStage(st);$('e2').innerHTML=`<p>${st.inBr?'<b>In der Klammer zuerst.</b> ':''}${st.txt}</p>`;return true}
+    T=termApply(pend);pend=null;$('t2').innerHTML=termHTML(T);const d=document.createElement('div');d.innerHTML='= '+termHTML(T.map(x=>Object.assign({},x,{isNew:false})));$('w2').appendChild(d);
+    T=T.map(x=>Object.assign({},x,{isNew:false}));return true}
+  function stop(){if(timer){clearInterval(timer);timer=null}}
+  $('c2step').addEventListener('click',()=>{stop();step()});
+  $('c2play').addEventListener('click',()=>{stop();timer=setInterval(()=>{if(!step())stop()},1100)});
+  $('c2back').addEventListener('click',()=>load(start));
+  sel.addEventListener('change',()=>load(PRE[+sel.value]));
+  $('c2rnd').addEventListener('click',()=>load(randomTerm()));
+  $('c2own').addEventListener('click',()=>load($('c2in').value));$('c2in').addEventListener('keydown',e=>{if(e.key==='Enter')load($('c2in').value)});
+  load(PRE[0]);
+})();
+
+/* ======================= Rechengesetze: Distributivgesetz ======================= */
+(function(){
+  const f=new Fig($('f3'),{h:330,s:36,ox:60,oy:290});let gap=0;
+  const val=id=>+$(id).value;
+  f.draw=()=>{const a=val('c3a'),b=val('c3b'),c=val('c3c');const g=gap*0.8;
+    const R1=[{x:0,y:0},{x:b,y:0},{x:b,y:a},{x:0,y:a}],R2=[{x:b+g,y:0},{x:b+g+c,y:0},{x:b+g+c,y:a},{x:b+g,y:a}];
+    f.poly(R1,{c:C.blau,w:2,f:'rgba(47,120,168,.25)'});f.poly(R2,{c:C.or,w:2,f:'rgba(217,130,43,.25)'});
+    for(let i=1;i<b;i++)f.seg({x:i,y:0},{x:i,y:a},{c:C.blau,w:0.8,o:.5});for(let i=1;i<c;i++)f.seg({x:b+g+i,y:0},{x:b+g+i,y:a},{c:C.or,w:0.8,o:.5});
+    for(let j=1;j<a;j++){f.seg({x:0,y:j},{x:b,y:j},{c:C.blau,w:0.8,o:.5});f.seg({x:b+g,y:j},{x:b+g+c,y:j},{c:C.or,w:0.8,o:.5})}
+    f.text({x:-0.45,y:a/2},'a','lbl');f.text({x:b/2,y:-0.45},'b','lbl',{fill:C.blau});f.text({x:b+g+c/2,y:-0.45},'c','lbl',{fill:C.or});
+    if(gap>0.5){f.text({x:b/2,y:a/2},`${a}·${b}`,'lbl',{fontStyle:'normal',fill:C.blau});f.text({x:b+g+c/2,y:a/2},`${a}·${c}`,'lbl',{fontStyle:'normal',fill:C.or})}
+    else f.text({x:(b+c)/2,y:a+0.45},`${a} · (${b} + ${c})`,'lbl',{fontStyle:'normal'});
+    $('r3').innerHTML=gap>0.5?`${a} · (${b} + ${c}) = ${a} · ${b+c} = ${a*(b+c)}<br>${a} · ${b} + ${a} · ${c} = ${a*b} + ${a*c} = ${a*b+a*c}`:`${a} · (${b} + ${c}) = ?<br><span class="hint">Wie gross ist die ganze Fläche? Teile das Rechteck auf.</span>`};
+  ['c3a','c3b','c3c'].forEach(id=>$(id).addEventListener('input',()=>f.render()));
+  $('c3play').addEventListener('click',()=>{const a0=gap,a1=gap>0.5?0:1;tween(900,t=>{gap=a0+(a1-a0)*ease(t);f.render()})});
+  f.render();
+})();
+
+/* ======================= 3 Teilbarkeit ======================= */
+(function(){
+  const qs=n=>String(n).split('').reduce((s,d)=>s+ +d,0);
+  const R=[[2,n=>`Letzte Ziffer ${n%10} ${n%2===0?'ist':'ist nicht'} gerade.`,'die letzte Ziffer gerade ist (0, 2, 4, 6, 8)'],
+    [3,n=>`Quersumme ${String(n).split('').join(' + ')} = ${qs(n)} ${qs(n)%3===0?'ist':'ist nicht'} durch 3 teilbar.`,'die Quersumme durch 3 teilbar ist'],
+    [4,n=>`Die letzten zwei Ziffern ${String(n%100).padStart(2,'0')} ${n%100%4===0?'sind':'sind nicht'} durch 4 teilbar.`,'die Zahl aus den letzten zwei Ziffern durch 4 teilbar ist'],
+    [5,n=>`Letzte Ziffer ${n%10}.`,'die letzte Ziffer 0 oder 5 ist'],
+    [6,n=>`durch 2 ${n%2===0?'✓':'✗'} und durch 3 ${n%3===0?'✓':'✗'}.`,'sie durch 2 und durch 3 teilbar ist'],
+    [8,n=>`Die letzten drei Ziffern ${String(n%1000).padStart(3,'0')} ${n%1000%8===0?'sind':'sind nicht'} durch 8 teilbar.`,'die Zahl aus den letzten drei Ziffern durch 8 teilbar ist'],
+    [9,n=>`Quersumme ${qs(n)} ${qs(n)%9===0?'ist':'ist nicht'} durch 9 teilbar.`,'die Quersumme durch 9 teilbar ist'],
+    [10,n=>`Letzte Ziffer ${n%10}.`,'die letzte Ziffer 0 ist'],
+    [25,n=>`Die letzten zwei Ziffern ${String(n%100).padStart(2,'0')}.`,'die letzten zwei Ziffern 00, 25, 50 oder 75 sind']];
+  let timer=null;
+  function show(reveal){const n=parseInt(String($('c4n').value).replace(/[′'\s]/g,''));if(!(n>0)){$('t4').innerHTML='<tr><td class="warn">Bitte eine natürliche Zahl eingeben.</td></tr>';return}
+    if(timer){clearInterval(timer);timer=null}
+    $('t4').innerHTML='<tr><th>Teiler</th><th>Regel: teilbar, wenn …</th><th>Prüfung</th><th></th></tr>'+R.map(([k,f,r])=>`<tr><td><b>${k}</b></td><td>${r}</td><td class="pr">?</td><td class="${n%k===0?'rule-ok':'rule-no'} rs">&nbsp;</td></tr>`).join('');
+    if(!reveal)return;const rows=[...$('t4').querySelectorAll('tr')].slice(1);let i=0;
+    timer=setInterval(()=>{if(i>=rows.length){clearInterval(timer);timer=null;return}const [k,f]=R[i];rows[i].querySelector('.pr').textContent=f(n);rows[i].querySelector('.rs').textContent=n%k===0?'✓ teilbar':'✗';i++},350)}
+  $('c4n').addEventListener('input',()=>show(false));$('c4go').addEventListener('click',()=>show(true));$('c4rnd').addEventListener('click',()=>{$('c4n').value=pick([rnd(100,9999),36*rnd(10,200),45*rnd(10,150),rnd(1000,99999)]);show(false)});show(false);
+})();
+
+/* ======================= Primfaktorzerlegung ======================= */
+(function(){
+  let f=null,steps=[],k=0,stop=null;
+  function sup(e){return e>1?`<sup>${e}</sup>`:''}
+  function powStr(fs){const m={};fs.forEach(p=>m[p]=(m[p]||0)+1);return Object.keys(m).map(p=>p+sup(m[p])).join(' · ')}
+  function go(){const n=parseInt(String($('c5n').value).replace(/[′'\s]/g,''));if(!(n>1&&n<1e7)){$('r5').innerHTML='<span class="warn">Bitte eine natürliche Zahl zwischen 2 und 9′999′999 eingeben.</span>';return}
+    const fs=primeFactors(n);steps=[];let cur=n;fs.forEach(p=>{steps.push({n:cur,p});cur=cur/p});
+    const host=$('f5');host.querySelector('svg')?.remove();const L=Math.max(fs.length,1);const s=Math.min(40,400/(L*1.15+1.6));
+    f=new Fig(host,{h:420,s,ox:120,oy:30,grid:false});k=0;
+    f.draw=()=>{steps.forEach((st,i)=>{const fi=clamp(k-i,0,1);if(fi<=0&&i>0)return;const P={x:i*1.0,y:-0.9-i*1.15};
+      if(i===0)f.text(P,sep(st.n),'lbl',{fontStyle:'normal',fontSize:'22px'});
+      if(fi>0){const L1={x:P.x-0.75,y:P.y-1.15},R1={x:P.x+1.0,y:P.y-1.15};f.seg(V.add(P,{x:-0.12,y:-0.3}),V.lerp(V.add(P,{x:-0.12,y:-0.3}),V.add(L1,{x:0.1,y:0.3}),fi),{w:1.6});f.seg(V.add(P,{x:0.15,y:-0.3}),V.lerp(V.add(P,{x:0.15,y:-0.3}),V.add(R1,{x:-0.1,y:0.3}),fi),{w:1.6});
+        if(fi>0.6){f.circ(L1,0.34,{c:C.or,w:2,f:'#fff3e4'});f.text(L1,String(st.p),'lbl sm',{fontStyle:'normal'});const rest=st.n/st.p;f.text(R1,sep(rest),'lbl',{fontStyle:'normal',fontSize:rest===1?'16px':'20px',fill:rest===1?C.grau:C.ink})}}})};
+    f.render();if(stop)stop();stop=tween(steps.length*700,t=>{k=t*steps.length;f.render()},()=>{$('r5').innerHTML=`${sep(n)} = ${fs.join(' · ')}${fs.length>1?' = '+powStr(fs):''}${fs.length===1?' (Primzahl)':''}`});$('r5').textContent='…'}
+  function prep(){const n=parseInt(String($('c5n').value).replace(/[′'\s]/g,''));const host=$('f5');host.querySelector('svg')?.remove();f=new Fig(host,{h:420,s:40,ox:120,oy:30,grid:false});f.draw=()=>{if(n>0)f.text({x:0,y:-0.9},sep(n),'lbl',{fontStyle:'normal',fontSize:'22px'})};f.render();$('r5').textContent='–'}
+  $('c5go').addEventListener('click',go);$('c5n').addEventListener('input',prep);$('c5rnd').addEventListener('click',()=>{$('c5n').value=pick([360,420,1001,756,2310,1024,945,97,600,1980]);prep()});prep();
+})();
+
+/* ======================= ggT und kgV ======================= */
+(function(){
+  let f=null,k=0;
+  function go(){const a=+$('c6a').value,b=+$('c6b').value;if(!(a>1&&b>1&&a<1e6&&b<1e6)){$('r6').innerHTML='<span class="warn">Bitte zwei natürliche Zahlen grösser als 1 eingeben.</span>';return}
+    const fa=primeFactors(a),fb=primeFactors(b),common=[],ra=fa.slice(),rb=[];
+    fb.forEach(p=>{const i=ra.indexOf(p);if(i>=0){common.push(p);ra.splice(i,1)}else rb.push(p)});
+    const host=$('f6');host.querySelector('svg')?.remove();f=new Fig(host,{h:340,s:38,grid:false});k=0;
+    const items=[];common.forEach((p,i)=>items.push({p,pos:{x:0,y:1.5-i*0.85},c:C.vi}));ra.forEach((p,i)=>items.push({p,pos:{x:-3.1+(i%2)*0.9,y:1.4-Math.floor(i/2)*0.85},c:C.blau}));rb.forEach((p,i)=>items.push({p,pos:{x:3.1-(i%2)*0.9,y:1.4-Math.floor(i/2)*0.85},c:C.or}));
+    f.draw=()=>{const[x1,y1]=f.S({x:-1.6,y:0}),[x2,y2]=f.S({x:1.6,y:0});mk('circle',{cx:x1,cy:y1,r:3.1*f.s,fill:'rgba(47,120,168,.12)',stroke:C.blau,'stroke-width':2},f.g);mk('circle',{cx:x2,cy:y2,r:3.1*f.s,fill:'rgba(217,130,43,.12)',stroke:C.or,'stroke-width':2},f.g);
+      f.text({x:-3.2,y:3.5},`Primfaktoren von ${a}`,'ann',{fill:C.blau,fontSize:'14px'});f.text({x:3.2,y:3.5},`Primfaktoren von ${b}`,'ann',{fill:C.or,fontSize:'14px'});f.text({x:0,y:-3.6},'gemeinsam → ggT','ann',{fill:C.vi,fontSize:'13px'});
+      items.forEach((it,i)=>{const fi=clamp(k-i,0,1);if(fi<=0)return;const p=V.lerp({x:it.pos.x,y:4.6},it.pos,ease(fi));f.circ(p,0.33,{c:it.c,w:1.8,f:'#fff'});f.text(p,String(it.p),'lbl sm',{fontStyle:'normal'})})};
+    tween(items.length*450+300,t=>{k=t*(items.length+0.5);f.render()},()=>{
+      const g=common.reduce((x,y)=>x*y,1),l=fa.concat(rb).reduce((x,y)=>x*y,1);const prod=arr=>arr.length?arr.join(' · '):'1';
+      let mult='';if(l/a<=12){const ma=[],mb=[];for(let i=1;i*a<=l;i++)ma.push(i*a===l?`<b>${sep(i*a)}</b>`:sep(i*a));for(let i=1;i*b<=l;i++)mb.push(i*b===l?`<b>${sep(i*b)}</b>`:sep(i*b));
+        mult=`<br><span class="hint">Mit Vielfachen: ${a}: ${ma.join(', ')} · ${b}: ${mb.join(', ')}</span>`}
+      $('r6').innerHTML=`${a} = ${prod(fa)} &nbsp; ${b} = ${prod(fb)}<br><b>ggT(${a}; ${b}) = ${prod(common)} = ${sep(g)}</b>${g===1?' (teilerfremd)':''}<br><b>kgV(${a}; ${b}) = ${prod(fa.concat(rb))} = ${sep(l)}</b><br>Kontrolle: ggT · kgV = ${sep(g*l)} = ${a} · ${b}${mult}`})}
+  function prep(){const a=+$('c6a').value,b=+$('c6b').value;const host=$('f6');host.querySelector('svg')?.remove();f=new Fig(host,{h:340,s:38,grid:false});f.draw=()=>{const[x1,y1]=f.S({x:-1.6,y:0}),[x2,y2]=f.S({x:1.6,y:0});mk('circle',{cx:x1,cy:y1,r:3.1*f.s,fill:'rgba(47,120,168,.12)',stroke:C.blau,'stroke-width':2},f.g);mk('circle',{cx:x2,cy:y2,r:3.1*f.s,fill:'rgba(217,130,43,.12)',stroke:C.or,'stroke-width':2},f.g);f.text({x:-3.2,y:3.5},`Primfaktoren von ${a}`,'ann',{fill:C.blau,fontSize:'14px'});f.text({x:3.2,y:3.5},`Primfaktoren von ${b}`,'ann',{fill:C.or,fontSize:'14px'})};f.render();$('r6').innerHTML=`ggT(${a}; ${b}) = ? &nbsp; kgV(${a}; ${b}) = ?`}
+  $('c6go').addEventListener('click',go);['c6a','c6b'].forEach(id=>$(id).addEventListener('input',prep));$('c6rnd').addEventListener('click',()=>{const g=pick([2,3,4,6,5,12]);$('c6a').value=g*pick([2,3,4,5,7]);$('c6b').value=g*pick([3,5,7,9,11]);prep()});prep();
+})();
+
+/* ======================= 4 Stellenwerttafel ======================= */
+(function(){
+  const COLS=[['M',6],['HT',5],['ZT',4],['T',3],['H',2],['Z',1],['E',0],['z',-1],['h',-2],['t',-3],['zt',-4],['ht',-5]];
+  const pw=e=>e===0?'1':e===1?'10':`10<sup>${mn(e)}</sup>`;
+  $('pv').innerHTML='<tr>'+COLS.map(([n,e])=>`<th>${n}<small>${pw(e)}</small></th>`).join('')+'</tr><tr>'+COLS.map(([n,e])=>`<td class="${e===-1?'komma':''}"></td>`).join('')+'</tr>';
+  let D='375',P=0;const W=46;
+  const box=$('pvd');
+  function render(){const row=$('pv').rows[1];box.style.top=row.offsetTop+'px';document.querySelector('.pvpt').style.top=(row.offsetTop+row.offsetHeight-12)+'px';box.innerHTML='';const last=P-D.length+1;
+    D.split('').forEach((d,i)=>{const e=P-i;const el=document.createElement('div');el.className='pvdig';el.dataset.i=i;el.textContent=d;el.style.left=((6-e)*W)+'px';box.appendChild(el)});
+    const zs=[];if(P<0)for(let e=0;e>P;e--)zs.push(e);if(last>0)for(let e=last-1;e>=0;e--)zs.push(e);
+    zs.forEach(e=>{const el=document.createElement('div');el.className='pvdig z';el.textContent='0';el.style.left=((6-e)*W)+'px';el.style.opacity=0;box.appendChild(el);requestAnimationFrame(()=>{el.style.transition='opacity .5s .5s';el.style.opacity=1})});
+    const v=Number(D)*Math.pow(10,last);$('r7').innerHTML=sep(Number(v.toPrecision(12)))}
+  function shift(k){const last=P-D.length+1;if(P+k>6||last+k<-5)return;
+    const digs=[...box.querySelectorAll('.pvdig:not(.z)')];box.querySelectorAll('.pvdig.z').forEach(z=>z.remove());P+=k;
+    digs.forEach(el=>{const e=P-+el.dataset.i;el.style.left=((6-e)*W)+'px'});setTimeout(render,720)}
+  document.querySelectorAll('[data-f]').forEach(b=>b.addEventListener('click',()=>shift(+b.dataset.f)));
+  $('c7rnd').addEventListener('click',()=>{const o=pick([['375',0],['48',-1],['1205',1],['6',-2],['72',3],['903',-1]]);D=o[0];P=o[1];render()});
+  render();
+})();
+
+/* ======================= Wissenschaftliche Schreibweise ======================= */
+(function(){
+  const f=new Fig($('f8'),{h:230,s:38,grid:false});let st=null,k=0;
+  function parse(str){let s=String(str).replace(/[′'\s]/g,'').replace(',','.');if(!/^\d*\.?\d+$|^\d+\.$/.test(s))return null;if(!s.includes('.'))s=s+'';const b=s.includes('.')?s.indexOf('.'):s.length;const dig=s.replace('.','');
+    if(dig.length>15||!/[1-9]/.test(dig))return null;const first=dig.search(/[1-9]/);return{dig,b,target:first+1,first}}
+  f.draw=()=>{if(!st)return;const n=st.dig.length,x0=-(n-1)/2*0.95;const X=i=>x0+i*0.95;
+    st.dig.split('').forEach((d,i)=>{const lead=i<st.first,p={x:X(i),y:0};f.poly([{x:p.x-0.42,y:-0.5},{x:p.x+0.42,y:-0.5},{x:p.x+0.42,y:0.5},{x:p.x-0.42,y:0.5}],{c:'#9fb6c6',w:1,f:i===st.first?'#fff3e4':'#fff'});
+      f.text(p,d,'lbl',{fontStyle:'normal',fontSize:'24px',fill:lead&&k>=st.hops?'#b7c3cc':C.ink})});
+    const bx=b=>X(b)-0.475;const hops=st.hops,dir=Math.sign(st.target-st.b);
+    for(let h=0;h<Math.min(Math.floor(k),hops);h++){const a=bx(st.b+dir*h),c=bx(st.b+dir*(h+1));const m={x:(a+c)/2,y:0.95};f.path(`M${f.S({x:a,y:0.55}).join(',')} Q${f.S({x:m.x,y:1.35}).join(',')} ${f.S({x:c,y:0.55}).join(',')}`,{c:C.or,w:1.6,me:'o'});f.text({x:m.x,y:1.45},String(h+1),'ann',{fill:C.or})}
+    const fr=k-Math.floor(k),cb=Math.floor(k)<hops?bx(st.b+dir*Math.floor(k))+dir*0.95*ease(fr):bx(st.target);
+    f.circ({x:cb,y:-0.42},0.11,{c:C.or,w:1,f:C.or});
+    if(k>=hops&&st.done)f.text({x:0,y:-1.6},hops===0?'Der Punkt steht schon richtig: Exponent 0':`${hops} Stelle${hops>1?'n':''} nach ${dir<0?'links':'rechts'} → Exponent ${dir<0?'+':'−'}${hops}`,'ann',{fill:C.or,fontSize:'14px'})};
+  function go(){st=parse($('c8n').value);if(!st){$('r8').innerHTML='<span class="warn">Bitte eine positive Dezimalzahl eingeben (höchstens 15 Ziffern).</span>';f.render();return}
+    st.hops=Math.abs(st.target-st.b);k=0;$('r8').textContent='…';
+    st.done=false;tween(Math.max(600,st.hops*450),t=>{k=t*st.hops;f.render()},()=>{k=st.hops;st.done=true;f.render();const e=st.b-st.target;const sig=st.dig.slice(st.first).replace(/0+$/,'')||'0';const a=sig[0]+(sig.length>1?'.'+sig.slice(1):'');
+      const s=$('c8n').value.replace(/[′'\s]/g,'');$('r8').innerHTML=`${sep(s)} = <b>${a} · 10<sup>${mn(e)}</sup></b><br>Taschenrechner: <code>${a}E${e}</code>`})}
+  function prep(){st=parse($('c8n').value);if(st){st.hops=Math.abs(st.target-st.b);k=0}f.render();$('r8').innerHTML=st?`${sep($('c8n').value.replace(/[′'\s]/g,''))} = ? · 10<sup>?</sup>`:''}
+  $('c8go').addEventListener('click',go);$('c8n').addEventListener('input',prep);document.querySelectorAll('#f8 [data-n]').forEach(b=>b.addEventListener('click',()=>{$('c8n').value=b.dataset.n;prep()}));prep();
+})();
+
+/* ======================= Einheiten umwandeln ======================= */
+(function(){
+  const U={L:{u:['km','m','dm','cm','mm'],f:[1000,10,10,10]},F:{u:['km²','ha','a','m²','dm²','cm²','mm²'],f:[100,100,100,100,100,100]},V:{u:['m³','dm³ = ℓ','cm³ = mℓ','mm³'],f:[1000,1000,1000]},M:{u:['t','kg','g','mg'],f:[1000,1000,1000]}};
+  const f=new Fig($('f9'),{h:300,s:40,grid:false});let kind='V',from=2,to=1,k=-1,ball=null;
+  function fill(){const u=U[kind].u;$('c9from').innerHTML=u.map((x,i)=>`<option value="${i}">${x}</option>`).join('');$('c9to').innerHTML=$('c9from').innerHTML;
+    $('c9from').value=Math.min(from,u.length-1);$('c9to').value=Math.min(to,u.length-1);from=+$('c9from').value;to=+$('c9to').value}
+  const pos=i=>{const n=U[kind].u.length,w=12/n;return{x:-6+w*i+w/2,y:2.6-i*(5.2/(n-1))}};
+  f.draw=()=>{const u=U[kind].u,n=u.length,w=12/n;
+    u.forEach((x,i)=>{const p=pos(i);const sel=(i===from||i===to);f.poly([{x:p.x-w/2,y:p.y-0.35},{x:p.x+w/2,y:p.y-0.35},{x:p.x+w/2,y:-3.6},{x:p.x-w/2,y:-3.6}],{c:'#c9d6df',w:1,f:sel?'#fff3e4':'#eef4f8'});
+      f.seg({x:p.x-w/2,y:p.y-0.35},{x:p.x+w/2,y:p.y-0.35},{c:C.ink,w:2.4});f.text({x:p.x,y:p.y-0.85},x,'lbl sm',{fontStyle:'normal',fontWeight:sel?'700':'400'});
+      if(i<n-1){const q=pos(i+1);f.text({x:p.x+w/2,y:(p.y+q.y)/2+0.35},'· '+sep(U[kind].f[i]),'ann',{fill:C.blau});f.text({x:p.x+w/2,y:(p.y+q.y)/2-0.95},': '+sep(U[kind].f[i]),'ann',{fill:C.or})}});
+    if(ball)f.circ(ball,0.22,{c:C.or,w:2,f:'#ffd9b0'})};
+  function go(){const v=parseNum($('c9v').value);from=+$('c9from').value;to=+$('c9to').value;if(isNaN(v)){$('r9').innerHTML='<span class="warn">Bitte eine Zahl eingeben.</span>';return}
+    const dir=Math.sign(to-from);let fac=1;const chain=[];for(let i=from;i!==to;i+=dir){const ff=U[kind].f[dir>0?i:i-1];fac*=ff;chain.push((dir>0?'· ':': ')+sep(ff))}
+    const res=dir>=0?v*fac:v/fac;const path=[];if(!dir)path.push(pos(from));else for(let i=from;i!==to+dir;i+=dir)path.push(pos(i));
+    tween(Math.max(500,(path.length-1)*700),t=>{const s=t*(path.length-1),i=Math.min(Math.floor(s),path.length-2);ball=path.length>1?V.lerp(V.add(path[i],{x:0,y:0.1}),V.add(path[i+1],{x:0,y:0.1}),s-i):V.add(path[0],{x:0,y:0.1});f.render()},
+      ()=>{const u=U[kind].u;const fexp=Math.round(Math.log10(fac));$('r9').innerHTML=`${sep(v)} ${u[from].split(' ')[0]} = <b>${sep(Number(res.toPrecision(12)))} ${u[to].split(' ')[0]}</b><br>${chain.length?chain.join(' ')+` &nbsp; = ${dir>0?'·':':'} 10<sup>${fexp}</sup>`:'gleiche Einheit'}`})}
+  $('c9k').value=kind;fill();$('c9k').addEventListener('change',()=>{kind=$('c9k').value;from=1;to=2;fill();ball=null;f.render()});
+  $('c9from').addEventListener('change',()=>{from=+$('c9from').value;ball=null;f.render();$('r9').textContent='–'});$('c9to').addEventListener('change',()=>{to=+$('c9to').value;ball=null;f.render();$('r9').textContent='–'});
+  $('c9go').addEventListener('click',go);f.render();$('r9').textContent='–';
+})();
+
+/* ======================= 5 Brüche: Erweitern und Kürzen ======================= */
+(function(){
+  const f=new Fig($('f10'),{h:230,s:40,grid:false});let a=2,b=3,k=1,kOld=1,t=1;
+  $('c10n').innerHTML=[2,3,4,5,6,8,10].map(x=>`<option${x===3?' selected':''}>${x}</option>`).join('');
+  const fillZ=()=>{const n=+$('c10n').value;$('c10z').innerHTML=Array.from({length:n-1},(_,i)=>`<option${i+1===Math.min(a,n-1)?' selected':''}>${i+1}</option>`).join('')};fillZ();
+  const X0=-6,W=12;
+  f.draw=()=>{const y0=-0.3,h=1.6;const pos=j=>X0+W*j;
+    f.poly([{x:X0,y:y0},{x:X0+W,y:y0},{x:X0+W,y:y0+h},{x:X0,y:y0+h}],{c:C.ink,w:2,f:'#fff'});
+    f.poly([{x:X0,y:y0},{x:X0+W*a/b,y:y0},{x:X0+W*a/b,y:y0+h},{x:X0,y:y0+h}],{c:'none',w:0,f:'rgba(47,120,168,.35)'});
+    const lines=new Map();const add=(n,op)=>{for(let j=1;j<n;j++){const x=+(j/n).toFixed(9);lines.set(x,Math.max(lines.get(x)||0,op))}};
+    add(b*kOld,1-t);add(b*k,t);add(b,1);
+    lines.forEach((op,x)=>{if(op>0.01){const main=Math.abs(x*b-Math.round(x*b))<1e-6;f.seg({x:pos(x),y:y0},{x:pos(x),y:y0+h},{c:main?C.ink:C.blau,w:main?2:1.2,o:op})}});
+    f.text({x:0,y:y0-0.7},`${a*k} von ${b*k} gleichen Teilen`,'ann',{fontSize:'15px'});
+    f.text({x:-6,y:y0+h+0.5},'0','ann');f.text({x:6,y:y0+h+0.5},'1','ann')};
+  function upd(){a=+$('c10z').value;b=+$('c10n').value;const nk=+$('c10k').value;$('c10kv').textContent=nk;kOld=k;k=nk;
+    tween(600,tt=>{t=ease(tt);f.render()});$('r10').innerHTML=`${frH(a,b)} = ${frH(a+' · '+k,b+' · '+k)} = ${frH(a*k,b*k)} &nbsp; Wert: ${sep(Number((a/b).toPrecision(6)))}${String(a/b).length>8?'…':''}`}
+  $('c10n').addEventListener('change',()=>{fillZ();upd()});$('c10z').addEventListener('change',upd);$('c10k').addEventListener('input',upd);
+  $('c10kurz').addEventListener('click',()=>{const ex=pick([[2,3,6],[3,4,4],[3,5,3],[1,2,6],[5,6,2]]);a=ex[0];b=ex[1];$('c10n').value=b;fillZ();$('c10z').value=a;kOld=ex[2];k=ex[2];t=1;$('c10k').value=k;$('c10kv').textContent=k;f.render();
+    const z=a*ex[2],n=b*ex[2];$('r10').innerHTML=`Start: ${frH(z,n)}, ggT(${z}; ${n}) = ${ex[2]}`;
+    setTimeout(()=>{kOld=ex[2];k=1;$('c10k').value=1;$('c10kv').textContent=1;tween(1400,tt=>{t=ease(tt);f.render()},()=>{$('r10').innerHTML=`${frH(z,n)} = ${frH(z+' : '+ex[2],n+' : '+ex[2])} = ${frH(a,b)} &nbsp; vollständig gekürzt (durch den ggT ${ex[2]})`})},1300)});
+  upd();
+})();
+
+/* ======================= Addition / Subtraktion ======================= */
+(function(){
+  const f=new Fig($('f11'),{h:340,s:40,grid:false});let A=[1,2],B=[1,3],op='+',k=0,stop=null;
+  const X0=-6,W=12;
+  function gen(){for(;;){const b=pick([2,3,4,5,6,8]),d=pick([2,3,4,5,6,8,10,12]);if(b===d)continue;const a=rnd(1,b-1),c=rnd(1,d-1);if(gcd(a,b)!==1||gcd(c,d)!==1)continue;
+    if(op==='+'&&a/b+c/d>1)continue;if(op==='-'&&a/b<=c/d)continue;if(lcm(b,d)>24)continue;A=[a,b];B=[c,d];return}}
+  function bar(y,n,d,parts,col,lab,extra){const h=1.0;f.poly([{x:X0,y},{x:X0+W,y},{x:X0+W,y:y+h},{x:X0,y:y+h}],{c:C.ink,w:1.8,f:'#fff'});
+    if(extra)extra(y,h);else f.poly([{x:X0,y},{x:X0+W*n/d,y},{x:X0+W*n/d,y:y+h},{x:X0,y:y+h}],{c:'none',w:0,f:col});
+    for(let j=1;j<d;j++){f.seg({x:X0+W*j/d,y},{x:X0+W*j/d,y:y+h},{c:C.ink,w:1.2,o:.8})}
+    if(parts&&parts.d!==d)for(let j=1;j<parts.d;j++){f.seg({x:X0+W*j/parts.d,y},{x:X0+W*j/parts.d,y:y+h},{c:C.blau,w:1,o:parts.o})}
+    f.text({x:X0-0.9,y:y+h/2},lab,'lbl sm',{fontStyle:'normal'})}
+  f.draw=()=>{const [a,b]=A,[c,d]=B,N=lcm(b,d),o1=clamp(k,0,1),o2=clamp(k-1,0,1);
+    const ref1=o1>0?{d:N,o:o1}:null;
+    bar(2.0,a,b,ref1,'rgba(47,120,168,.4)',`${a}/${b}`);bar(0.4,c,d,ref1,'rgba(217,130,43,.45)',`${c}/${d}`);
+    if(o2>0){const a2=a*N/b,c2=c*N/d;f.text({x:X0+W/2,y:-0.4},op==='+'?'zusammenlegen':'wegnehmen','ann');
+      bar(-1.9,0,N,null,'',`${op==='+'?a2+c2:a2-c2}/${N}`,(y,h)=>{f.poly([{x:X0,y},{x:X0+W*a2/N,y},{x:X0+W*a2/N,y:y+h},{x:X0,y:y+h}],{c:'none',w:0,f:'rgba(47,120,168,.4)',o:o2});
+        if(op==='+')f.poly([{x:X0+W*a2/N,y},{x:X0+W*(a2+c2*o2)/N,y},{x:X0+W*(a2+c2*o2)/N,y:y+h},{x:X0+W*a2/N,y:y+h}],{c:'none',w:0,f:'rgba(217,130,43,.45)'});
+        else{const x1=X0+W*(a2-c2)/N,x2=X0+W*a2/N;f.poly([{x:x1,y},{x:x2,y},{x:x2,y:y+h},{x:x1,y:y+h}],{c:C.rot,w:1.5,f:'rgba(255,255,255,.85)',o:o2});f.seg({x:x1,y},{x:x2,y:y+h},{c:C.rot,w:1.5,o:o2});f.seg({x:x1,y:y+h},{x:x2,y},{c:C.rot,w:1.5,o:o2})}})}};
+  function text(){const [a,b]=A,[c,d]=B,N=lcm(b,d),a2=a*N/b,c2=c*N/d,r=op==='+'?a2+c2:a2-c2,g=gcd(r,N);
+    const lines=[`${frH(a,b)} ${op==='+'?'+':'−'} ${frH(c,d)}`,`Hauptnenner: kgV(${b}; ${d}) = ${N}`,`= ${frH(a2,N)} ${op==='+'?'+':'−'} ${frH(c2,N)} = ${frH(r,N)}${g>1?` = ${frH(r/g,N/g)} (gekürzt mit ${g})`:''}`];return lines}
+  const cap=$('cap11');
+  function play(){if(stop)stop();k=0;f.render();const L=text();$('r11').innerHTML=L[0];cap.innerHTML='<p><b>Schritt 1:</b> Beide Brüche auf den Hauptnenner erweitern: die Teile werden gleich gross.</p>';
+    stop=tween(3000,t=>{k=t*2;f.render();if(t>0.5)cap.innerHTML=`<p><b>Schritt 2:</b> Jetzt sind beide Brüche gleichnamig. Die Zähler werden ${op==='+'?'addiert':'subtrahiert'}, der Nenner bleibt.</p>`},()=>{$('r11').innerHTML=L.join('<br>')})}
+  $('c11rnd').addEventListener('click',()=>{if(stop)stop();gen();k=0;f.render();$('r11').innerHTML=text()[0]+' = ?';cap.innerHTML=''});$('c11op').addEventListener('change',()=>{if(stop)stop();op=$('c11op').value;gen();k=0;f.render();$('r11').innerHTML=text()[0]+' = ?'});
+  $('c11play').addEventListener('click',play);
+  k=0;f.render();$('r11').innerHTML=text()[0]+' = ?';cap.innerHTML='<p>Klicke auf ▶, um die Rechnung Schritt für Schritt zu sehen.</p>';
+})();
+
+/* ======================= Multiplikation: Flächenmodell ======================= */
+(function(){
+  const f=new Fig($('f12'),{h:340,s:46,grid:false});let A=[2,3],B=[3,4],k=0;
+  f.draw=()=>{const [a,b]=A,[c,d]=B,S=6,x0=-3,y0=-2.75,o1=clamp(k,0,1),o2=clamp(k-1,0,1),o3=clamp(k-2,0,1);
+    f.poly([{x:x0,y:y0},{x:x0+S,y:y0},{x:x0+S,y:y0+S},{x:x0,y:y0+S}],{c:C.ink,w:2,f:'#fff'});
+    f.poly([{x:x0,y:y0},{x:x0+S*a/b,y:y0},{x:x0+S*a/b,y:y0+S},{x:x0,y:y0+S}],{c:'none',w:0,f:'rgba(47,120,168,.3)',o:o1});
+    f.poly([{x:x0,y:y0+S},{x:x0+S,y:y0+S},{x:x0+S,y:y0+S-S*c/d},{x:x0,y:y0+S-S*c/d}],{c:'none',w:0,f:'rgba(217,130,43,.35)',o:o2});
+    if(o3>0)f.poly([{x:x0,y:y0+S},{x:x0+S*a/b,y:y0+S},{x:x0+S*a/b,y:y0+S-S*c/d},{x:x0,y:y0+S-S*c/d}],{c:C.vi,w:3,f:'rgba(116,87,173,.35)',o:o3});
+    for(let j=1;j<b;j++)f.seg({x:x0+S*j/b,y:y0},{x:x0+S*j/b,y:y0+S},{c:C.blau,w:1.2,o:Math.max(o1,0.3)});
+    for(let j=1;j<d;j++)f.seg({x:x0,y:y0+S-S*j/d},{x:x0+S,y:y0+S-S*j/d},{c:C.or,w:1.2,o:Math.max(o2,0.3)});
+    f.text({x:x0+S*a/b/2,y:y0-0.45},`${a}/${b} der Breite`,'ann',{fill:C.blau});f.text({x:x0+S+0.15,y:y0+S-S*c/d/2},`${c}/${d} der Höhe`,'ann',{fill:C.or,textAnchor:'start'});
+    f.text({x:x0-0.5,y:y0+S+0.35},'1','ann');f.text({x:x0+S+0.3,y:y0-0.3},'Fläche 1','ann')};
+  function txt(){const [a,b]=A,[c,d]=B,g=gcd(a*c,b*d);return`${frH(a,b)} · ${frH(c,d)} = ${frH(a+' · '+c,b+' · '+d)} = ${frH(a*c,b*d)}${g>1?' = '+frH(a*c/g,b*d/g):''}<br>Die violette Fläche besteht aus ${a*c} von ${b*d} gleich grossen Feldern.`}
+  $('c12play').addEventListener('click',()=>{k=0;tween(3600,t=>{k=t*3;f.render()},()=>$('r12').innerHTML=txt())});
+  const ask=()=>{$('r12').innerHTML=`${frH(A[0],A[1])} · ${frH(B[0],B[1])} = ?`};
+  $('c12rnd').addEventListener('click',()=>{const b=rnd(2,6),d=rnd(2,6);A=[rnd(1,b-1),b];B=[rnd(1,d-1),d];k=0;f.render();ask()});
+  k=0;f.render();ask();
+})();
+
+/* ======================= Division: Wie oft passt es hinein? ======================= */
+(function(){
+  const f=new Fig($('f13'),{h:260,s:40,grid:false});let A=[3,4],B=[1,8],k=0;
+  const EX=[[[3,4],[1,8]],[[2,3],[1,6]],[[3,2],[3,4]],[[5,6],[1,3]],[[1,2],[3,4]],[[4,5],[2,5]],[[7,4],[1,2]]];
+  f.draw=()=>{const [a,b]=A,[c,d]=B,v=a/b,u=c/d,M=Math.max(2,Math.ceil(v+0.001)),Wd=12/M,X0=-6,x=q=>X0+Wd*q;
+    f.seg({x:X0,y:-1.6},{x:X0+12,y:-1.6},{w:1.6});for(let i=0;i<=M;i++){f.seg({x:x(i),y:-1.75},{x:x(i),y:-1.45},{w:1.4});f.text({x:x(i),y:-2.05},String(i),'ann')}
+    f.poly([{x:x(0),y:0.6},{x:x(v),y:0.6},{x:x(v),y:1.6},{x:x(0),y:1.6}],{c:C.blau,w:1.8,f:'rgba(47,120,168,.3)'});f.text({x:x(v)+0.15,y:1.1},`${a}/${b}`,'lbl sm',{fontStyle:'normal',textAnchor:'start'});
+    const n=v/u,full=Math.floor(n+1e-9);
+    for(let i=0;i<Math.ceil(n-1e-9);i++){const fi=clamp(k-i,0,1);if(fi<=0)break;const w=Math.min(u,v-i*u);const y=-0.95;
+      f.poly([{x:x(i*u),y},{x:x(i*u+w*fi),y},{x:x(i*u+w*fi),y:y+0.95},{x:x(i*u),y:y+0.95}],{c:C.or,w:1.5,f:i<full?'rgba(217,130,43,.4)':'rgba(217,130,43,.18)'});
+      if(fi>=1)f.text({x:x(i*u+w/2),y:y+0.47},i<full?String(i+1):'Rest','ann',{fill:'#8a4b0e'})}
+    f.text({x:-6,y:2.2},`Wie oft passt ${c}/${d} in ${a}/${b}?`,'ann',{textAnchor:'start',fontSize:'14px'})};
+  function txt(){const [a,b]=A,[c,d]=B,r=new Q(a*d,b*c);return`${frH(a,b)} : ${frH(c,d)} = ${frH(a,b)} · ${frH(d,c)} = ${frH(a*d,b*c)}${(a*d)!==r.n||(b*c)!==r.d?' = '+r.html():''}<br>${r.d===1?`${frH(c,d)} passt genau ${r.n}-mal hinein.`:`${frH(c,d)} passt ${Math.floor(r.n/r.d)}-mal ganz und dann noch zu einem Teil hinein.`}`}
+  $('c13play').addEventListener('click',()=>{const n=A[0]/A[1]/(B[0]/B[1]);k=0;tween(Math.ceil(n)*650+300,t=>{k=t*(Math.ceil(n)+0.3);f.render()},()=>$('r13').innerHTML=txt())});
+  const ask=()=>{$('r13').innerHTML=`${frH(A[0],A[1])} : ${frH(B[0],B[1])} = ?`};
+  $('c13rnd').addEventListener('click',()=>{const e=pick(EX);A=e[0];B=e[1];k=0;f.render();ask()});
+  k=0;f.render();ask();
+})();
+
+/* ======================= 6 Trainer ======================= */
+function randomTerm(){const t=rnd(1,5);
+  if(t===1){const c=rnd(2,6),q=rnd(2,9),b=c*q,d=rnd(2,5),a=rnd(b*d/c,b*d/c+30);return`${a} − ${b} : ${c} · ${d}`}
+  if(t===2){const s=pick([4,6,8,9,10,12]),a=rnd(1,s-1),b=s-a,c=pick([2,3,4,6,8,9,12].filter(x=>(s*s)%x===0)),d=rnd(2,20);return`(${a} + ${b})² : ${c} − ${d}`}
+  if(t===3){const a=rnd(2,5),b=rnd(2,4),c=rnd(5,12),d=rnd(1,c-1),e=rnd(2,6);return`${a} · ${b}² − (${c} − ${d}) · ${e}`}
+  if(t===4){const b=rnd(2,4),c=rnd(2,5),k=rnd(2,6),a=b*c*k,d=rnd(2,4);return`${a} : (${b} · ${c}) − ${d}²`}
+  const c=rnd(3,9),d=c-rnd(1,3),a=rnd(2,20),b=rnd(2,5);return`${a} + ${b} · (${c} − ${d})³`}
+(function(){
+  const fr=(n,d)=>new Q(n,d);
+  function randFr(maxD=12){const d=rnd(2,maxD);let n=rnd(1,d*2-1);if(n%d===0)n++;return fr(n,d)}
+  const T={
+    brueche:{label:'Brüche: Resultat als vollständig gekürzter Bruch',gen(){
+      const typ=rnd(1,4);let x,y,z,expr,tex,steps=[],res;
+      x=randFr(9);y=randFr(9);z=randFr(6);
+      const hn=(p,q,op)=>{const N=lcm(p.d,q.d);return p.d===q.d?null:`\\dfrac{${p.n*N/p.d}}{${N}}${op}\\dfrac{${q.n*N/q.d}}{${N}}\\quad\\text{(Hauptnenner ${N})}`};
+      const add=(arr,v)=>{if(v)arr.push(v)};
+      if(typ===1){const e=rnd(2,6);res=x.add(y.div(fr(e,1)));tex=`${x.tex()}+${y.tex()}:${e}`;const yd=y.div(fr(e,1));
+        steps=[`${x.tex()}+${y.tex()}:${e}`,`${x.tex()}+${y.tex()}\\cdot${tf(1,e)}\\quad\\text{(Punkt vor Strich)}`,`${x.tex()}+${yd.tex()}`];add(steps,hn(x,yd,'+'));steps.push(res.tex())}
+      else if(typ===2){res=x.sub(y.mul(z));tex=`${x.tex()}-${y.tex()}\\cdot${z.tex()}`;steps=[tex,`${x.tex()}-${y.mul(z).tex()}\\quad\\text{(Punkt vor Strich)}`];add(steps,hn(x,y.mul(z),'-'));steps.push(res.tex())}
+      else if(typ===3){res=x.sub(y).div(z);tex=`\\left(${x.tex()}-${y.tex()}\\right):${z.tex()}`;steps=[tex];const h=hn(x,y,'-');if(h)steps.push(`\\left(${h.replace(/\\quad.*$/,'')}\\right):${z.tex()}\\quad\\text{(Klammer zuerst)}`);
+        steps.push(`${x.sub(y).tex()}:${z.tex()}`,`${x.sub(y).tex()}\\cdot${fr(z.d,z.n).tex()}\\quad\\text{(Kehrwert)}`,`${res.tex()}`)}
+      else{res=x.div(y).add(z);tex=`${x.tex()}:${y.tex()}+${z.tex()}`;steps=[tex,`${x.tex()}\\cdot${fr(y.d,y.n).tex()}+${z.tex()}\\quad\\text{(Kehrwert)}`,`${x.div(y).tex()}+${z.tex()}`];add(steps,hn(x.div(y),z,'+'));steps.push(res.tex())}
+      return{q:`<p>Schreiben Sie das Resultat als gewöhnlichen und vollständig gekürzten Bruch.</p>\\[${tex}\\]`,ziel:'Resultat:',ph:'z. B. 7/12',
+        check(s){const p=parseFrac(s);if(!p||p.d===0)return{ok:false,msg:'Bitte als Bruch eingeben, z. B. 7/12 oder −5/6.'};const q=new Q(p.n,p.d);if(!q.eq(res))return{ok:false,msg:'Das Resultat stimmt noch nicht.'};
+          if(gcd(p.n,p.d)!==1||p.d<0)return{ok:false,msg:'Der Wert stimmt, aber der Bruch ist noch nicht vollständig gekürzt.'};return{ok:true}},
+        sol:`\\[\\begin{aligned}${steps[0]}&=${steps.slice(1).join('\\\\&=')}\\end{aligned}\\]`}}},
+    stufen:{label:'Operationsstufen: Term berechnen',gen(){const t=randomTerm(),r=termSolve(t);
+      return{q:`<p>Berechnen Sie ohne Taschenrechner.</p><div class="term" style="font-size:24px">${termHTML(termNorm(tokTerm(t)))}</div>`,ziel:'Resultat:',
+        check(s){const v=parseNum(s);return{ok:Math.abs(v-r.value)<1e-9,msg:'Prüfe die Reihenfolge: Klammern, Potenzen, Punkt vor Strich.'}},sol:`<div class="weg">${r.lines.map((l,i)=>`<div style="opacity:1">${i?'= ':''}${l}</div>`).join('')}</div>`}}},
+    ggt:{label:'ggT und kgV',gen(){const g=pick([2,3,4,5,6,8,9,12,15]);let a=g*rnd(2,9),b=g*rnd(2,9);while(a===b)b=g*rnd(2,9);const which=pick(['ggT','kgV']);
+      const G=gcd(a,b),L=lcm(a,b),fa=primeFactors(a),fb=primeFactors(b);const ans=which==='ggT'?G:L;
+      return{q:`<p>Bestimmen Sie ${which==='ggT'?'den grössten gemeinsamen Teiler':'das kleinste gemeinsame Vielfache'}.</p><p style="font-size:22px">${which}(${a}; ${b}) = ?</p>`,ziel:`${which}(${a}; ${b}) =`,
+        check(s){return{ok:parseNum(s)===ans,msg:which==='ggT'?'Nimm nur die gemeinsamen Primfaktoren.':'Nimm alle Primfaktoren, die gemeinsamen nur einmal.'}},
+        sol:`<p>${a} = ${fa.join(' · ')}, &nbsp; ${b} = ${fb.join(' · ')}</p><p>ggT(${a}; ${b}) = ${G} &nbsp; kgV(${a}; ${b}) = ${sep(L)}</p>`}}},
+    wiss:{label:'Wissenschaftliche Schreibweise',gen(){const m=rnd(101,999)/100,e=pick([-7,-6,-5,-4,-3,-2,3,4,5,6,7,8]);const v=Number((m*Math.pow(10,e)).toPrecision(3));const dec=sep((fx=>fx.includes('.')?fx.replace(/0+$/,'').replace(/\.$/,''):fx)(v.toFixed(Math.max(0,-e+2))));
+      const ms=String(m);if(Math.random()<0.5)return{q:`<p>Schreiben Sie die Zahl in wissenschaftlicher Schreibweise.</p><p style="font-size:22px">${dec}</p>`,ziel:'=',ph:'z. B. 4.82*10^-5',
+        check(s){const r=parseSci(s);if(!r)return{ok:false,msg:'Eingabe z. B. als 4.82*10^-5.'};if(!(Math.abs(r.a)>=1&&Math.abs(r.a)<10))return{ok:false,msg:'Für die wissenschaftliche Schreibweise muss 1 ≤ a < 10 gelten.'};return{ok:Math.abs(r.v-v)<=Math.abs(v)*1e-9,msg:'Zähle nochmals, um wie viele Stellen der Dezimalpunkt wandert.'}},
+        sol:`<p>Der Dezimalpunkt wird hinter die erste von null verschiedene Ziffer verschoben: ${Math.abs(e)} Stellen nach ${e>0?'links':'rechts'}.</p><p>${dec} = ${ms} · 10<sup>${mn(e)}</sup></p>`};
+      return{q:`<p>Schreiben Sie die Zahl als Dezimalzahl.</p><p style="font-size:22px">${ms} · 10<sup>${mn(e)}</sup></p>`,ziel:'=',ph:'Dezimalzahl',check(s){return{ok:Math.abs(parseNum(s)-v)<=Math.abs(v)*1e-9,msg:'Verschiebe den Dezimalpunkt um '+Math.abs(e)+' Stellen.'}},sol:`<p>${ms} · 10<sup>${mn(e)}</sup> = ${dec}: Dezimalpunkt um ${Math.abs(e)} Stellen nach ${e>0?'rechts':'links'} verschieben.</p>`}}},
+    einheit:{label:'Einheiten umwandeln',gen(){const K=pick([['L',['km','m','dm','cm','mm'],[1000,10,10,10]],['F',['km²','ha','a','m²','dm²','cm²','mm²'],[100,100,100,100,100,100]],['V',['m³','dm³','cm³','mm³'],[1000,1000,1000]],['M',['t','kg','g','mg'],[1000,1000,1000]]]);
+      const u=K[1];const mx=(K[0]==='V'||K[0]==='M')?2:3;let i=rnd(0,u.length-1),j=rnd(0,u.length-1);while(j===i||Math.abs(j-i)>mx)j=rnd(0,u.length-1);
+      const v=pick([rnd(2,999),rnd(11,99)/10,rnd(101,999)/100,rnd(1001,99999)]);let fac=1;const dir=Math.sign(j-i);for(let x=i;x!==j;x+=dir)fac*=K[2][dir>0?x:x-1];const res=Number((dir>0?v*fac:v/fac).toPrecision(12));
+      return{q:`<p>Wandeln Sie in die vorgegebene Einheit um.</p><p style="font-size:22px">${sep(v)} ${u[i]} = ? ${u[j]}</p>`,ziel:`in ${u[j]}:`,
+        check(s){return{ok:Math.abs(parseNum(s)-res)<=Math.abs(res)*1e-9,msg:`Zwischen ${u[i]} und ${u[j]} liegen ${Math.abs(j-i)} Stufen.`}},sol:`<p>${dir>0?'Grosse → kleine Einheit: multiplizieren':'Kleine → grosse Einheit: dividieren'} mit ${sep(fac)}.</p><p>${sep(v)} ${u[i]} = ${sep(res)} ${u[j]}</p>`}}}
+  };
+  runTrainer(T);
+})();
+function parseSci(str){let s=String(str).replace(/\s/g,'').replace(/−/g,'-').replace(/[·×]/g,'*').replace(',','.');let m=s.match(/^(-?\d+(?:\.\d+)?)(?:e|E)(-?\d+)$/)||s.match(/^(-?\d+(?:\.\d+)?)\*10\^\(?(-?\d+)\)?$/);
+  if(!m)return null;const a=parseFloat(m[1]),e=parseInt(m[2]);return{a,e,v:a*Math.pow(10,e)}}
+runQuiz(['11']);
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

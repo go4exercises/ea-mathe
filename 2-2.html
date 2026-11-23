@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.2 Gleichungen – Unterrichtsblock 2</title>
+<link rel="stylesheet" href="schriften.css">
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},startup:{typeset:true}};
+</script>
+<script defer src="vendor/mathjax/tex-svg.js"></script>
+<link rel="stylesheet" href="common.css">
+<style>
+.kette{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin:6px 0;min-height:52px}
+.kette .kb{border:2px solid var(--kopf);border-radius:8px;padding:4px 10px;background:#fff;font-size:19px;animation:fadein .45s}
+.kette .kb.var{background:#e6f1f0;font-weight:700}
+.kette .kb.inv{border-color:var(--or);background:#fdf2e6}
+.kette .pf{font:700 20px "Source Sans 3",sans-serif;color:var(--kopf-d);animation:fadein .45s}
+.kette .pf.inv{color:#a65b12}
+.kette .lab{font:600 13px "Source Sans 3",sans-serif;color:var(--grau);width:100%;margin:4px 0 0}
+</style>
+</head>
+<body class="b2t">
+<div class="blocknav"><div class="in"><span class="bl">Block 1</span><a href="index.html">Übersicht</a><a href="1-1.html">1.1</a><a href="1-2.html">1.2</a><a href="1-3.html">1.3</a><span class="bl">Block 2</span><a href="index2.html">Übersicht</a><a href="2-1.html">2.1 Bruchterme</a><a href="2-2.html" class="on">2.2 Gleichungen</a><a href="2-3.html">2.3 Geometrie</a></div></div>
+<header class="kopf">
+  <div class="kopf-in">
+    <div class="crumb">IDM EA Mathematik · Unterrichtsblock 2 · 2.2 Gleichungen</div>
+    <h1>Gleichungen lösen</h1>
+    <p class="lead">Eine Gleichung ist wie eine Waage im Gleichgewicht. Man darf sie umformen, solange beide Seiten gleich behandelt werden. Jedes Beispiel startet mit der Aufgabe: Überlege zuerst selbst, dann klicke auf <b>Schritt ›</b>.</p>
+  </div>
+</header>
+<nav class="top"><div class="in">
+  <a href="#aequiv">1 Äquivalenzumformungen</a><a href="#linear">2 Lineare Gleichungen</a><a href="#bruch">3 Bruchgleichungen</a><a href="#formeln">4 Formeln umformen</a><a href="#text">5 Textgleichungen</a><a href="#training">6 Trainer</a><a href="#quiz">7 Quiz</a>
+</div></nav>
+<div class="register">Gleichungen</div>
+<main>
+
+<!-- ================= 1 ÄQUIVALENZUMFORMUNGEN ================= -->
+<section id="aequiv">
+<h2><span class="nr">1</span>Gleichungen und Äquivalenzumformungen</h2>
+<div class="kasten">
+  <h3>Die Waage: auf beiden Seiten dasselbe tun</h3>
+  <div class="inhalt">
+    <div class="fig" id="f1">
+      <div class="ctrl"><select class="sel" id="w1sel"></select><button class="btn play" id="w1step">Schritt ›</button><button class="btn" id="w1back">von vorn</button><button class="btn" id="w1bad">✗ nur links umformen</button></div>
+    </div>
+    <div class="txt">
+      <p class="def">Eine <b>Gleichung</b> besteht aus zwei Termen mit einem Gleichheitszeichen. Die <b>Lösung</b> ist die Zahl, die man für \(x\) einsetzen kann, damit beide Seiten gleich gross sind. Die <b>Lösungsmenge</b> \(\mathbb{L}\) enthält alle Lösungen.</p>
+      <p class="def"><b>Äquivalenzumformungen</b> verändern die Lösungsmenge nicht:<br>
+      · auf beiden Seiten <b>dieselbe Zahl oder denselben Term addieren oder subtrahieren</b><br>
+      · beide Seiten mit <b>derselben Zahl \(\neq0\) multiplizieren</b> oder durch sie <b>dividieren</b></p>
+      <p class="def">Man notiert die Umformung rechts nach einem senkrechten Strich: \(3x+2=x+8\quad\big|\,-x\)</p>
+      <div class="live"><span class="k">Gleichung</span><span id="r1"></span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-22.html#aequiv" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 2 LINEARE GLEICHUNGEN ================= -->
+<section id="linear">
+<h2><span class="nr">2</span>Lineare Gleichungen mit einer Unbekannten</h2>
+<div class="kasten">
+  <h3>Schritt für Schritt zur Lösung</h3>
+  <div class="inhalt">
+    <div>
+      <div class="ctrl"><select class="sel" id="l2sel"></select><button class="btn" id="l2rnd">neue Gleichung</button><button class="btn play" id="l2step">Schritt ›</button><button class="btn" id="l2all">alle Schritte</button></div>
+      <div class="term steps-k" id="l2" style="text-align:left;font-size:20px;margin-top:10px"></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Lösungsplan</b><br>1. Klammern auflösen, Brüche wegschaffen (mit dem Hauptnenner multiplizieren)<br>2. Jede Seite zusammenfassen<br>3. Alle \(x\)-Terme auf eine Seite, alle Zahlen auf die andere<br>4. Durch den Koeffizienten von \(x\) dividieren<br>5. <b>Probe</b>: Lösung in die ursprüngliche Gleichung einsetzen</p>
+      <p class="def"><b>Sonderfälle:</b> Fällt \(x\) ganz weg, entsteht eine Aussage ohne \(x\).<br>Wahre Aussage (z. B. \(6=6\)): jede Zahl ist Lösung, \(\mathbb{L}=\mathbb{R}\).<br>Falsche Aussage (z. B. \(1=-6\)): keine Lösung, \(\mathbb{L}=\{\,\}\).</p>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Die Lösung im Bild: Schnittpunkt zweier Geraden</h3>
+  <div class="inhalt">
+    <div class="fig" id="f3">
+      <div class="ctrl"><select class="sel" id="g3sel"></select><button class="btn play" id="g3go">▶ Lösung zeigen</button></div>
+    </div>
+    <div class="txt">
+      <p>Jede Seite der Gleichung ist ein Term in \(x\). Zeichnet man \(y=\) linke Seite und \(y=\) rechte Seite, erhält man zwei Geraden.</p>
+      <p class="def">Die Lösung ist die \(x\)-Koordinate des <b>Schnittpunkts</b>: Dort haben beide Seiten den gleichen Wert.</p>
+      <p class="def"><b>Parallele Geraden</b> schneiden sich nie: \(\mathbb{L}=\{\,\}\).<br><b>Gleiche Geraden</b> haben alle Punkte gemeinsam: \(\mathbb{L}=\mathbb{R}\).</p>
+      <div class="live"><span class="k">Gleichung</span><span id="r3"></span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-22.html#linear" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 3 BRUCHGLEICHUNGEN ================= -->
+<section id="bruch">
+<h2><span class="nr">3</span>Bruchgleichungen</h2>
+<div class="kasten">
+  <h3>Zuerst die Definitionsmenge, am Schluss die Kontrolle</h3>
+  <div class="inhalt">
+    <div>
+      <div class="ctrl"><select class="sel" id="b4sel"></select><button class="btn" id="b4rnd">neue Gleichung</button><button class="btn play" id="b4step">Schritt ›</button><button class="btn" id="b4all">alle Schritte</button></div>
+      <div class="fig" id="f4" style="margin-top:8px"></div>
+      <div class="term steps-k" id="b4" style="text-align:left;font-size:20px"></div>
+    </div>
+    <div class="txt">
+      <p class="def">Eine <b>Bruchgleichung</b> hat die Unbekannte im Nenner.</p>
+      <p class="def"><b>1. Definitionsmenge:</b> Nenner faktorisieren. Alle Zahlen, für die ein Nenner null wird, sind verboten (rote Ringe auf dem Zahlenstrahl).</p>
+      <p class="def"><b>2. Mit dem Hauptnenner multiplizieren.</b> Dann verschwinden alle Brüche.</p>
+      <p class="def"><b>3. Die lineare Gleichung lösen.</b></p>
+      <p class="def"><b>4. Kontrollieren:</b> Liegt die Lösung in \(\mathbb{D}\)? Sonst ist sie keine Lösung der Bruchgleichung.</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-22.html#bruch" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 4 FORMELN ================= -->
+<section id="formeln">
+<h2><span class="nr">4</span>Formeln umformen</h2>
+<div class="kasten">
+  <h3>Rückwärts rechnen: Was passiert mit der gesuchten Grösse?</h3>
+  <div class="inhalt">
+    <div>
+      <div class="ctrl"><select class="sel" id="k5sel"></select><button class="btn play" id="k5step">Schritt ›</button><button class="btn" id="k5back">von vorn</button></div>
+      <div class="term" id="k5f" style="font-size:22px;margin-top:10px"></div>
+      <div id="k5" style="margin-top:8px"></div>
+    </div>
+    <div class="txt">
+      <p class="def">Beim Umformen wird die gesuchte Grösse wie eine Unbekannte \(x\) behandelt. Alle anderen Grössen sind wie Zahlen.</p>
+      <p class="def"><b>Vorwärts:</b> Welche Operationen werden mit der gesuchten Grösse gemacht, und in welcher Reihenfolge?</p>
+      <p class="def"><b>Rückwärts:</b> Die Umkehroperationen in umgekehrter Reihenfolge ausführen: \(+\leftrightarrow-\), \(\cdot\leftrightarrow:\)</p>
+      <p class="hint">Wie beim Anziehen: Zuerst die Socken, dann die Schuhe. Ausziehen geht in umgekehrter Reihenfolge.</p>
+    </div>
+  </div>
+</div>
+<div class="kasten">
+  <h3>Formeln umformen wie Gleichungen</h3>
+  <div class="inhalt">
+    <div>
+      <div class="ctrl"><select class="sel" id="f6sel"></select><button class="btn play" id="f6step">Schritt ›</button><button class="btn" id="f6all">alle Schritte</button></div>
+      <div class="term steps-k" id="f6" style="text-align:left;font-size:20px;margin-top:10px"></div>
+    </div>
+    <div class="txt">
+      <p class="def">Steht die gesuchte Grösse im <b>Nenner</b>, multipliziert man zuerst mit dem Nenner.</p>
+      <p class="def">Kommt sie <b>mehrmals</b> vor, bringt man alle Terme mit ihr auf eine Seite und klammert sie aus.</p>
+      <p class="hint">Die Bedingungen (z. B. \(t\neq0\)) gelten wie bei Bruchgleichungen: Man darf nicht durch null dividieren.</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-22.html#formeln" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 5 TEXTGLEICHUNGEN ================= -->
+<section id="text">
+<h2><span class="nr">5</span>Textgleichungen</h2>
+<div class="kasten">
+  <h3>Vom Text zur Gleichung mit dem Balkenmodell</h3>
+  <div class="inhalt">
+    <div>
+      <div class="ctrl"><select class="sel" id="t7sel"></select><button class="btn play" id="t7step">Schritt ›</button><button class="btn" id="t7all">alle Schritte</button></div>
+      <p id="t7q" style="font-size:17px;margin:10px 0 4px"></p>
+      <div class="fig" id="f7"></div>
+      <div class="term steps-k" id="t7" style="text-align:left;font-size:19px"></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>1. Unbekannte festlegen:</b> Was ist gesucht? Die kleinste oder einfachste Grösse wird \(x\).</p>
+      <p class="def"><b>2. Die anderen Grössen mit \(x\) ausdrücken.</b> Ein Balkenmodell hilft.</p>
+      <p class="def"><b>3. Gleichung aufstellen:</b> Welche Angabe im Text ist noch nicht verwendet? Sie liefert die Gleichung.</p>
+      <p class="def"><b>4. Lösen.</b></p>
+      <p class="def"><b>5. Antwortsatz und Probe am Text</b> (nicht an der Gleichung, denn die Gleichung könnte falsch aufgestellt sein).</p>
+      <p class="hint">Signalwörter: «um 5 mehr» \(+5\) · «doppelt so viel» \(2\cdot\) · «vermindert um» \(-\) · «zusammen» Summe · «ergibt», «ist» \(=\)</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-22.html#text" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 6 TRAINER ================= -->
+<section id="training">
+<h2><span class="nr">6</span>Trainer: Aufgaben wie an der Aufnahmeprüfung</h2>
+<div class="kasten">
+  <h3>Unbegrenzt viele Aufgaben mit Lösungsweg</h3>
+  <div class="inhalt voll">
+    <div class="ctrl" style="margin:0 0 12px"><select class="sel" id="ttyp"></select><button class="btn play" id="tneu">Neue Aufgabe</button><span class="score" id="tscore"></span></div>
+    <p class="sans" style="font-weight:700;color:var(--kopf-d);margin:0 0 4px" id="ttitel"></p>
+    <div id="tq" class="trainer-q"></div>
+    <div class="antwort"><span id="tziel"></span><input id="tin" class="inp w" autocomplete="off" style="width:260px"><button class="btn" id="tcheck">Prüfen</button><button class="btn" id="tsol">Lösungsweg</button></div>
+    <div class="fb" id="tfb"></div>
+    <div class="loesung" id="tl"></div>
+    <p class="hint">Zahlen als Dezimalzahl oder Bruch (<code>2.5</code> oder <code>5/2</code>). Keine Lösung: <code>{}</code> eingeben. Formeln: z. B. <code>2A/h-a</code>, Bruchstrich mit <code>/</code>, Klammern setzen.</p>
+  </div>
+</div>
+</section>
+
+<!-- ================= 7 QUIZ ================= -->
+<section id="quiz">
+<h2><span class="nr">7</span>Quiz</h2>
+<div class="kasten">
+  <h3>Quiz zu allen Bereichen von 2.2</h3>
+  <div class="inhalt voll">
+    <div class="ctrl" style="margin:0 0 4px"><select class="sel" id="qarea"></select>
+      <select class="sel" id="qn"><option value="5">5 Fragen</option><option value="10" selected>10 Fragen</option><option value="15">15 Fragen</option><option value="20">20 Fragen</option></select>
+      <button class="btn play" id="qneu">Neue Runde</button><span class="score" id="qstat" style="margin-left:auto"></span></div>
+    <div class="bar"><div id="qbar" style="width:0"></div></div>
+    <div class="uebung">
+      <div><div class="ctrl" id="qsk" style="margin:0 0 6px"></div><div class="qbox" id="qbox"></div><p class="hint" id="qhint"></p></div>
+      <div><p class="qtopic" id="qtop"></p><div id="qq"></div><div class="opts" id="qo"></div><div id="qfb"></div><div class="ctrl"><button class="btn" id="qnext" hidden>Nächste Frage ›</button></div></div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+<footer><span>Raphael Arnold Kohler</span><span>IDM EA Mathematik · Klasse EA2025 · Lehrplan 2.2 Gleichungen</span></footer>
+
+<script src="common.js"></script>
+<script src="alg.js"></script>
+<script src="rat.js"></script>
+<script src="b2.js"></script>
+<script src="quiz-22.js"></script>
+<script src="2-2.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

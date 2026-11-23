@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.3 Geometrie – Unterrichtsblock 1</title>
+<link rel="stylesheet" href="schriften.css">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+  svg: { fontCache: 'global' },
+  startup: { typeset: true }
+};
+</script>
+<script defer src="vendor/mathjax/tex-svg.js"></script>
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div class="blocknav"><div class="in"><span class="bl">Block 1</span><a href="index.html">Übersicht</a><a href="1-1.html">1.1 Grundoperationen</a><a href="1-2.html">1.2 Algebra</a><a href="1-3.html" class="on">1.3 Geometrie</a><span class="bl">Block 2</span><a href="index2.html">Übersicht</a><a href="2-1.html">2.1</a><a href="2-2.html">2.2</a><a href="2-3.html">2.3</a></div></div>
+<header class="kopf">
+  <div class="kopf-in">
+    <div class="crumb">IDM EA Mathematik · Unterrichtsblock 1 · 1.3 Geometrie</div>
+    <h1>Geometrische Grundbegriffe und das Dreieck</h1>
+    <p class="lead">Alle Figuren sind beweglich: Punkte mit einem <span style="color:var(--blau)">blauen Ring</span> lassen sich mit Maus oder Finger ziehen. Die orangen Knöpfe <b>▶</b> spielen Animationen ab. Das Raster entspricht Heftkaros (1 Häuschen = 5&nbsp;mm).</p>
+  </div>
+</header>
+<nav class="top"><div class="in">
+  <a href="#grundbegriffe">1 Grundbegriffe</a>
+  <a href="#konstruktionen">2 Grundkonstruktionen</a>
+  <a href="#dreieck">3 Dreieck</a>
+  <a href="#linien">4 Linien und Punkte</a>
+  <a href="#winkel">5 Winkel</a>
+  <a href="#uebungen">6 Winkelberechnungen</a>
+  <a href="#gesamt">7 Gesamtübung</a>
+</div></nav>
+<div class="register">Geometrie</div>
+
+<main>
+
+<div class="kasten">
+  <h3>Lernziele</h3>
+  <div class="inhalt voll">
+    <ul class="lz">
+      <li>Ich kann Punkt, Linie, Strecke, Strahl und Gerade unterscheiden und korrekt bezeichnen.</li>
+      <li>Ich kann Winkel bezeichnen, messen und nach ihrer Grösse einteilen.</li>
+      <li>Ich kann Senkrechte und Parallele erkennen und mit \(\perp\) bzw. \(\parallel\) notieren.</li>
+      <li>Ich kann mit Zirkel und Lineal eine Strecke halbieren, ein Lot fällen, eine Senkrechte errichten, einen Winkel halbieren, eine Parallele sowie Winkel von 60° und 30° konstruieren.</li>
+      <li>Ich kann dieselben Aufgaben mit dem Geodreieck zeichnen und den Unterschied zwischen Konstruieren und Messen erklären.</li>
+      <li>Ich kann einen Konstruktionsbericht in Mengenschreibweise lesen und selbst schreiben.</li>
+      <li>Ich kann ein Dreieck normgerecht beschriften (Ecken, Seiten, Winkel).</li>
+      <li>Ich kann Dreiecke nach Seiten und nach Winkeln einteilen.</li>
+      <li>Ich kann Mittelsenkrechten, Winkelhalbierende, Höhen und Seitenhalbierende einzeichnen, auseinanderhalten und kenne ihre Schnittpunkte \(U\), \(I\), \(H\) und \(S\).</li>
+      <li>Ich kann Scheitel-, Neben-, Stufen-, Wechsel- und Gegenwinkel erkennen.</li>
+      <li>Ich kann mit der Winkelsumme und dem Aussenwinkelsatz Winkel berechnen.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= 1 GRUNDBEGRIFFE ================= -->
+<section id="grundbegriffe">
+<h2><span class="nr">1</span>Geometrische Grundbegriffe</h2>
+
+<div class="kasten">
+  <h3>Punkt, Linie, Strecke, Strahl und Gerade</h3>
+  <div class="inhalt">
+    <div class="fig" id="f1">
+      <div class="ctrl" id="c1">
+        <button class="btn" data-m="linie">Linie</button>
+        <button class="btn on" data-m="strecke">Strecke</button>
+        <button class="btn" data-m="strahl">Strahl</button>
+        <button class="btn" data-m="gerade">Gerade</button>
+        <button class="btn play" id="c1play">▶ alle nacheinander</button>
+      </div>
+      <p class="hint">Ziehe \(A\) und \(B\). Beim Wechsel wächst die Linie über die Punkte hinaus.</p>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Punkt:</b> Ort ohne Ausdehnung. Punkte werden mit Grossbuchstaben bezeichnet: \(A,\ B,\ P,\ \ldots\)</p>
+      <p class="def"><b>Linie:</b> Oberbegriff für gerade und gekrümmte Linien.</p>
+      <p class="def"><b>Strecke \(\overline{AB}\):</b> kürzeste Verbindung der Punkte \(A\) und \(B\). Sie hat zwei Endpunkte und eine Länge \(|\overline{AB}|\).</p>
+      <p class="def"><b>Strahl (Halbgerade) \([AB\):</b> beginnt im Anfangspunkt \(A\), verläuft durch \(B\) und ist auf einer Seite unbegrenzt. Die eckige Klammer markiert den Anfangspunkt.</p>
+      <p class="def"><b>Gerade \(g\)</b> (oder Gerade \(AB\)): auf beiden Seiten unbegrenzt. Geraden werden mit Kleinbuchstaben bezeichnet.</p>
+      <div class="tw"><table class="t" id="t1">
+        <tr><th></th><th>Endpunkte</th><th>Länge messbar?</th></tr>
+        <tr data-m="strecke"><td>Strecke</td><td>2</td><td>ja</td></tr>
+        <tr data-m="strahl"><td>Strahl</td><td>1 (Anfangspunkt)</td><td>nein</td></tr>
+        <tr data-m="gerade"><td>Gerade</td><td>keine</td><td>nein</td></tr>
+      </table></div>
+      <div class="live"><span class="k">Messung</span><span id="r1"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Winkel</h3>
+  <div class="inhalt">
+    <div class="fig" id="f2">
+      <div class="ctrl">
+        <button class="btn play" id="c2play">▶ Schenkel einmal ganz herumdrehen</button>
+      </div>
+      <p class="hint">Ziehe \(Q\) (2. Schenkel), \(P\) (1. Schenkel) oder den Scheitel \(S\). Bei 90° und 180° rastet der Schenkel ein.</p>
+    </div>
+    <div class="txt">
+      <p class="def">Zwei Strahlen mit gemeinsamem Anfangspunkt bilden einen <b>Winkel</b>. Die Strahlen heissen <b>Schenkel</b>, der gemeinsame Anfangspunkt <b>Scheitel</b> \(S\).</p>
+      <p class="def">Winkel werden mit griechischen Kleinbuchstaben bezeichnet \((\alpha,\beta,\gamma,\delta,\varepsilon,\varphi,\ldots)\) oder mit drei Punkten, der Scheitel steht in der Mitte: \(\alpha=\angle PSQ\). Gemessen wird vom 1. zum 2. Schenkel <b>gegen den Uhrzeigersinn</b>.</p>
+      <div class="tw"><table class="t" id="t2">
+        <tr><th>Winkelart</th><th>Grösse</th></tr>
+        <tr data-k="spitz"><td>spitzer Winkel</td><td>\(0^\circ<\alpha<90^\circ\)</td></tr>
+        <tr data-k="recht"><td>rechter Winkel</td><td>\(\alpha=90^\circ\)</td></tr>
+        <tr data-k="stumpf"><td>stumpfer Winkel</td><td>\(90^\circ<\alpha<180^\circ\)</td></tr>
+        <tr data-k="gestreckt"><td>gestreckter Winkel</td><td>\(\alpha=180^\circ\)</td></tr>
+        <tr data-k="ueber"><td>überstumpfer Winkel</td><td>\(180^\circ<\alpha<360^\circ\)</td></tr>
+        <tr data-k="voll"><td>Vollwinkel</td><td>\(\alpha=360^\circ\)</td></tr>
+      </table></div>
+      <div class="live"><span class="k">Messung</span><span id="r2"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Senkrechte und Parallele</h3>
+  <div class="inhalt">
+    <div class="fig" id="f3">
+      <div class="ctrl" id="c3">
+        <button class="btn" data-k="s">Senkrechte \(s\)</button>
+        <button class="btn" data-k="p">Parallele \(p\)</button>
+        <button class="btn" data-k="d">Abstand \(d\)</button>
+        <button class="btn play" id="c3play">▶ Konstruktion zeigen</button>
+      </div>
+      <p class="hint">Ziehe den Punkt \(P\) oder die Gerade \(g\) an ihren beiden Punkten.</p>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Senkrechte:</b> Zwei Geraden, die sich unter einem rechten Winkel schneiden, stehen senkrecht aufeinander: \(s\perp g\). Der rechte Winkel wird mit einem Bogen und Punkt markiert.</p>
+      <p class="def"><b>Lot:</b> Die Senkrechte von einem Punkt \(P\) auf eine Gerade \(g\) heisst Lot. Ihr Schnittpunkt \(F\) mit \(g\) ist der <b>Lotfusspunkt</b>. Liegt \(P\) ausserhalb von \(g\), «fällt» man das Lot; liegt \(P\) auf \(g\), «errichtet» man die Senkrechte (Konstruktionen in Abschnitt 2).</p>
+      <p class="def"><b>Parallele:</b> Zwei Geraden, die überall den gleichen Abstand haben, sind parallel: \(p\parallel g\). Verschiedene Parallelen haben keinen gemeinsamen Punkt.</p>
+      <p class="def"><b>Abstand</b> eines Punktes \(P\) von einer Geraden \(g\): Länge der Strecke vom Punkt zum Fusspunkt, \(d=|\overline{PF}|\). Das ist die kürzeste Verbindung von \(P\) zu \(g\).</p>
+      <p><b>Merke:</b> Steht \(s\perp g\) und ist \(p\parallel g\), dann gilt auch \(s\perp p\).</p>
+      <div class="live"><span class="k">Messung</span><span id="r3"></span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-13.html#grundbegriffe" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+
+<!-- ================= 2 GRUNDKONSTRUKTIONEN ================= -->
+<section id="konstruktionen">
+<h2><span class="nr">2</span>Grundkonstruktionen mit Zirkel und Lineal</h2>
+<p class="intro">Bei einer Konstruktion im engeren Sinn sind nur zwei Werkzeuge erlaubt: der <b>Zirkel</b> (Kreise und Kreisbögen zeichnen, Längen abtragen) und das <b>Lineal</b> (Gerade durch zwei Punkte zeichnen, ohne die Skala zu benutzen). Konstruktionslinien zeichnet man dünn und lässt sie stehen; das Ergebnis wird hervorgehoben. Im Alltag zeichnet man oft schneller mit dem <b>Geodreieck</b> (messen statt konstruieren); beide Wege kannst du unten umschalten. Rechts steht jeweils der <b>Konstruktionsbericht</b> in Mengenschreibweise. Fast alle Konstruktionen beruhen auf einer Idee: <b>Zwei Kreisbögen mit gleichem Radius schneiden sich in Punkten, die von beiden Mittelpunkten gleich weit entfernt sind.</b></p>
+
+<div class="kasten">
+  <h3>Grundkonstruktionen</h3>
+  <div class="inhalt">
+    <div class="fig" id="f11">
+      <div class="ctrl" id="c11v">
+        <span class="hint" style="margin:0 4px 0 0">Werkzeuge:</span>
+        <button class="btn on" data-v="zl">Zirkel und Lineal</button>
+        <button class="btn" data-v="geo">Geodreieck und Lineal</button>
+      </div>
+      <div class="ctrl" id="c11m">
+        <button class="btn on" data-m="ms">Mittelsenkrechte</button>
+        <button class="btn" data-m="lot">Lot fällen</button>
+        <button class="btn" data-m="err">Senkrechte errichten</button>
+        <button class="btn" data-m="wh">Winkelhalbierende</button>
+        <button class="btn" data-m="par">Parallele</button>
+        <button class="btn" data-m="w60">60°-Winkel</button>
+        <button class="btn" data-m="w30">30°-Winkel</button>
+      </div>
+      <div class="ctrl">
+        <button class="btn play" id="c11play">▶ Konstruktion abspielen</button>
+        <button class="btn" id="c11step">Schritt ›</button>
+        <button class="btn" id="c11all">alles zeigen</button>
+        <button class="btn" id="c11orts">Ortslinie prüfen</button>
+      </div>
+      <div class="cap" id="cap11"></div>
+      <p class="hint" id="h11"></p>
+    </div>
+    <div class="txt">
+      <h4 id="k11t" style="font-size:17px"></h4>
+      <p class="qtopic" style="margin:8px 0 0">Konstruktionsbericht</p>
+      <ol class="ksteps" id="ksteps"></ol>
+      <p class="legende"><b>Schreibweise:</b> \(k(M;\,r)\) Kreis(bogen) um \(M\) mit Radius \(r\) · \(\cap\) Schnitt (gemeinsame Punkte) · \(\{P,Q\}\) Menge der Punkte \(P\) und \(Q\) · \(\in\) liegt auf · \(PQ\) Gerade durch \(P\) und \(Q\) · \([SW\) Strahl von \(S\) durch \(W\) · \(\perp\) senkrecht · \(\parallel\) parallel</p>
+      <div class="live"><span class="k">Warum funktioniert das?</span><span id="w11"></span></div>
+      <div class="live" id="o11box" hidden><span class="k">Ortslinie</span><span id="o11"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Übersicht: wofür man die Grundkonstruktionen braucht</h3>
+  <div class="inhalt voll">
+    <div class="tw"><table class="t">
+      <tr><th>Konstruktion</th><th>gegeben</th><th>Kerngedanke</th><th>gebraucht für</th></tr>
+      <tr><td>Mittelsenkrechte (Strecke halbieren)</td><td>Strecke \(\overline{AB}\)</td><td>\(P\) und \(Q\) sind gleich weit von \(A\) und \(B\) entfernt</td><td>Seitenmitte, Umkreis, Seitenhalbierende</td></tr>
+      <tr><td>Lot fällen</td><td>Gerade \(g\), Punkt \(P\) nicht auf \(g\)</td><td>\(PQ\) ist die Mittelsenkrechte von \(\overline{RS}\)</td><td>Höhen, Abstand Punkt–Gerade, Inkreisradius</td></tr>
+      <tr><td>Senkrechte errichten</td><td>Gerade \(g\), Punkt \(P\) auf \(g\)</td><td>\(P\) ist die Mitte von \(\overline{RS}\)</td><td>rechte Winkel, Rechteck, Quadrat, rechtwinklige Dreiecke</td></tr>
+      <tr><td>Winkelhalbierende</td><td>Winkel mit Scheitel \(S\)</td><td>\(W\) ist gleich weit von \(R\) und \(T\) entfernt</td><td>Inkreis, Winkel von \(45^\circ\), \(30^\circ\), …</td></tr>
+      <tr><td>Parallele</td><td>Gerade \(g\), Punkt \(P\)</td><td>\(ABQP\) ist eine Raute</td><td>Parallelogramm, Trapez, Winkel an Parallelen</td></tr>
+      <tr><td>60°- und 30°-Winkel</td><td>Schenkel \(g\) mit Scheitel \(S\)</td><td>gleichseitiges Dreieck \(SRT\); 30° durch Halbieren</td><td>Winkel von 120°, 15°, 45° (90° halbiert), Sechseck</td></tr>
+    </table></div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-13.html#konstruktionen" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 3 DREIECK ================= -->
+<section id="dreieck">
+<h2><span class="nr">3</span>Das Dreieck</h2>
+
+<div class="kasten">
+  <h3>Bezeichnungen im Dreieck</h3>
+  <div class="inhalt">
+    <div class="fig" id="f4">
+      <div class="ctrl">
+        <button class="btn play" id="c4play">▶ Beschriftung Schritt für Schritt</button>
+      </div>
+      <div class="cap" id="cap4"><p>Ziehe die Ecken. Die Beschriftung passt sich laufend an.</p></div>
+    </div>
+    <div class="txt">
+      <p class="def">Die <b>Ecken</b> werden mit Grossbuchstaben \(A,\ B,\ C\) <b>gegen den Uhrzeigersinn</b> beschriftet.</p>
+      <p class="def">Die <b>Seite</b>, die einer Ecke gegenüberliegt, erhält den gleichen Kleinbuchstaben: \(a=|\overline{BC}|\), \(b=|\overline{CA}|\), \(c=|\overline{AB}|\).</p>
+      <p class="def">Die <b>Innenwinkel</b>: \(\alpha\) bei \(A\), \(\beta\) bei \(B\), \(\gamma\) bei \(C\). Zum Beispiel ist \(\gamma=\angle BCA\).</p>
+      <p>Schreibweise für das Dreieck: \(\triangle ABC\)</p>
+      <div class="live"><span class="k">Messung</span><span id="r4"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Dreiecksarten</h3>
+  <div class="inhalt">
+    <div class="fig" id="f5">
+      <div class="ctrl" id="c5">
+        <span class="hint" style="margin:0 4px 0 0">Beispiel:</span>
+        <button class="btn" data-ex="spitz">spitzwinklig</button>
+        <button class="btn" data-ex="recht">rechtwinklig</button>
+        <button class="btn" data-ex="stumpf">stumpfwinklig</button>
+        <button class="btn" data-ex="gs">gleichschenklig</button>
+        <button class="btn" data-ex="gsr">gleichschenklig-rechtwinklig</button>
+        <button class="btn" data-ex="gl">gleichseitig</button>
+      </div>
+      <p class="hint">Die Ecken rasten auf dem Raster ein. Auf einem Quadratraster gibt es kein exakt gleichseitiges Dreieck. Probier es aus, und nimm dann den Knopf «gleichseitig».</p>
+    </div>
+    <div class="txt">
+      <h4>Einteilung nach den Seiten</h4>
+      <div class="chips" id="k5s">
+        <span class="chip" data-k="un">unregelmässig (allgemein)</span>
+        <span class="chip" data-k="gs">gleichschenklig</span>
+        <span class="chip" data-k="gl">gleichseitig</span>
+      </div>
+      <p><b>unregelmässig:</b> alle drei Seiten verschieden lang.<br><b>gleichschenklig:</b> (mindestens) zwei gleich lange Seiten, die <b>Schenkel</b>. Die dritte Seite ist die <b>Basis</b>, die Winkel an der Basis (<b>Basiswinkel</b>) sind gleich gross. Gegenüber der Basis liegt die <b>Spitze</b>.<br>
+      <b>gleichseitig:</b> alle Seiten gleich lang, alle Winkel \(60^\circ\). Jedes gleichseitige Dreieck ist auch gleichschenklig.</p>
+      <h4>Einteilung nach den Winkeln</h4>
+      <div class="chips" id="k5w">
+        <span class="chip" data-k="spitz">spitzwinklig</span>
+        <span class="chip" data-k="recht">rechtwinklig</span>
+        <span class="chip" data-k="stumpf">stumpfwinklig</span>
+      </div>
+      <p><b>spitzwinklig:</b> alle Winkel kleiner als \(90^\circ\).<br>
+      <b>rechtwinklig:</b> ein Winkel ist \(90^\circ\). Die Seiten am rechten Winkel heissen <b>Katheten</b>, die Seite gegenüber heisst <b>Hypotenuse</b>.<br>
+      <b>stumpfwinklig:</b> ein Winkel ist grösser als \(90^\circ\).</p>
+      <div class="live"><span class="k">Messung</span><span id="r5"></span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-13.html#dreieck" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 3 LINIEN ================= -->
+<section id="linien">
+<h2><span class="nr">4</span>Spezielle Linien und Punkte im Dreieck</h2>
+
+<div class="kasten">
+  <h3>Mittelsenkrechten, Winkelhalbierende, Höhen und Seitenhalbierende</h3>
+  <div class="inhalt">
+    <div class="fig" id="f6">
+      <div class="ctrl" id="c6m">
+        <button class="btn on" data-m="ms">Mittelsenkrechten</button>
+        <button class="btn" data-m="wh">Winkelhalbierende</button>
+        <button class="btn" data-m="hoe">Höhen</button>
+        <button class="btn" data-m="sh">Seitenhalbierende</button>
+        <button class="btn" data-m="vg">Vergleich bei C</button>
+      </div>
+      <div class="ctrl">
+        <button class="btn play" id="c6play">▶ Konstruktion abspielen</button>
+        <button class="btn" id="c6step">Schritt ›</button>
+        <button class="btn" id="c6all">alles zeigen</button>
+        <label class="hint" style="margin:0 0 0 8px"><input type="checkbox" id="c6euler"> Zusatz: Eulersche Gerade</label>
+      </div>
+      <div class="cap" id="cap6"></div>
+    </div>
+    <div class="txt">
+      <div class="mode-txt on" data-m="ms">
+        <p class="def"><b>Mittelsenkrechte</b> \(m_c\): Gerade, die durch die Seitenmitte \(M_c\) geht und senkrecht auf der Seite \(c\) steht.</p>
+        <p class="def"><b>Eigenschaft (Ortslinie):</b> Genau die Punkte auf \(m_c\) sind von \(A\) und \(B\) gleich weit entfernt.</p>
+        <p class="def">Die drei Mittelsenkrechten schneiden sich im <b>Umkreismittelpunkt</b> \(U\). Er ist von allen drei Ecken gleich weit entfernt: \(|\overline{UA}|=|\overline{UB}|=|\overline{UC}|=r\). Der Kreis um \(U\) mit Radius \(r\) ist der <b>Umkreis</b>.</p>
+      </div>
+      <div class="mode-txt" data-m="wh">
+        <p class="def"><b>Winkelhalbierende</b> \(w_\alpha\): halbiert den Winkel \(\alpha\).</p>
+        <p class="def"><b>Eigenschaft (Ortslinie):</b> Jeder Punkt auf \(w_\alpha\) ist von den beiden Schenkeln (den Geraden \(AB\) und \(AC\)) gleich weit entfernt.</p>
+        <p class="def">Die drei Winkelhalbierenden schneiden sich im <b>Inkreismittelpunkt</b> \(I\). Er hat von allen drei Seiten denselben Abstand \(\rho\). Der Kreis um \(I\) mit Radius \(\rho\) berührt alle Seiten: der <b>Inkreis</b>.</p>
+      </div>
+      <div class="mode-txt" data-m="hoe">
+        <p class="def"><b>Höhe</b> \(h_a\): das Lot von der Ecke \(A\) auf die Gerade \(BC\), also auf die Seite \(a\) oder ihre Verlängerung. \(H_a\) ist der <b>Höhenfusspunkt</b>. Mit \(h_a\) bezeichnet man auch die Länge \(|\overline{AH_a}|\).</p>
+        <p class="def">Die drei Höhen (bzw. ihre Verlängerungen) schneiden sich im <b>Höhenschnittpunkt</b> \(H\).</p>
+        <p class="def">Mit jeder Höhe erhält man denselben Flächeninhalt \(A\) des Dreiecks: \(A=\tfrac12\,a\,h_a=\tfrac12\,b\,h_b=\tfrac12\,c\,h_c\)</p>
+      </div>
+      <div class="mode-txt" data-m="sh">
+        <p class="def"><b>Seitenhalbierende</b> \(s_a\): Strecke von der Ecke \(A\) zur Mitte \(M_a\) der gegenüberliegenden Seite \(a\).</p>
+        <p class="def">Die drei Seitenhalbierenden schneiden sich im <b>Schwerpunkt</b> \(S\). Ein Dreieck aus Karton lässt sich in \(S\) auf einer Nadelspitze balancieren.</p>
+        <p class="def"><b>Eigenschaft:</b> \(S\) teilt jede Seitenhalbierende im Verhältnis \(2:1\), zum Beispiel \(|\overline{AS}|:|\overline{SM_a}|=2:1\).</p>
+      </div>
+      <div class="mode-txt" data-m="vg">
+        <p class="def"><b>Verwechslungsgefahr:</b> Von der Ecke \(C\) aus bzw. zur Seite \(c\) gibt es vier verschiedene Linien: Mittelsenkrechte \(m_c\), Seitenhalbierende \(s_c\), Winkelhalbierende \(w_\gamma\) und Höhe \(h_c\).</p>
+        <p class="def">Im Allgemeinen sind sie verschieden: Nur \(h_c\) und \(m_c\) stehen senkrecht auf \(c\), nur \(s_c\) und \(m_c\) gehen durch die Seitenmitte \(M_c\), nur \(w_\gamma\) halbiert den Winkel. Die Winkelhalbierende liegt immer zwischen Höhe und Seitenhalbierender.</p>
+        <p class="def"><b>Sonderfall:</b> Im gleichschenkligen Dreieck mit \(a=b\) fallen alle vier zusammen. Probiere es aus: Ziehe \(C\) über die Mitte von \(c\).</p>
+      </div>
+      <div class="live"><span class="k">Messung am bewegten Dreieck</span><span id="r6"></span></div>
+    </div>
+  </div>
+  <div class="inhalt voll" style="padding-top:0">
+    <p class="hint" style="margin:0 0 6px">Konstruiert werden diese Linien mit den Grundkonstruktionen aus <a href="#konstruktionen">Abschnitt 2</a>: Mittelsenkrechte, Winkelhalbierende, Lot fällen; die Seitenmitte für die Seitenhalbierende findet man mit der Mittelsenkrechten.</p>
+    <div class="tw"><table class="t">
+      <tr><th>Linien</th><th>Schnittpunkt</th><th>Eigenschaft des Schnittpunkts</th><th>Lage</th></tr>
+      <tr><td>Mittelsenkrechten \(m_a, m_b, m_c\)</td><td>Umkreismittelpunkt \(U\)</td><td>gleicher Abstand \(r\) zu allen Ecken → Umkreis</td><td>spitzwinklig: innen · rechtwinklig: Mitte der Hypotenuse · stumpfwinklig: aussen</td></tr>
+      <tr><td>Winkelhalbierende \(w_\alpha, w_\beta, w_\gamma\)</td><td>Inkreismittelpunkt \(I\)</td><td>gleicher Abstand \(\rho\) zu allen Seiten → Inkreis</td><td>immer innen</td></tr>
+      <tr><td>Höhen \(h_a, h_b, h_c\)</td><td>Höhenschnittpunkt \(H\)</td><td>–</td><td>spitzwinklig: innen · rechtwinklig: Ecke beim rechten Winkel · stumpfwinklig: aussen</td></tr>
+      <tr><td>Seitenhalbierende \(s_a, s_b, s_c\)</td><td>Schwerpunkt \(S\)</td><td>teilt jede Seitenhalbierende im Verhältnis \(2:1\)</td><td>immer innen</td></tr>
+    </table></div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-13.html#linien" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 4 WINKEL ================= -->
+<section id="winkel">
+<h2><span class="nr">5</span>Winkel an Geraden und im Dreieck</h2>
+
+<div class="kasten">
+  <h3>Winkel an sich schneidenden Geraden</h3>
+  <div class="inhalt">
+    <div class="fig" id="f7">
+      <div class="ctrl" id="c7">
+        <button class="btn play" data-k="scheitel">▶ Scheitelwinkel</button>
+        <button class="btn play" data-k="neben">▶ Nebenwinkel</button>
+      </div>
+      <p class="hint">Drehe die beiden Geraden an ihren Punkten.</p>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Scheitelwinkel:</b> liegen sich am Schnittpunkt gegenüber und sind gleich gross.<br>\(\alpha=\gamma\ \text{ und }\ \beta=\delta\)</p>
+      <p class="def"><b>Nebenwinkel:</b> liegen nebeneinander und ergänzen sich zu einem gestreckten Winkel.<br>\(\alpha+\beta=\beta+\gamma=\gamma+\delta=\delta+\alpha=180^\circ\)</p>
+      <div class="live"><span class="k">Messung</span><span id="r7"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Winkel an Parallelen: Stufen-, Wechsel- und Gegenwinkel</h3>
+  <div class="inhalt">
+    <div class="fig" id="f8">
+      <div class="ctrl" id="c8">
+        <button class="btn on" data-k="stufen">Stufenwinkel</button>
+        <button class="btn" data-k="wechsel">Wechselwinkel</button>
+        <button class="btn" data-k="gegen">Gegenwinkel</button>
+        <button class="btn" id="c8next">nächstes Paar ›</button>
+        <button class="btn play" id="c8play">▶ Winkel verschieben</button>
+      </div>
+      <div class="ctrl"><label class="hint" style="margin:0">Neigung von \(h_2\): <input type="range" id="c8tilt" min="-20" max="20" value="0" step="1" style="vertical-align:middle"> <span id="c8tv">0°</span></label></div>
+      <p class="hint">Drehe die Gerade \(g\). Kippst du \(h_2\), sind die Geraden nicht mehr parallel: Die Gleichheiten gelten dann nicht mehr.</p>
+    </div>
+    <div class="txt">
+      <p>Die Geraden \(h_1\parallel h_2\) werden von \(g\) geschnitten. An \(h_1\) heissen die Winkel \(\alpha',\beta',\gamma',\delta'\), an \(h_2\) heissen sie \(\alpha,\beta,\gamma,\delta\).</p>
+      <p class="def"><b>Stufenwinkel</b> (gleiche Lage, durch Verschieben entlang \(g\)):<br>\(\alpha=\alpha'\); \(\beta=\beta'\); \(\gamma=\gamma'\); \(\delta=\delta'\)</p>
+      <p class="def"><b>Wechselwinkel</b> (durch Drehen um \(180^\circ\)):<br>\(\alpha=\gamma'\); \(\beta=\delta'\); \(\gamma=\alpha'\); \(\delta=\beta'\)</p>
+      <p class="def"><b>Gegenwinkel</b> (ergänzen sich zu \(180^\circ\)):<br>\(\alpha+\delta'=180^\circ\); \(\beta+\gamma'=180^\circ\); \(\gamma+\beta'=180^\circ\); \(\delta+\alpha'=180^\circ\)</p>
+      <div class="live"><span class="k">Messung</span><span id="r8"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Innenwinkelsumme im Dreieck</h3>
+  <div class="inhalt">
+    <div class="fig" id="f9">
+      <div class="ctrl">
+        <button class="btn play" id="c9play">▶ Beweis abspielen</button>
+        <button class="btn" id="c9step">Schritt ›</button>
+        <button class="btn" id="c9reset">zurück</button>
+      </div>
+      <div class="cap" id="cap9">
+        <p data-s="0">Gilt \(\alpha+\beta+\gamma=180^\circ\) für <i>jedes</i> Dreieck? Verändere das Dreieck und beobachte die Summe. Der Beweis zeigt, warum.</p>
+        <p data-s="1" hidden><b>Schritt 1:</b> Durch \(C\) wird die Parallele \(p\parallel AB\) gezeichnet.</p>
+        <p data-s="2" hidden><b>Schritt 2:</b> \(\alpha\) wird um \(180^\circ\) um die Mitte von \(\overline{AC}\) gedreht. Es landet bei \(C\) zwischen \(p\) und \(b\): <b>Wechselwinkel</b> an den Parallelen \(p\) und \(AB\).</p>
+        <p data-s="3" hidden><b>Schritt 3:</b> Ebenso \(\beta\) um die Mitte von \(\overline{BC}\): wieder ein Wechselwinkel, jetzt zwischen \(a\) und \(p\).</p>
+        <p data-s="4" hidden><b>Schritt 4:</b> Bei \(C\) liegen \(\alpha\), \(\gamma\) und \(\beta\) lückenlos nebeneinander auf der Geraden \(p\) und bilden einen gestreckten Winkel. Also gilt \(\alpha+\beta+\gamma=180^\circ\).</p>
+      </div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Innenwinkelsumme:</b> In jedem Dreieck beträgt die Summe der Innenwinkel \(180^\circ\):
+      \[\alpha+\beta+\gamma=180^\circ\]</p>
+      <p><b>Folgerungen:</b> Ein Dreieck hat höchstens einen Winkel, der \(90^\circ\) oder grösser ist. Im rechtwinkligen Dreieck ergänzen sich die beiden spitzen Winkel zu \(90^\circ\). Im gleichseitigen Dreieck misst jeder Winkel \(60^\circ\).</p>
+      <div class="live"><span class="k">Messung</span><span id="r9"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Aussenwinkel und Innenwinkel</h3>
+  <div class="inhalt">
+    <div class="fig" id="f10">
+      <div class="ctrl" id="c10">
+        <button class="btn play" data-k="phi">▶ φ = α + γ</button>
+        <button class="btn play" data-k="mu">▶ μ = β + γ</button>
+        <button class="btn play" data-k="lam">▶ λ = α + β</button>
+      </div>
+      <div class="cap" id="cap10"><p>Ein Aussenwinkel liegt zwischen einer Seite und der Verlängerung der anderen Seite durch dieselbe Ecke.</p></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Aussenwinkel</b> \(\mu\) bei \(A\), \(\varphi\) bei \(B\), \(\lambda\) bei \(C\). Jeder ist Nebenwinkel des Innenwinkels an seiner Ecke.</p>
+      <p class="def"><b>Aussenwinkelsatz:</b> Ein Aussenwinkel ist so gross wie die Summe der beiden <i>nicht anliegenden</i> Innenwinkel:
+      \[\varphi=\alpha+\gamma;\quad \mu=\beta+\gamma;\quad \lambda=\alpha+\beta\]</p>
+      <p><b>Begründung</b> für \(\varphi\): \(\varphi=180^\circ-\beta\) (Nebenwinkel) und \(\alpha+\gamma=180^\circ-\beta\) (Winkelsumme).<br>
+      Zusatz: \(\mu+\varphi+\lambda=360^\circ\)</p>
+      <div class="live"><span class="k">Messung</span><span id="r10"></span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-13.html#winkel" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 5 UEBUNGEN ================= -->
+<section id="uebungen">
+<h2><span class="nr">6</span>Winkelberechnungen</h2>
+<p class="intro">Winkelberechnungen sind Rechnungen mit Termen: Aus \(\alpha+\beta+\gamma=180^\circ\) wird zum Beispiel \(\gamma=180^\circ-\alpha-\beta\). Die Rechenregeln dazu findest du in <a href="1-1.html#stufen">1.1</a> und <a href="1-2.html#begriffe">1.2</a>.</p>
+<div class="kasten">
+  <h3>Trainer: unbegrenzt viele Aufgaben</h3>
+  <div class="inhalt voll">
+    <div class="ctrl" style="margin:0 0 12px">
+      <select class="sel" id="utyp">
+        <option value="mix">alle Aufgabentypen gemischt</option>
+        <option value="innen">Innenwinkelsumme</option>
+        <option value="gleich">gleichschenkliges Dreieck</option>
+        <option value="aussen">Aussenwinkel</option>
+        <option value="parallel">Winkel an Parallelen</option>
+        <option value="hoehe">rechtwinkliges Dreieck mit Höhe</option>
+        <option value="wh">Dreieck mit Winkelhalbierender</option>
+      </select>
+      <button class="btn play" id="uneu">Neue Aufgabe</button>
+      <span class="score" id="uscore"></span>
+    </div>
+    <div class="uebung">
+      <div class="fig" id="uf"><p class="hint">Skizze, nicht massstäblich gezeichnet. Gegebene Winkel blau, gesuchter Winkel orange.</p></div>
+      <div>
+        <p class="sans" style="font-weight:700;color:var(--kopf-d);margin:0 0 4px" id="utitel"></p>
+        <div id="uq"></div>
+        <div class="antwort">
+          <span id="uziel"></span>
+          <input id="uin" inputmode="decimal" autocomplete="off" aria-label="Antwort in Grad"> <span>°</span>
+          <button class="btn" id="ucheck">Prüfen</button>
+          <button class="btn" id="usol">Lösungsweg</button>
+        </div>
+        <div class="fb" id="ufb"></div>
+        <div class="loesung" id="ul"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ================= 7 GESAMTUEBUNG ================= -->
+<section id="gesamt">
+<h2><span class="nr">7</span>Übungen zum gesamten Bereich</h2>
+<div class="kasten">
+  <h3>Quiz zu allen Bereichen</h3>
+  <div class="inhalt voll">
+    <div class="ctrl" style="margin:0 0 4px">
+      <select class="sel" id="qarea">
+        <option value="all">alle Bereiche gemischt</option>
+        <option value="gb">Grundbegriffe</option>
+        <option value="gk">Grundkonstruktionen</option>
+        <option value="dr">Dreieck: Bezeichnungen und Arten</option>
+        <option value="lp">Linien und Punkte im Dreieck</option>
+        <option value="wg">Winkel an Geraden</option>
+        <option value="wd">Winkel im Dreieck</option>
+      </select>
+      <select class="sel" id="qn"><option value="5">5 Fragen</option><option value="10" selected>10 Fragen</option><option value="15">15 Fragen</option><option value="20">20 Fragen</option></select>
+      <button class="btn play" id="qneu">Neue Runde</button>
+      <span class="score" id="qstat" style="margin-left:auto"></span></div>
+    <div class="bar"><div id="qbar" style="width:0"></div></div>
+    <div class="uebung">
+      <div>
+        <div class="ctrl" id="qsk" style="margin:0 0 6px"></div>
+        <div class="qbox" id="qbox"></div>
+        <p class="hint" id="qhint"></p>
+      </div>
+      <div>
+        <p class="qtopic" id="qtop"></p>
+        <div id="qq"></div>
+        <div class="opts" id="qo"></div>
+        <div id="qfb"></div>
+        <div class="ctrl"><button class="btn" id="qnext" hidden>Nächste Frage ›</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Konstruktionsaufgaben fürs Heft</h3>
+  <div class="inhalt voll">
+    <p style="margin:0 0 10px">Der Druckknopf erstellt ein doppelseitiges Blatt mit der angezeigten und einer weiteren Aufgabe der gewählten Art, dazu ein Lösungsblatt (ebenfalls doppelseitig). Arbeite mit Bleistift, Zirkel und Lineal auf Häuschenpapier (1 Einheit = 1 cm). Zeichne zuerst das Koordinatensystem und das Dreieck, konstruiere dann und lass die Konstruktionslinien stehen. Danach kannst du dein Ergebnis kontrollieren. Messgenauigkeit: etwa ±1 mm bzw. ±1°.</p>
+    <div class="ctrl" style="margin:0 0 12px">
+      <select class="sel" id="ktyp">
+        <option value="mix">alle Aufgaben gemischt</option>
+        <option value="umkreis">Umkreis</option>
+        <option value="inkreis">Inkreis</option>
+        <option value="schwer">Schwerpunkt</option>
+        <option value="hoehen">Höhenschnittpunkt</option>
+        <option value="lot">Lot fällen und Abstand messen</option>
+        <option value="wh">Winkel halbieren</option>
+        <option value="par">Parallele und Senkrechte</option>
+      </select>
+      <button class="btn play" id="kneu">Neue Aufgabe</button>
+      <button class="btn" id="kshow">Kontrolle anzeigen</button>
+      <button class="btn play" id="kprint" style="margin-left:auto" title="Druckt die angezeigte und eine weitere Aufgabe der gewählten Art auf Vorder- und Rückseite, dazu ein Lösungsblatt">⎙ 2 Aufgaben drucken (doppelseitig)</button>
+    </div>
+    <p class="hint" id="kstat" style="margin:-6px 0 10px;text-align:right"></p>
+
+    <div class="uebung">
+      <div class="fig" id="kf"><p class="hint">Vorlage im Koordinatensystem. Die Kontrolle zeigt das Ergebnis der Konstruktion.</p></div>
+      <div>
+        <p class="sans" style="font-weight:700;color:var(--kopf-d);margin:0 0 4px" id="kt"></p>
+        <div id="kq"></div>
+        <div class="loesung" id="kl"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+
+<footer><span>Raphael Arnold Kohler</span><span>IDM EA Mathematik · Klasse EA2025 · Lehrplan 1.3 Geometrie</span></footer>
+
+<script src="common.js"></script>
+<script src="kon.js"></script>
+<script src="quiz-13.js"></script>
+<script>
+"use strict";
+/* ======================= Fig 1: Strecke, Strahl, Gerade ======================= */
+(function(){
+  const f=new Fig(document.getElementById('f1'),{h:360,snap:0.5});
+  const P={A:{x:-3.5,y:-1.5},B:{x:2,y:1}};let mode='strecke',eA=0,eB=0,stop=null,seq=null;
+  f.handle(P,'A',{check:p=>V.dist(p,P.B)>0.8});f.handle(P,'B',{check:p=>V.dist(p,P.A)>0.8});
+  function catmull(pts){let d=`M${f.S(pts[0]).join(',')}`;for(let i=0;i<pts.length-1;i++){const p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[i+1],p3=pts[Math.min(pts.length-1,i+2)];
+    const c1=V.add(p1,V.mul(V.sub(p2,p0),1/6)),c2=V.sub(p2,V.mul(V.sub(p3,p1),1/6));d+=` C${f.S(c1).join(',')} ${f.S(c2).join(',')} ${f.S(p2).join(',')}`}return d}
+  f.draw=()=>{const {A,B}=P,d=V.norm(V.sub(B,A)),n=V.perp(d),L=V.dist(A,B);
+    if(mode==='linie'){f.path(catmull([V.add(A,V.add(V.mul(d,-1.8),V.mul(n,1.1))),A,V.add(V.lerp(A,B,.35),V.mul(n,L*.32)),V.add(V.lerp(A,B,.72),V.mul(n,-L*.22)),B,V.add(B,V.add(V.mul(d,1.6),V.mul(n,1.2)))]),{w:2.6,c:C.blau})}
+    else{f.seg(V.sub(A,V.mul(d,eA)),V.add(B,V.mul(d,eB)),{w:2.6,c:C.blau});
+      if(mode==='strahl'&&eB>0.5){const e=f.inView(V.add(B,V.mul(d,Math.min(eB,30))),0.6);}
+      if(mode==='gerade'&&eB>2.5)f.text(f.inView(V.add(B,V.add(V.mul(d,2.4),V.mul(n,0.45)))),'g')}
+    if(mode==='strecke'){/* Masslinie */const o=V.mul(n,-0.55);f.seg(V.add(A,o),V.add(B,o),{c:C.grau,w:1.2,me:'k'});f.seg(V.add(B,o),V.add(A,o),{c:C.grau,w:1.2,me:'k'});}
+    f.dot(A,4.2);f.dot(B,4.2);
+    f.text(V.add(A,V.mul(n,0.5)),'A');f.text(V.add(B,V.mul(n,0.5)),'B');
+    const r=document.getElementById('r1');
+    r.innerHTML=mode==='strecke'?`Länge der Strecke: <i>|</i><span class="ov">AB</span><i>|</i> = ${cm(L)}`:
+      mode==='linie'?'Eine gekrümmte Linie durch <i>A</i> und <i>B</i>. Die kürzeste Verbindung wäre die Strecke.':
+      mode==='strahl'?`Der Strahl beginnt in <i>A</i> und hat kein Ende: keine Länge.`:'Die Gerade ist auf beiden Seiten unbegrenzt: keine Länge.';
+    rowsOn('t1','m',mode)};
+  const T={strecke:[0,0],strahl:[0,30],gerade:[30,30],linie:[0,0]};
+  function setMode(m,done){if(stop)stop();mode=m;document.querySelectorAll('#c1 [data-m]').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+    const a0=eA,b0=eB,[a1,b1]=T[m];if(m==='linie'){eA=0;eB=0;f.render();if(done)setTimeout(done,1200);return}
+    stop=tween(1400,t=>{eA=a0+(a1-a0)*t*t;eB=b0+(b1-b0)*t*t;f.render()},done)}
+  document.querySelectorAll('#c1 [data-m]').forEach(b=>b.addEventListener('click',()=>{seq=null;setMode(b.dataset.m)}));
+  document.getElementById('c1play').addEventListener('click',()=>{const L=['linie','strecke','strahl','gerade'];let i=0;const tok={};seq=tok;
+    const nx=()=>{if(seq!==tok||i>=L.length)return;setMode(L[i++],()=>setTimeout(nx,700))};eA=0;eB=0;nx()});
+  f.render();
+})();
+
+/* ======================= Fig 2: Winkel ======================= */
+(function(){
+  const f=new Fig(document.getElementById('f2'),{h:400});
+  const P={S:{x:-1.5,y:-1.5},P:{x:4.5,y:-1.5},Q:{x:1.5,y:2.5}};let full=false,stop=null;
+  const rel=()=>norm2pi(V.ang(V.sub(P.Q,P.S))-V.ang(V.sub(P.P,P.S)));
+  f.handle(P,'S',{check:p=>V.dist(p,P.P)>1&&V.dist(p,P.Q)>1});
+  f.handle(P,'P',{check:p=>V.dist(p,P.S)>1});
+  f.handle(P,'Q',{constrain:p=>{const r=V.dist(p,P.S);if(r<1)return null;const a0=V.ang(V.sub(P.P,P.S));let a=norm2pi(V.ang(V.sub(p,P.S))-a0)*DEG;
+    for(const t of[90,180,270])if(Math.abs(a-t)<3)a=t;return V.add(P.S,V.mul(V.dir(a0+a/DEG),r))}});
+  f.onstart=()=>{full=false;if(stop){stop();stop=null}};
+  f.draw=()=>{const {S,P:Pp,Q}=P,a1=V.ang(V.sub(Pp,S));let al=full?2*PI:rel();const deg=al*DEG;
+    if(deg>0.05){if(Math.abs(deg-90)<0.05)f.rmark(S,a1,0.8);else{f.wedge(S,a1,a1+al,1.1);f.arc(S,a1,a1+al,1.1,{c:C.blau,w:1.6,me:'b'})}}
+    f.seg(S,V.add(S,V.mul(V.norm(V.sub(Pp,S)),30)),{w:2.4});f.seg(S,V.add(S,V.mul(V.norm(V.sub(Q,S)),30)),{w:2.4,c:full?C.ink:C.ink});
+    if(deg>0.05)f.angle(S,a1,a1+al,{r:1.1,right:false,f:'none',c:'none',lab:'α',lr:Math.abs(deg-90)<0.05?1.25:clamp(0.4/Math.max(Math.sin(al/2),0.05),1.55,2.6)});
+    f.dot(S,4.2);f.dot(Pp,3.6);f.dot(Q,3.6);
+    const dP=V.norm(V.sub(Pp,S)),dQ=V.norm(V.sub(Q,S));
+    f.text(V.add(S,V.mul(V.norm(V.add(dP,dQ)),-0.55)),'S');
+    f.text(V.add(Pp,V.mul(V.perp(dP),-0.45)),'P');f.text(V.add(Q,V.mul(V.perp(dQ),0.45)),'Q');
+    f.text(f.inView(V.add(S,V.add(V.mul(dP,2.6),V.mul(V.perp(dP),-0.4)))),'1. Schenkel','ann');
+    f.text(f.inView(V.add(S,V.add(V.mul(dQ,2.6),V.mul(V.perp(dQ),0.4)))),'2. Schenkel','ann');
+    let k='';if(full)k='voll';else if(Math.abs(deg-90)<0.05)k='recht';else if(Math.abs(deg-180)<0.05)k='gestreckt';else if(deg<0.05)k='';else if(deg<90)k='spitz';else if(deg<180)k='stumpf';else k='ueber';
+    rowsOn('t2','k',k);
+    document.getElementById('r2').innerHTML=`<i>α</i> = ∠<i>PSQ</i> = ${full?'360.0°':gr(deg)}`};
+  document.getElementById('c2play').addEventListener('click',()=>{if(stop)stop();full=false;const a0=V.ang(V.sub(P.P,P.S)),r=Math.max(2.5,V.dist(P.Q,P.S));
+    stop=tween(9000,t=>{const a=t*2*PI;P.Q=V.add(P.S,V.mul(V.dir(a0+a),r));full=t>=1;f.render()},()=>{stop=null})});
+  f.render();
+})();
+
+/* ======================= Fig 3: Senkrechte und Parallele ======================= */
+(function(){
+  const f=new Fig(document.getElementById('f3'),{h:400,snap:0.5});
+  const P={G1:{x:-6,y:-2.5},G2:{x:5,y:-0.5},P:{x:0.5,y:2.5}};const on={s:0,p:0,d:0},want={s:false,p:false,d:false};
+  f.handle(P,'G1',{check:p=>V.dist(p,P.G2)>2});f.handle(P,'G2',{check:p=>V.dist(p,P.G1)>2});f.handle(P,'P');
+  f.draw=()=>{const {G1,G2,P:Pp}=P,d=V.norm(V.sub(G2,G1)),n=V.perp(d),F=footOf(Pp,G1,G2).p,dist=V.dist(Pp,F);
+    f.line(G1,d,{w:2.6});f.text(f.inView(V.add(G2,V.add(V.mul(d,1.4),V.mul(n,-0.45)))),'g');
+    f.dot(G1,3);f.dot(G2,3);
+    if(on.p>0){f.seg(V.sub(Pp,V.mul(d,on.p*22)),V.add(Pp,V.mul(d,on.p*22)),{w:2.2,c:C.gr});if(on.p>0.3)f.text(f.inView(V.add(Pp,V.add(V.mul(d,3.6),V.mul(n,0.42)))),'p','lbl',{fill:C.gr})}
+    const u=dist>1e-6?V.norm(V.sub(Pp,F)):n;
+    if(on.s>0){f.seg(V.sub(Pp,V.mul(u,on.s*22)),V.add(Pp,V.mul(u,on.s*22)),{w:2.2,c:C.or});
+      if(on.s>0.5){const q=V.cross(d,u)>0?V.ang(d):V.ang(u);f.rmark(F,q,0.6,C.or);f.dot(F,3.6,C.or);
+        f.text(V.add(F,V.add(V.mul(u,-0.5),V.mul(d,-0.45))),'F','lbl',{fill:C.or});
+        f.text(f.inView(V.add(Pp,V.add(V.mul(u,1.9),V.mul(d,0.4)))),'s','lbl',{fill:C.or});
+        if(on.p>0.5&&dist>0.6){const mu=V.mul(u,-1);f.rmark(Pp,V.cross(mu,d)>0?V.ang(mu):V.ang(d),0.5,C.gr)}}}
+    if(on.d>0){const E=V.lerp(Pp,F,on.d);f.seg(Pp,E,{w:4,c:C.vi,o:.75});if(on.d>0.9)f.text(V.add(V.mid(Pp,F),V.mul(d,-0.45)),'d','lbl',{fill:C.vi})}
+    f.dot(Pp,4.2);f.text(V.add(Pp,V.add(V.mul(d,-0.45),V.mul(u,0.4))),'P');
+    const par=dist<1e-6?'liegt auf <i>g</i>':'';
+    document.getElementById('r3').innerHTML=`Abstand <i>d</i> = <i>|</i><span class="ov">PF</span><i>|</i> = ${cm(dist)} ${par}<br><i>s</i> ⊥ <i>g</i>: Winkel bei <i>F</i> = 90.0° &nbsp; · &nbsp; <i>p</i> ∥ <i>g</i>`};
+  function setK(k,v){want[k]=v;document.querySelector(`#c3 [data-k="${k}"]`).classList.toggle('on',v);const a=on[k],b=v?1:0;tween(900,t=>{on[k]=a+(b-a)*ease(t);f.render()})}
+  document.querySelectorAll('#c3 [data-k]').forEach(b=>b.addEventListener('click',()=>setK(b.dataset.k,!want[b.dataset.k])));
+  document.getElementById('c3play').addEventListener('click',()=>{for(const k of['s','p','d']){want[k]=false;on[k]=0;document.querySelector(`#c3 [data-k="${k}"]`).classList.remove('on')}f.render();
+    setTimeout(()=>setK('s',true),200);setTimeout(()=>setK('d',true),1400);setTimeout(()=>setK('p',true),2600)});
+  f.render();
+})();
+
+/* ======================= Fig 4: Bezeichnungen ======================= */
+(function(){
+  const f=new Fig(document.getElementById('f4'),{h:420,snap:0.5});
+  const P={A:{x:-4.5,y:-2.5},B:{x:4,y:-2},C:{x:0.5,y:3}};let hi=null,oriT=0,seqTok=null;
+  for(const k of['A','B','C'])f.handle(P,k,{check:p=>{const Q=Object.assign({},P,{[k]:p});return Math.abs(TRI.area2(Q.A,Q.B,Q.C))>0.5}});
+  f.onstart=()=>{seqTok=null;hi=null;oriT=0};
+  f.draw=()=>{const {A,B,C:Cc}=P;
+    f.poly([A,B,Cc],{w:0,f:'#f4f9fc',c:'none'});
+    const colV={A:null,B:null,C:null};let col={},st={};
+    if(hi&&hi!=='ori'){const s={A:'a',B:'b',C:'c'}[hi];col={[hi]:C.or,[s]:C.or};st={[hi]:{c:C.or,f:C.orh}}}
+    triAngles(f,P,{st});
+    for(const [n,p,q] of [['a',B,Cc],['b',Cc,A],['c',A,B]])f.seg(p,q,{w:hi&&col[n]?3.6:2.4,c:col[n]||C.ink});
+    for(const p of[A,B,Cc])f.dot(p,3.8);
+    triLabels(f,P,{col});
+    if(hi==='ori'&&oriT>0){const G=TRI.S(A,B,Cc),a0=V.ang(V.sub(A,G));const sgn=1;f.arc(G,a0,a0+oriT*1.75*PI,0.9,{c:C.or,w:2.4,me:'o'})}
+    const s=TRI.sides(A,B,Cc),w=TRI.angles(A,B,Cc),ccw=TRI.area2(A,B,Cc)>0;
+    document.getElementById('r4').innerHTML=`<i>a</i> = ${cm(s.a)} &nbsp; <i>b</i> = ${cm(s.b)} &nbsp; <i>c</i> = ${cm(s.c)}<br><i>α</i> = ${gr(w.al)} &nbsp; <i>β</i> = ${gr(w.be)} &nbsp; <i>γ</i> = ${gr(w.ga)}`+
+      (ccw?'':`<br><span class="warn">Achtung: A, B, C sind jetzt im Uhrzeigersinn angeordnet. Üblich ist gegen den Uhrzeigersinn.</span>`)};
+  const cap=document.getElementById('cap4');
+  const steps=[['ori','Die Ecken <i>A</i>, <i>B</i>, <i>C</i> werden <b>gegen den Uhrzeigersinn</b> beschriftet.'],
+    ['A','Gegenüber von <i>A</i> liegt die Seite <i>a</i> = <i>|</i><span class="ov">BC</span><i>|</i>. Der Winkel bei <i>A</i> heisst <i>α</i>.'],
+    ['B','Gegenüber von <i>B</i> liegt die Seite <i>b</i> = <i>|</i><span class="ov">CA</span><i>|</i>. Der Winkel bei <i>B</i> heisst <i>β</i>.'],
+    ['C','Gegenüber von <i>C</i> liegt die Seite <i>c</i> = <i>|</i><span class="ov">AB</span><i>|</i>. Der Winkel bei <i>C</i> heisst <i>γ</i>.'],
+    [null,'Merkregel: Ecke, gegenüberliegende Seite und Winkel haben denselben Buchstaben (gross, klein, griechisch).']];
+  document.getElementById('c4play').addEventListener('click',()=>{const tok={};seqTok=tok;let i=0;
+    const nx=()=>{if(seqTok!==tok||i>=steps.length)return;const [h,t]=steps[i++];hi=h;cap.innerHTML=`<p>${t}</p>`;
+      if(h==='ori'){oriT=0;tween(1500,t=>{if(seqTok!==tok)return;oriT=ease(t);f.render()})}else f.render();setTimeout(nx,2600)};nx()});
+  f.render();
+})();
+
+/* ======================= Fig 5: Dreiecksarten ======================= */
+(function(){
+  const f=new Fig(document.getElementById('f5'),{h:420,snap:0.5});
+  const P={A:{x:-3.5,y:-2},B:{x:3,y:-2.5},C:{x:0.5,y:3}};let stop=null;
+  for(const k of['A','B','C'])f.handle(P,k,{check:p=>{const Q=Object.assign({},P,{[k]:p});return Math.abs(TRI.area2(Q.A,Q.B,Q.C))>0.5}});
+  f.onstart=()=>{if(stop){stop();stop=null}};
+  const EX={spitz:{A:{x:-3.5,y:-2},B:{x:3,y:-2.5},C:{x:0.5,y:3}},recht:{A:{x:-3,y:-2.5},B:{x:4,y:-2.5},C:{x:-3,y:2.5}},
+    stumpf:{A:{x:-2,y:-2.5},B:{x:4.5,y:-2.5},C:{x:-4.5,y:1.5}},gs:{A:{x:-2.5,y:-2.5},B:{x:2.5,y:-2.5},C:{x:0,y:3.5}},
+    gsr:{A:{x:-3.5,y:-2},B:{x:3.5,y:-2},C:{x:0,y:1.5}},gl:{A:{x:-3,y:-2.5},B:{x:3,y:-2.5},C:{x:0,y:-2.5+3*Math.sqrt(3)}}};
+  document.querySelectorAll('#c5 [data-ex]').forEach(b=>b.addEventListener('click',()=>{if(stop)stop();stop=morph(P,EX[b.dataset.ex],900,()=>f.render(),()=>{stop=null})}));
+  const opp={A:['B','C','a'],B:['C','A','b'],C:['A','B','c']};
+  f.draw=()=>{const {A,B,C:Cc}=P;const ty=TRI.type(A,B,Cc);const G=TRI.S(A,B,Cc);
+    f.poly([A,B,Cc],{w:0,f:'#f4f9fc',c:'none'});
+    const st={};if(ty.s==='gs'&&ty.w!=='recht'){const [x,y]=opp[ty.apex];st[x]={c:C.or,f:C.orh};st[y]={c:C.or,f:C.orh}}
+    triAngles(f,P,{st});
+    const side=(k)=>{const [x,y]=opp[k];return[P[x],P[y]]};
+    const term=(k,txt,col)=>{const [p,q]=side(k),m=V.mid(p,q);let nn=V.perp(V.norm(V.sub(q,p)));if(V.dot(nn,V.sub(P[k],m))>0)nn=V.mul(nn,-1);f.text(V.add(m,V.mul(nn,0.95)),txt,'ann',{fill:col})};
+    for(const k of['A','B','C']){const [p,q]=side(k);let c=C.ink,w=2.4;
+      if(ty.w==='recht'){c=k===ty.at?C.rot:C.blau;w=3}
+      f.seg(p,q,{w,c})}
+    if(ty.s==='gl')for(const k of['A','B','C']){const [p,q]=side(k);f.ticks(p,q,1)}
+    if(ty.s==='gs'){const [x,y]=opp[ty.apex];f.ticks(...side(x),1);f.ticks(...side(y),1);
+      if(ty.w!=='recht'){term(ty.apex,'Basis',C.or);term(x,'Schenkel',C.grau);term(y,'Schenkel',C.grau);
+        const d=V.norm(V.sub(P[ty.apex],G));f.text(V.add(P[ty.apex],V.mul(d,1.05)),'Spitze','ann',{fill:C.or})}}
+    if(ty.w==='recht'){const [x,y]=opp[ty.at];term(ty.at,'Hypotenuse',C.rot);term(x,'Kathete',C.blau);term(y,'Kathete',C.blau)}
+    for(const p of[A,B,Cc])f.dot(p,3.8);
+    triLabels(f,P);
+    chipsOn('k5s',ty.s==='gl'?['gl','gs']:[ty.s]);chipsOn('k5w',[ty.w]);
+    const s=TRI.sides(A,B,Cc),w=TRI.angles(A,B,Cc);
+    document.getElementById('r5').innerHTML=`<i>a</i> = ${cm(s.a)} &nbsp; <i>b</i> = ${cm(s.b)} &nbsp; <i>c</i> = ${cm(s.c)}<br><i>α</i> = ${gr(w.al)} &nbsp; <i>β</i> = ${gr(w.be)} &nbsp; <i>γ</i> = ${gr(w.ga)}`};
+  f.render();
+})();
+
+/* ======================= Fig 6: Spezielle Linien ======================= */
+(function(){
+  const host=document.getElementById('f6');const f=new Fig(host,{h:470,s:34,snap:0.5});
+  const P={A:{x:-4.5,y:-2.5},B:{x:4,y:-2},C:{x:-0.5,y:3.5}};
+  const MAX={ms:5,wh:5,hoe:4,sh:5,vg:4};let mode='ms',p=0,stop=null,euler=false;
+  for(const k of['A','B','C'])f.handle(P,k,{check:q=>{const Q=Object.assign({},P,{[k]:q});const s=TRI.sides(Q.A,Q.B,Q.C);return Math.abs(TRI.area2(Q.A,Q.B,Q.C))>1.2&&Math.min(s.a,s.b,s.c)>1.2}});
+  const COL={ms:[C.or,C.orh],wh:[C.gr,C.grh],hoe:[C.rot,C.roth],sh:[C.vi,C.vih]};
+  const cap=document.getElementById('cap6');
+  const CAPS={ms:['Schritt 1: Mittelsenkrechte <i>m<sub>c</sub></i> durch die Mitte <i>M<sub>c</sub></i> von <i>c</i>, senkrecht zu <i>c</i>.','Schritt 2: Mittelsenkrechte <i>m<sub>a</sub></i>.','Schritt 3: Mittelsenkrechte <i>m<sub>b</sub></i>. Alle drei gehen durch einen Punkt!','Schritt 4: Der Schnittpunkt <i>U</i> ist von <i>A</i>, <i>B</i> und <i>C</i> gleich weit entfernt.','Schritt 5: Der Kreis um <i>U</i> durch alle drei Ecken ist der <b>Umkreis</b>.'],
+    wh:['Schritt 1: Winkelhalbierende <i>w<sub>α</sub></i> teilt <i>α</i> in zwei gleiche Teile.','Schritt 2: Winkelhalbierende <i>w<sub>β</sub></i>.','Schritt 3: Winkelhalbierende <i>w<sub>γ</sub></i>. Alle drei gehen durch einen Punkt!','Schritt 4: Der Schnittpunkt <i>I</i> hat von allen drei Seiten den gleichen Abstand <i>ρ</i>.','Schritt 5: Der Kreis um <i>I</i> mit Radius <i>ρ</i> berührt alle Seiten: der <b>Inkreis</b>.'],
+    hoe:['Schritt 1: Höhe <i>h<sub>a</sub></i>: von <i>A</i> senkrecht auf <i>a</i> (oder ihre Verlängerung).','Schritt 2: Höhe <i>h<sub>b</sub></i>.','Schritt 3: Höhe <i>h<sub>c</sub></i>.','Schritt 4: Die Höhen (bzw. ihre Verlängerungen) schneiden sich im Höhenschnittpunkt <i>H</i>.'],
+    vg:['Schritt 1: Mittelsenkrechte <i>m<sub>c</sub></i>: senkrecht zu <i>c</i> durch die Mitte <i>M<sub>c</sub></i>.','Schritt 2: Seitenhalbierende <i>s<sub>c</sub></i>: von <i>C</i> zur Mitte <i>M<sub>c</sub></i>.','Schritt 3: Winkelhalbierende <i>w<sub>γ</sub></i>: halbiert <i>γ</i>, trifft <i>c</i> in <i>D</i>.','Schritt 4: Höhe <i>h<sub>c</sub></i>: von <i>C</i> senkrecht auf <i>c</i>, Fusspunkt <i>H<sub>c</sub></i>.'],
+    sh:['Schritt 1: Seitenhalbierende <i>s<sub>a</sub></i> von <i>A</i> zur Mitte <i>M<sub>a</sub></i> von <i>a</i>.','Schritt 2: Seitenhalbierende <i>s<sub>b</sub></i>.','Schritt 3: Seitenhalbierende <i>s<sub>c</sub></i>. Alle drei gehen durch einen Punkt!','Schritt 4: Der Schnittpunkt ist der Schwerpunkt <i>S</i>.','Schritt 5: <i>S</i> teilt jede Seitenhalbierende im Verhältnis 2 : 1 (von der Ecke aus gemessen).']};
+  const labelOn=(q,t,c,cls='lbl sm')=>f.text(f.inView(q),t,cls,{fill:c});
+  function drawMS(T,k){const [c1,c2]=COL.ms;const L=[['A','B','C','c'],['B','C','A','a'],['C','A','B','b']];
+    L.forEach(([X,Y,O,n],i)=>{const fi=clamp(k-i,0,1);if(fi<=0)return;const Xp=T[X],Yp=T[Y],M=V.mid(Xp,Yp),d=V.norm(V.sub(Yp,Xp));let nn=V.perp(d);if(V.dot(nn,V.sub(T[O],M))>0)nn=V.mul(nn,-1);
+      f.ticks(Xp,M,i+1,c1);f.ticks(M,Yp,i+1,c1);
+      f.seg(V.sub(M,V.mul(nn,fi*14)),V.add(M,V.mul(nn,fi*14)),{c:c1,w:1.9});
+      if(fi>0.3){const inn=V.mul(nn,-1);f.rmark(M,V.cross(d,inn)>0?V.ang(d):V.ang(inn),0.45,c1)}
+      f.dot(M,3,c1);f.text(V.add(M,V.add(V.mul(nn,0.42),V.mul(d,-0.5))),'M_'+n,'lbl sm',{fill:c1});
+      if(fi>0.6)labelOn(V.add(M,V.add(V.mul(nn,2.3),V.mul(d,0.4))),'m_'+n,c1,'lbl')});
+    const U=TRI.U(T.A,T.B,T.C),r=V.dist(U,T.A),f3=clamp(k-3,0,1),f4=clamp(k-4,0,1);
+    if(f3>0){for(const q of[T.A,T.B,T.C])f.seg(U,q,{c:c1,w:1.4,d:'5 4',o:f3});f.dot(U,4.6*f3+0.1,c1);labelOn(V.add(U,{x:0.35,y:0.42}),'U',c1,'lbl')}
+    if(f4>0){const a0=V.ang(V.sub(T.A,U));f.arc(U,a0,a0+f4*2*PI,r,{c:c1,w:2.2});if(f4>0.5){f.text(V.add(V.mid(U,T.A),V.mul(V.perp(V.norm(V.sub(T.A,U))),0.35)),'r','lbl sm',{fill:c1})}}
+    return{U,r}}
+  function drawWH(T,k){const [c1,c2]=COL.wh;const L=[['A','B','C','α'],['B','C','A','β'],['C','A','B','γ']];
+    L.forEach(([X,Y,Z,g],i)=>{const fi=clamp(k-i,0,1);if(fi<=0)return;const v=T[X],w=ang2(v,T[Y],T[Z]),m=(w.a1+w.a2)/2,bd=V.dir(m);
+      const r=w.deg<35?1.35:0.85;f.wedge(v,w.a1,m,r,{c:c1,f:c2,o:fi});f.wedge(v,m,w.a2,r,{c:c1,f:c2,o:fi});
+      for(const am of[(w.a1+m)/2,(m+w.a2)/2]){const pa=V.add(v,V.mul(V.dir(am),r-0.12)),pb=V.add(v,V.mul(V.dir(am),r+0.12));f.seg(pa,pb,{c:c1,w:1.5,o:fi})}
+      const D=lineX(v,bd,T[Y],V.sub(T[Z],T[Y]));const Lw=V.dist(v,D)+1.4;
+      f.seg(v,V.add(v,V.mul(bd,fi*Lw)),{c:c1,w:1.9});
+      if(fi>0.7)f.text(V.add(V.lerp(v,D,0.42),V.mul(V.perp(bd),0.36)),'w_'+g,'lbl sm',{fill:c1})});
+    const I=TRI.I(T.A,T.B,T.C),rho=Math.abs(TRI.area2(T.A,T.B,T.C))/(TRI.sides(T.A,T.B,T.C).a+TRI.sides(T.A,T.B,T.C).b+TRI.sides(T.A,T.B,T.C).c),f3=clamp(k-3,0,1),f4=clamp(k-4,0,1);
+    if(f3>0){for(const [X,Y] of[['A','B'],['B','C'],['C','A']]){const F=footOf(I,T[X],T[Y]).p,d=V.norm(V.sub(T[Y],T[X])),u=V.norm(V.sub(I,F));f.seg(I,F,{c:c1,w:1.4,d:'5 4',o:f3});
+        if(f3>0.5)f.rmark(F,V.cross(d,u)>0?V.ang(d):V.ang(u),0.35,c1);f.dot(F,2.6,c1,f3)}
+      f.dot(I,4.6*f3+0.1,c1);labelOn(V.add(I,{x:0.38,y:0.38}),'I',c1,'lbl')}
+    if(f4>0){const F=footOf(I,T.A,T.B).p,a0=V.ang(V.sub(F,I));f.arc(I,a0,a0+f4*2*PI,rho,{c:c1,w:2.2});
+      if(f4>0.5)f.text(V.add(V.mid(I,F),V.mul(V.perp(V.norm(V.sub(F,I))),0.3)),'ρ','lbl sm',{fill:c1})}
+    return{I,rho}}
+  function drawHOE(T,k){const [c1,c2]=COL.hoe;const L=[['A','B','C','a'],['B','C','A','b'],['C','A','B','c']];const hs={};
+    L.forEach(([X,Y,Z,n],i)=>{const v=T[X],{p:F,t}=footOf(v,T[Y],T[Z]);hs[n]=V.dist(v,F);const fi=clamp(k-i,0,1);if(fi<=0)return;
+      if(t<0)f.seg(T[Y],F,{c:C.grau,w:1.4,d:'6 5'});if(t>1)f.seg(T[Z],F,{c:C.grau,w:1.4,d:'6 5'});
+      const u=V.norm(V.sub(F,v));f.seg(V.sub(v,V.mul(u,fi*14)),V.add(v,V.mul(u,fi*14)),{c:c1,w:1.1,d:'5 5',o:.7});
+      f.seg(v,V.lerp(v,F,fi),{c:c1,w:2.4});
+      if(fi>0.85&&V.dist(v,F)>0.3){const s=V.norm(V.sub(T[Z],T[Y]));const s2=t<0.5?s:V.mul(s,-1);const up=V.mul(u,-1);f.rmark(F,V.cross(s2,up)>0?V.ang(s2):V.ang(up),0.4,c1);
+        f.dot(F,2.8,c1);f.text(V.add(F,V.add(V.mul(u,0.42),V.mul(s2,-0.4))),'H_'+n,'lbl sm',{fill:c1})}
+      if(fi>0.6)f.text(V.add(V.lerp(v,F,0.5),V.mul(V.perp(u),0.34)),'h_'+n,'lbl sm',{fill:c1})});
+    const H=TRI.H(T.A,T.B,T.C),f3=clamp(k-3,0,1);
+    if(f3>0){f.dot(H,4.6*f3+0.1,c1);labelOn(V.add(H,{x:0.4,y:0.4}),'H',c1,'lbl')}
+    return{H,hs}}
+  function drawVG(T,k){const {A,B,C:Cc}=T,M=V.mid(A,B),d=V.norm(V.sub(B,A));let n=V.perp(d);if(V.dot(n,V.sub(Cc,M))<0)n=V.mul(n,-1);
+    const w=ang2(Cc,A,B),mid=(w.a1+w.a2)/2,D=lineX(Cc,V.dir(mid),A,d),{p:Hc,t}=footOf(Cc,A,B);const f1=clamp(k,0,1),f2=clamp(k-1,0,1),f3=clamp(k-2,0,1),f4=clamp(k-3,0,1);
+    if(f1>0){f.seg(V.sub(M,V.mul(n,f1*3)),V.add(M,V.mul(n,f1*14)),{c:C.or,w:1.8});f.ticks(A,M,1,C.or);f.ticks(M,B,1,C.or);if(f1>0.5)rmarkBetween(f,M,d,n,0.4,C.or);f.dot(M,3,C.or);
+      f.text(V.add(M,V.add(V.mul(n,-0.45),V.mul(d,0.42))),'M_c','lbl sm',{fill:C.or});if(f1>0.8)labelOn(V.add(M,V.add(V.mul(n,V.dist(Cc,Hc)+1.4),V.mul(d,0.35))),'m_c',C.or,'lbl sm')}
+    if(f2>0){f.seg(Cc,V.lerp(Cc,M,f2),{c:C.vi,w:2.2});if(f2>0.7)f.text(V.add(V.lerp(Cc,M,0.62),V.mul(V.perp(V.norm(V.sub(M,Cc))),0.32)),'s_c','lbl sm',{fill:C.vi})}
+    if(f3>0){f.wedge(Cc,w.a1,mid,1.0,{c:C.gr,f:C.grh,o:f3});f.wedge(Cc,mid,w.a2,1.0,{c:C.gr,f:C.grh,o:f3});f.seg(Cc,V.lerp(Cc,D,f3),{c:C.gr,w:2.2});
+      if(f3>0.7){f.dot(D,3,C.gr);f.text(V.add(D,V.mul(n,-0.42)),'D','lbl sm',{fill:C.gr});f.text(V.add(V.lerp(Cc,D,0.45),V.mul(V.perp(V.dir(mid)),-0.3)),'w_γ','lbl sm',{fill:C.gr})}}
+    if(f4>0){if(t<0)f.seg(A,Hc,{c:C.grau,w:1.4,d:'6 5'});if(t>1)f.seg(B,Hc,{c:C.grau,w:1.4,d:'6 5'});f.seg(Cc,V.lerp(Cc,Hc,f4),{c:C.rot,w:2.2});
+      if(f4>0.85){rmarkBetween(f,Hc,t<0.5?d:V.mul(d,-1),n,0.4,C.rot);f.dot(Hc,3,C.rot);f.text(V.add(Hc,V.mul(n,-0.42)),'H_c','lbl sm',{fill:C.rot});f.text(V.add(V.lerp(Cc,Hc,0.3),V.mul(V.perp(n),0.3)),'h_c','lbl sm',{fill:C.rot})}}
+    return{M,D,Hc}}
+  function drawSH(T,k){const [c1,c2]=COL.sh;const L=[['A','B','C','a'],['B','C','A','b'],['C','A','B','c']];
+    const S=TRI.S(T.A,T.B,T.C),f3=clamp(k-3,0,1),f4=clamp(k-4,0,1);
+    L.forEach(([X,Y,Z,n],i)=>{const fi=clamp(k-i,0,1);if(fi<=0)return;const v=T[X],M=V.mid(T[Y],T[Z]);
+      f.ticks(T[Y],M,i+1,c1);f.ticks(M,T[Z],i+1,c1);f.seg(v,V.lerp(v,M,fi),{c:c1,w:2.2});f.dot(M,3,c1);
+      let nn=V.perp(V.norm(V.sub(T[Z],T[Y])));if(V.dot(nn,V.sub(v,M))>0)nn=V.mul(nn,-1);f.text(V.add(M,V.mul(nn,0.45)),'M_'+n,'lbl sm',{fill:c1});
+      const u=V.norm(V.sub(M,v));if(fi>0.6)f.text(V.add(V.lerp(v,M,0.25),V.mul(V.perp(u),0.34)),'s_'+n,'lbl sm',{fill:c1});
+      if(f4>0){const q=V.perp(u);f.text(V.add(V.mid(v,S),V.mul(q,-0.32)),'2','ann',{fill:c1,opacity:f4});f.text(V.add(V.mid(S,M),V.mul(q,-0.32)),'1','ann',{fill:c1,opacity:f4});
+        for(const t of[1/3,2/3]){const o=V.lerp(v,M,t);f.seg(V.add(o,V.mul(q,0.14)),V.sub(o,V.mul(q,0.14)),{c:c1,w:1.6,o:f4})}}});
+    if(f3>0){f.dot(S,4.6*f3+0.1,c1);labelOn(V.add(S,{x:0.42,y:-0.42}),'S',c1,'lbl')}
+    return{S}}
+  f.draw=()=>{const T=P,{A,B,C:Cc}=T;
+    f.poly([A,B,Cc],{w:0,f:'#f6f9fb',c:'none'});
+    for(const [p,q] of[[A,B],[B,Cc],[Cc,A]])f.seg(p,q,{w:2.4});
+    let res;if(mode==='ms')res=drawMS(T,p);else if(mode==='wh')res=drawWH(T,p);else if(mode==='hoe')res=drawHOE(T,p);else if(mode==='vg')res=drawVG(T,p);else res=drawSH(T,p);
+    for(const q of[A,B,Cc])f.dot(q,3.8);triLabels(f,T,{sides:false});
+    const ty=TRI.type(A,B,Cc);let eu='';
+    if(euler){const U=TRI.U(A,B,Cc),S=TRI.S(A,B,Cc),H=TRI.H(A,B,Cc);
+      if(V.dist(U,H)>0.05){f.line(U,V.sub(H,U),{c:'#55636e',w:1.4,d:'9 6'});}
+      const own={ms:'U',sh:'S',hoe:'H'}[mode];for(const [q,n,c] of[[U,'U',C.or],[S,'S',C.vi],[H,'H',C.rot]]){f.dot(q,4,c);if(!(n===own&&p>=3))f.text(f.inView(V.add(q,{x:-0.38,y:0.38})),n,'lbl sm',{fill:c})}
+      eu=V.dist(U,H)>0.05?`<br><b>Eulersche Gerade:</b> <i>U</i>, <i>S</i> und <i>H</i> liegen immer auf einer Geraden, und es gilt <i>|</i><span class="ov">SH</span><i>|</i> = 2 · <i>|</i><span class="ov">US</span><i>|</i> (${fmt(V.dist(S,H),2)} = 2 · ${fmt(V.dist(U,S),2)}).`:'<br>Im gleichseitigen Dreieck fallen <i>U</i>, <i>S</i>, <i>H</i> (und <i>I</i>) zusammen.'}
+    const r6=document.getElementById('r6');const s=TRI.sides(A,B,Cc);const wtxt={spitz:'spitzwinklig',recht:'rechtwinklig',stumpf:'stumpfwinklig'}[ty.w];
+    if(mode==='ms'){const U=res.U;const lage=ty.w==='spitz'?'innerhalb des Dreiecks':ty.w==='recht'?'genau in der Mitte der Hypotenuse (Thaleskreis!)':'ausserhalb des Dreiecks';
+      r6.innerHTML=`<i>|</i><span class="ov">UA</span><i>|</i> = ${cm(V.dist(U,A))} &nbsp; <i>|</i><span class="ov">UB</span><i>|</i> = ${cm(V.dist(U,B))} &nbsp; <i>|</i><span class="ov">UC</span><i>|</i> = ${cm(V.dist(U,Cc))}<br>Das Dreieck ist ${wtxt}: <i>U</i> liegt ${lage}.`}
+    else if(mode==='wh'){const I=res.I;const d=(X,Y)=>V.dist(I,footOf(I,X,Y).p);
+      r6.innerHTML=`Abstände von <i>I</i> zu den Seiten: ${cm(d(B,Cc))}, ${cm(d(Cc,A))}, ${cm(d(A,B))}<br>Alle gleich: das ist der Inkreisradius <i>ρ</i>. <i>I</i> liegt immer innerhalb.`}
+    else if(mode==='hoe'){const h=res.hs;const lage=ty.w==='spitz'?'innerhalb des Dreiecks':ty.w==='recht'?`in der Ecke ${ty.at} mit dem rechten Winkel`:'ausserhalb des Dreiecks';
+      r6.innerHTML=`½·<i>a</i>·<i>h<sub>a</sub></i> = ${fmt(s.a*h.a/2,2)} &nbsp; ½·<i>b</i>·<i>h<sub>b</sub></i> = ${fmt(s.b*h.b/2,2)} &nbsp; ½·<i>c</i>·<i>h<sub>c</sub></i> = ${fmt(s.c*h.c/2,2)} (cm²)<br>Das Dreieck ist ${wtxt}: <i>H</i> liegt ${lage}.`}
+    else if(mode==='vg'){const x=q=>fmt(V.dot(V.sub(q,A),V.norm(V.sub(B,A))),2);const same=Math.abs(s.a-s.b)<1e-6*Math.max(s.a,s.b);
+      r6.innerHTML=`Abstände von <i>A</i> auf <i>c</i> gemessen: <i>H<sub>c</sub></i>: ${x(res.Hc)} cm · <i>D</i>: ${x(res.D)} cm · <i>M<sub>c</sub></i>: ${x(res.M)} cm<br>${same?'<span class="ok"><i>a</i> = <i>b</i>: Alle vier Linien fallen zusammen.</span>':'<i>D</i> liegt zwischen <i>H<sub>c</sub></i> und <i>M<sub>c</sub></i>.'}`}
+    else{const S=res.S,Ma=V.mid(B,Cc);r6.innerHTML=`<i>|</i><span class="ov">AS</span><i>|</i> : <i>|</i><span class="ov">SM<sub>a</sub></span><i>|</i> = ${fmt(V.dist(A,S),2)} : ${fmt(V.dist(S,Ma),2)} = 2 : 1<br>Gilt auch für <i>s<sub>b</sub></i> und <i>s<sub>c</sub></i>. <i>S</i> liegt immer innerhalb.`}
+    if(p<3&&mode!=='vg'){r6.innerHTML='Die Messungen erscheinen, sobald der Schnittpunkt konstruiert ist.'+''}else if(mode==='vg'&&p<4){r6.innerHTML='Die Messungen erscheinen am Ende der Konstruktion.'}
+    r6.innerHTML+=eu;
+    const ci=Math.min(Math.ceil(p)-1,MAX[mode]-1);cap.innerHTML=`<p>${p<=0?'Klicke auf ▶ Konstruktion abspielen oder auf «Schritt ›».':p>=MAX[mode]?'Fertig. Ziehe jetzt die Ecken und beobachte, was gleich bleibt.':CAPS[mode][Math.max(0,ci)]}</p>`};
+  function play(from,to){if(stop)stop();const d=(to-from)*1300;stop=tween(Math.max(d,300),t=>{p=from+(to-from)*t;f.render()},()=>{stop=null})}
+  btnGroup('#c6m [data-m]','m',m=>{mode=m;if(m==='vg'){P.A={x:-4.5,y:-2.5};P.B={x:4.5,y:-2.5};P.C={x:-2.5,y:3.5}}document.querySelectorAll('#f6').length;document.querySelectorAll('.mode-txt').forEach(x=>x.classList.toggle('on',x.dataset.m===m));if(stop)stop();p=0;f.render()});
+  document.getElementById('c6play').addEventListener('click',()=>{p=0;play(0,MAX[mode])});
+  document.getElementById('c6step').addEventListener('click',()=>{const a=p>=MAX[mode]?0:Math.floor(p+1e-6);if(a===0&&p>=MAX[mode]){p=0}play(a,a+1)});
+  document.getElementById('c6all').addEventListener('click',()=>{if(stop)stop();p=MAX[mode];f.render()});
+  document.getElementById('c6euler').addEventListener('change',e=>{euler=e.target.checked;f.render()});
+  f.render();
+})();
+
+/* ======================= Fig 7: Scheitel- und Nebenwinkel ======================= */
+(function(){
+  const f=new Fig(document.getElementById('f7'),{h:380,grid:true});const O={x:0,y:0},R=3.6;
+  const P={Q1:V.mul(V.dir(20/DEG),R),Q2:V.mul(V.dir(115/DEG),R)};let hl=null,u=0,stop=null;
+  const lineAng=q=>norm2pi(V.ang(q))%PI;
+  const okSep=(a,b)=>{let d=Math.abs(a-b)%PI;d=Math.min(d,PI-d);return d>14/DEG};
+  f.handle(P,'Q1',{constrain:p=>{const q=V.mul(V.norm(p),R);return okSep(lineAng(q),lineAng(P.Q2))?q:null}});
+  f.handle(P,'Q2',{constrain:p=>{const q=V.mul(V.norm(p),R);return okSep(lineAng(q),lineAng(P.Q1))?q:null}});
+  f.onstart=()=>{};
+  function sectors(){const t1=V.ang(P.Q1),t2=V.ang(P.Q2);const r=[t1,t1+PI,t2,t2+PI].map(norm2pi).sort((a,b)=>a-b);
+    const sec=r.map((a,i)=>{let b=r[(i+1)%4];if(b<=a)b+=2*PI;return[a,b]});
+    let best=0,bd=1e9;sec.forEach((s,i)=>{const m=norm2pi((s[0]+s[1])/2);const d=Math.min(Math.abs(m-PI),2*PI-Math.abs(m-PI));if(d<bd){bd=d;best=i}});
+    const names=['α','β','γ','δ'],out={};for(let j=0;j<4;j++)out[names[j]]=sec[(best+j)%4];return out}
+  f.draw=()=>{const s=sectors();
+    const colOf=n=>{if(hl==='scheitel')return(n==='α'||n==='γ')?[C.or,C.orh]:[C.blau,C.hell];if(hl==='neben')return(n==='α'||n==='β')?[C.or,C.orh]:[C.grau,'#eef1f3'];return[C.blau,C.hell]};
+    for(const n in s){const [a,b]=s[n];const [c,fi]=colOf(n);f.angle(O,a,b,{r:1.25,c,f:fi,lab:n,lr:1.75})}
+    f.line(O,P.Q1,{w:2.6});f.line(O,P.Q2,{w:2.6});
+    if(hl==='scheitel'&&u>0){const [a,b]=s['α'];f.wedge(V.rot(O,O,0),a+u*PI,b+u*PI,1.25,{c:C.or,f:C.or,o:0.35,w:2})}
+    if(hl==='neben'&&u>0){const [a]=s['α'],[,b]=s['β'];f.arc(O,a,a+u*(b-a),2.3,{c:C.or,w:2.4});if(u>0.95)f.text(V.add(O,V.mul(V.dir((a+b)/2),2.75)),'180°','ann',{fill:C.or,fontSize:'15px'})}
+    f.dot(O,4);
+    const g=n=>(s[n][1]-s[n][0])*DEG;
+    document.getElementById('r7').innerHTML=`<i>α</i> = ${gr(g('α'))} &nbsp; <i>β</i> = ${gr(g('β'))} &nbsp; <i>γ</i> = ${gr(g('γ'))} &nbsp; <i>δ</i> = ${gr(g('δ'))}<br><i>α</i> + <i>β</i> = ${gr(g('α')+g('β'))}`};
+  document.querySelectorAll('#c7 [data-k]').forEach(b=>b.addEventListener('click',()=>{hl=b.dataset.k;if(stop)stop();u=0;stop=tween(1800,t=>{u=ease(t);f.render()})}));
+  f.render();
+})();
+
+/* ======================= Fig 8: Winkel an Parallelen ======================= */
+(function(){
+  const f=new Fig(document.getElementById('f8'),{h:430});const G0={x:0,y:0},R=3.6;
+  const P={Q:V.mul(V.dir(62/DEG),R)};let tilt=0,mode='stufen',pair=0,u=0,stop=null;
+  f.handle(P,'Q',{constrain:p=>{let a=V.ang(p)*DEG;if(a<0)return null;a=clamp(a,28,152);return V.mul(V.dir(a/DEG),R)}});
+  const NAMES=['α','β','γ','δ'];
+  const REL={stufen:[['α',"α'"],['β',"β'"],['γ',"γ'"],['δ',"δ'"]],wechsel:[['α',"γ'"],['β',"δ'"],['γ',"α'"],['δ',"β'"]],gegen:[['α',"δ'"],['β',"γ'"],['γ',"β'"],['δ',"α'"]]};
+  function secs(S,hd,td){const a=x=>V.ang(x);const mH=V.mul(hd,-1),mT=V.mul(td,-1);const mk2=(p,q)=>{let A1=a(p),A2=a(q);while(A2<=A1)A2+=2*PI;return[A1,A2]};
+    return{'α':mk2(mH,mT),'β':mk2(mT,hd),'γ':mk2(hd,td),'δ':mk2(td,mH)}}
+  f.draw=()=>{const td=V.norm(P.Q);const h1p={x:0,y:1.7},h2p={x:0,y:-1.7},h1d={x:1,y:0},h2d=V.dir(tilt/DEG);
+    const S1=lineX(G0,td,h1p,h1d),S2=lineX(G0,td,h2p,h2d);
+    const s1=secs(S1,h1d,td),s2=secs(S2,h2d,td);
+    const [src,dst]=REL[mode][pair];const dn=dst.replace("'","");
+    const r=0.95;
+    for(const n of NAMES){const isS=n===src,col=isS?[C.or,C.orh]:[C.blau,'#e3eef6'];const [a,b]=s2[n];f.angle(S2,a,b,{r,c:col[0],f:col[1],lab:n,lr:1.35,right:false})}
+    for(const n of NAMES){const isD=n===dn,col=isD?[C.or,C.orh]:[C.blau,'#e3eef6'];const [a,b]=s1[n];f.angle(S1,a,b,{r,c:col[0],f:col[1],lab:n+"'",lr:1.35,right:false})}
+    f.line(h1p,h1d,{w:2.4});f.line(h2p,h2d,{w:2.4});f.line(G0,td,{w:2.4});
+    f.text(f.inView({x:f.xmax,y:1.7+0.42}),'h_1');const e2=f.inView(V.add(h2p,V.mul(h2d,7.4)));f.text({x:e2.x,y:e2.y+0.42},'h_2');
+    f.text(f.inView(V.add(S1,V.add(V.mul(td,2.6),V.mul(V.perp(td),-0.4)))),'g');
+    if(u>0){const [a,b]=s2[src];let Vt,a1=a,a2=b;
+      if(mode==='wechsel'){const M=V.mid(S1,S2);Vt=V.rot(S2,M,u*PI);a1+=u*PI;a2+=u*PI}else Vt=V.lerp(S2,S1,u);
+      f.wedge(Vt,a1,a2,r,{c:C.or,f:C.or,o:0.4,w:2});
+      if(mode==='gegen'&&u>0.98){const [c,d]=s1[dn];const near=(x,y)=>{const q=norm2pi(x-y);return Math.min(q,2*PI-q)<0.35};let st,en;
+        if(near(a2,c)){st=a1;en=a1+(a2-a1)+(d-c)}else{st=c;en=c+(d-c)+(a2-a1)}
+        f.arc(S1,st,en,1.75,{c:C.or,w:2.4});if(Math.abs(tilt)<1e-9)f.text(V.add(S1,V.mul(V.dir((st+en)/2),2.15)),'180°','ann',{fill:C.or})}}
+    f.dot(S1,3.6);f.dot(S2,3.6);
+    const g=(s,n)=>(s[n][1]-s[n][0])*DEG;const vs=g(s2,src),vd=g(s1,dn);
+    const par=Math.abs(tilt)<1e-9;
+    let rel='';if(mode==='gegen'){const sum=vs+vd;rel=`<i>${src}</i> + <i>${dst}</i> = ${gr(vs)} + ${gr(vd)} = ${gr(sum)} ${Math.abs(sum-180)<0.05?'<span class="ok">✓</span>':'<span class="warn">≠ 180°</span>'}`}
+    else rel=`<i>${src}</i> = ${gr(vs)}, &nbsp; <i>${dst}</i> = ${gr(vd)} &nbsp; ${Math.abs(vs-vd)<0.05?'<span class="ok">gleich gross ✓</span>':'<span class="warn">nicht gleich!</span>'}`;
+    document.getElementById('r8').innerHTML=`${{stufen:'Stufenwinkel',wechsel:'Wechselwinkel',gegen:'Gegenwinkel'}[mode]}: ${rel}<br>${par?'<i>h</i><sub>1</sub> ∥ <i>h</i><sub>2</sub>':'<span class="warn"><i>h</i><sub>1</sub> und <i>h</i><sub>2</sub> sind nicht parallel.</span>'}`};
+  btnGroup('#c8 [data-k]','k',k=>{mode=k;pair=0;u=0;f.render()});
+  document.getElementById('c8next').addEventListener('click',()=>{pair=(pair+1)%4;u=0;f.render()});
+  document.getElementById('c8play').addEventListener('click',()=>{if(stop)stop();u=0;stop=tween(1800,t=>{u=ease(t);f.render()})});
+  const tl=document.getElementById('c8tilt');tl.addEventListener('input',()=>{tilt=+tl.value;document.getElementById('c8tv').textContent=tilt+'°';f.render()});
+  f.onstart=()=>{};
+  f.render();
+})();
+
+/* ======================= Fig 9: Winkelsumme (Beweis) ======================= */
+(function(){
+  const f=new Fig(document.getElementById('f9'),{h:420,snap:0.5});
+  const P={A:{x:-4.5,y:-2.5},B:{x:4.5,y:-2.5},C:{x:-1,y:2}};let k=0,stop=null;
+  for(const n of['A','B','C'])f.handle(P,n,{check:p=>{const Q=Object.assign({},P,{[n]:p});return Math.abs(TRI.area2(Q.A,Q.B,Q.C))>1.5}});
+  const caps=[...document.querySelectorAll('#cap9 [data-s]')];
+  f.draw=()=>{const {A,B,C:Cc}=P;
+    f.poly([A,B,Cc],{w:0,f:'#f6f9fb',c:'none'});
+    const w=triAngles(f,P,{st:{A:{c:C.blau,f:C.hell},B:{c:C.gr,f:C.grh},C:{c:C.or,f:C.orh}}});
+    for(const [p,q] of[[A,B],[B,Cc],[Cc,A]])f.seg(p,q,{w:2.4});
+    const d=V.norm(V.sub(B,A)),f1=clamp(k,0,1),f2=clamp(k-1,0,1),f3=clamp(k-2,0,1),f4=clamp(k-3,0,1);
+    if(f1>0){f.seg(V.sub(Cc,V.mul(d,f1*14)),V.add(Cc,V.mul(d,f1*14)),{w:2,c:C.ink,d:'8 5'});if(f1>0.6)f.text(f.inView(V.add(Cc,V.add(V.mul(d,4.2),{x:0,y:0.4}))),'p')}
+    if(f2>0){const M=V.mid(A,Cc),wa=w.A,v=V.rot(A,M,f2*PI);const r=wa.deg<35?1.35:0.9;f.wedge(v,wa.a1+f2*PI,wa.a2+f2*PI,r,{c:C.blau,f:C.hell,o:0.9});
+      f.text(V.add(v,V.mul(V.dir((wa.a1+wa.a2)/2+f2*PI),clamp(0.33/Math.sin(wa.deg/2/DEG),0.6,1.9))),'α','lbl');if(f2<1)f.dot(M,3,C.grau)}
+    if(f3>0){const M=V.mid(B,Cc),wb=w.B,v=V.rot(B,M,f3*PI);const r=wb.deg<35?1.35:0.9;f.wedge(v,wb.a1+f3*PI,wb.a2+f3*PI,r,{c:C.gr,f:C.grh,o:0.9});
+      f.text(V.add(v,V.mul(V.dir((wb.a1+wb.a2)/2+f3*PI),clamp(0.33/Math.sin(wb.deg/2/DEG),0.6,1.9))),'β','lbl');if(f3<1)f.dot(M,3,C.grau)}
+    if(f4>0){const a0=V.ang(d);f.arc(Cc,a0,a0+f4*PI,2.2,{c:C.rot,w:2.6});if(f4>0.9)f.text(V.add(Cc,V.mul(V.dir(a0+PI/2),2.65)),'180°','ann',{fill:C.rot,fontSize:'15px'})}
+    for(const q of[A,B,Cc])f.dot(q,3.8);triLabels(f,P);
+    const a=TRI.angles(A,B,Cc);
+    document.getElementById('r9').innerHTML=`<i>α</i> + <i>β</i> + <i>γ</i> = ${gr(a.al)} + ${gr(a.be)} + ${gr(a.ga)} = <b>${gr(a.al+a.be+a.ga)}</b>`;
+    const ci=Math.round(k);caps.forEach(c=>c.hidden=+c.dataset.s!==Math.min(4,Math.ceil(k-1e-6)))};
+  function go(a,b){if(stop)stop();stop=tween((b-a)*1500,t=>{k=a+(b-a)*ease(t);f.render()},()=>{stop=null})}
+  document.getElementById('c9play').addEventListener('click',()=>{k=0;go(0,4)});
+  document.getElementById('c9step').addEventListener('click',()=>{const a=Math.floor(k+1e-6);if(a>=4){k=0;f.render();return}go(a,a+1)});
+  document.getElementById('c9reset').addEventListener('click',()=>{if(stop)stop();k=0;f.render()});
+  f.render();
+})();
+
+/* ======================= Fig 10: Aussenwinkel ======================= */
+(function(){
+  const f=new Fig(document.getElementById('f10'),{h:430,snap:0.5});
+  const P={A:{x:-4,y:-2},B:{x:3,y:-2},C:{x:-0.5,y:2.5}};let sel=null,u=0,stop=null;
+  for(const n of['A','B','C'])f.handle(P,n,{check:p=>{const Q=Object.assign({},P,{[n]:p});return Math.abs(TRI.area2(Q.A,Q.B,Q.C))>1.5}});
+  f.onstart=()=>{};
+  const cap=document.getElementById('cap10');
+  f.draw=()=>{const {A,B,C:Cc}=P;
+    f.poly([A,B,Cc],{w:0,f:'#f6f9fb',c:'none'});
+    // Verlängerungen: CA über A hinaus, AB über B hinaus, BC über C hinaus
+    const eA=V.norm(V.sub(A,Cc)),eB=V.norm(V.sub(B,A)),eC=V.norm(V.sub(Cc,B));
+    f.seg(A,V.add(A,V.mul(eA,14)),{w:1.6,d:'7 5',c:'#55636e'});f.seg(B,V.add(B,V.mul(eB,14)),{w:1.6,d:'7 5',c:'#55636e'});f.seg(Cc,V.add(Cc,V.mul(eC,14)),{w:1.6,d:'7 5',c:'#55636e'});
+    const X={mu:ang2(A,B,V.add(A,eA)),phi:ang2(B,Cc,V.add(B,eB)),lam:ang2(Cc,A,V.add(Cc,eC))};
+    const lab={mu:'μ',phi:'φ',lam:'λ'},at={mu:A,phi:B,lam:Cc};
+    const w=triAngles(f,P,{st:{A:{c:C.blau,f:C.hell},B:{c:C.blau,f:C.hell},C:{c:C.blau,f:C.hell}}});
+    for(const k in X){const x=X[k];const isS=sel===k;f.angle(at[k],x.a1,x.a2,{r:isS?1.6:1.05,c:C.or,f:isS?'#fbe7d1':C.orh,lab:lab[k],lr:isS?2.05:clamp(0.33/Math.sin(x.deg/2/DEG),0.7,2),right:false})}
+    for(const [p,q] of[[A,B],[B,Cc],[Cc,A]])f.seg(p,q,{w:2.4});
+    if(sel&&u>0){ // Teilwinkel in den Aussenwinkel bringen
+      const parts={phi:[['A','t',V.sub(B,A)],['C','r',V.mid(B,Cc)]],mu:[['C','t',V.sub(A,Cc)],['B','r',V.mid(A,B)]],lam:[['B','t',V.sub(Cc,B)],['A','r',V.mid(A,Cc)]]}[sel];
+      const nm={A:'α',B:'β',C:'γ'},cols=[[C.vi,C.vih],[C.gr,C.grh]];
+      parts.forEach(([n,how,arg],i)=>{const ww=w[n],vx=P[n];let v,a1=ww.a1,a2=ww.a2;
+        if(how==='t')v=V.add(vx,V.mul(arg,u));else{v=V.rot(vx,arg,u*PI);a1+=u*PI;a2+=u*PI}
+        const r=ww.deg<35?1.35:0.9;f.wedge(v,a1,a2,r,{c:cols[i][0],f:cols[i][1],o:0.92,w:1.6});
+        f.text(V.add(v,V.mul(V.dir((a1+a2)/2),clamp(0.33/Math.sin(ww.deg/2/DEG),0.6,1.6))),nm[n],'lbl',{fill:cols[i][0]})})}
+    for(const q of[A,B,Cc])f.dot(q,3.8);triLabels(f,P);
+    const a=TRI.angles(A,B,Cc);
+    document.getElementById('r10').innerHTML=`<i>φ</i> = ${gr(X.phi.deg)} &nbsp;·&nbsp; <i>α</i> + <i>γ</i> = ${gr(a.al+a.ga)}<br><i>μ</i> = ${gr(X.mu.deg)} &nbsp;·&nbsp; <i>β</i> + <i>γ</i> = ${gr(a.be+a.ga)}<br><i>λ</i> = ${gr(X.lam.deg)} &nbsp;·&nbsp; <i>α</i> + <i>β</i> = ${gr(a.al+a.be)}<br><i>μ</i> + <i>φ</i> + <i>λ</i> = ${gr(X.mu.deg+X.phi.deg+X.lam.deg)}`};
+  const CAP={phi:'<i>α</i> wird entlang <i>c</i> nach <i>B</i> verschoben (Stufenwinkel), <i>γ</i> wird um die Mitte von <i>a</i> gedreht (Wechselwinkel). Zusammen füllen sie <i>φ</i> genau aus: <b><i>φ</i> = <i>α</i> + <i>γ</i></b>.',
+    mu:'<i>γ</i> wird entlang <i>b</i> nach <i>A</i> verschoben (Stufenwinkel), <i>β</i> wird um die Mitte von <i>c</i> gedreht (Wechselwinkel). Zusammen füllen sie <i>μ</i> aus: <b><i>μ</i> = <i>β</i> + <i>γ</i></b>.',
+    lam:'<i>β</i> wird entlang <i>a</i> nach <i>C</i> verschoben (Stufenwinkel), <i>α</i> wird um die Mitte von <i>b</i> gedreht (Wechselwinkel). Zusammen füllen sie <i>λ</i> aus: <b><i>λ</i> = <i>α</i> + <i>β</i></b>.'};
+  document.querySelectorAll('#c10 [data-k]').forEach(b=>b.addEventListener('click',()=>{sel=b.dataset.k;cap.innerHTML=`<p>${CAP[sel]}</p>`;if(stop)stop();u=0;stop=tween(2200,t=>{u=ease(t);f.render()})}));
+  f.render();
+})();
+
+/* ======================= Übungen ======================= */
+(function(){
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));
+  function fit(pts,W=9,H=5.4,cy=-0.1){let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;for(const p of pts){x0=Math.min(x0,p.x);x1=Math.max(x1,p.x);y0=Math.min(y0,p.y);y1=Math.max(y1,p.y)}
+    const k=Math.min(W/(x1-x0),H/(y1-y0)),cx=(x0+x1)/2,cy0=(y0+y1)/2;return pts.map(p=>({x:(p.x-cx)*k,y:(p.y-cy0)*k+cy}))}
+  function triFromAngles(al,be){const A={x:0,y:0},B={x:1,y:0},Cc=V.mul(V.dir(al/DEG),Math.sin(be/DEG)/Math.sin((al+be)/DEG));return fit([A,B,Cc])}
+  const BL={c:C.blau,f:C.hell},OR={c:C.or,f:C.orh};
+  function sketchTri(f,T,marks,o={}){const P={A:T[0],B:T[1],C:T[2]};f.poly(T,{w:0,f:'#f6f9fb',c:'none'});
+    const st={},skip={};for(const k of['A','B','C']){if(marks[k])st[k]=Object.assign({},marks[k]==='o'?OR:BL);else skip[k]=true}
+    const w=triAngles(f,P,{st,skip});for(const [p,q] of[[P.A,P.B],[P.B,P.C],[P.C,P.A]])f.seg(p,q,{w:2.4});
+    if(o.after)o.after(P,w);for(const q of T)f.dot(q,3.6);triLabels(f,P,{sides:o.sides!==false});return{P,w}}
+  const GEN={
+    innen(){const al=rnd(25,85),be=rnd(25,150-al),ga=180-al-be;return{titel:'Innenwinkelsumme',
+      q:String.raw`<p>Im Dreieck \(ABC\) ist \(\alpha=${al}^\circ\) und \(\beta=${be}^\circ\). Berechne \(\gamma\).</p>`,ziel:String.raw`\(\gamma=\)`,ans:ga,
+      sol:String.raw`\[\alpha+\beta+\gamma=180^\circ\]\[\gamma=180^\circ-\alpha-\beta=180^\circ-${al}^\circ-${be}^\circ=${ga}^\circ\]`,
+      draw:f=>sketchTri(f,triFromAngles(al,be),{A:'b',B:'b',C:'o'})}},
+    gleich(){if(Math.random()<.5){const ga=2*rnd(15,70),al=(180-ga)/2;return{titel:'Gleichschenkliges Dreieck',
+        q:String.raw`<p>Im gleichschenkligen Dreieck \(ABC\) mit \(a=b\) ist der Winkel an der Spitze \(\gamma=${ga}^\circ\). Berechne den Basiswinkel \(\alpha\).</p>`,ziel:String.raw`\(\alpha=\)`,ans:al,
+        sol:String.raw`<p>Die Basiswinkel sind gleich gross: \(\alpha=\beta\).</p>\[2\alpha+\gamma=180^\circ\]\[\alpha=\frac{180^\circ-\gamma}{2}=\frac{180^\circ-${ga}^\circ}{2}=${al}^\circ\]`,
+        draw:f=>sketchTri(f,triFromAngles(al,al),{A:'o',C:'b'},{after:P=>{f.ticks(P.B,P.C,1);f.ticks(P.C,P.A,1)}})}}
+      const al=rnd(20,80),ga=180-2*al;return{titel:'Gleichschenkliges Dreieck',
+        q:String.raw`<p>Im gleichschenkligen Dreieck \(ABC\) mit \(a=b\) ist der Basiswinkel \(\alpha=${al}^\circ\). Berechne den Winkel \(\gamma\) an der Spitze.</p>`,ziel:String.raw`\(\gamma=\)`,ans:ga,
+        sol:String.raw`<p>Die Basiswinkel sind gleich gross: \(\beta=\alpha=${al}^\circ\).</p>\[\gamma=180^\circ-2\alpha=180^\circ-2\cdot${al}^\circ=${ga}^\circ\]`,
+        draw:f=>sketchTri(f,triFromAngles(al,al),{A:'b',C:'o'},{after:P=>{f.ticks(P.B,P.C,1);f.ticks(P.C,P.A,1)}})}},
+    aussen(){const al=rnd(25,75),ga=rnd(25,160-al),phi=al+ga;return{titel:'Aussenwinkel',
+      q:String.raw`<p>Im Dreieck \(ABC\) ist \(\alpha=${al}^\circ\). Der Aussenwinkel bei \(B\) misst \(\varphi=${phi}^\circ\). Berechne \(\gamma\).</p>`,ziel:String.raw`\(\gamma=\)`,ans:ga,
+      sol:String.raw`<p>Aussenwinkelsatz:</p>\[\varphi=\alpha+\gamma\]\[\gamma=\varphi-\alpha=${phi}^\circ-${al}^\circ=${ga}^\circ\]<p>(Kontrolle: \(\beta=180^\circ-\varphi=${180-phi}^\circ\) und \(${al}^\circ+${180-phi}^\circ+${ga}^\circ=180^\circ\).)</p>`,
+      draw:f=>sketchTri(f,triFromAngles(al,180-phi),{A:'b',C:'o'},{after:(P)=>{const e=V.norm(V.sub(P.B,P.A));f.seg(P.B,V.add(P.B,V.mul(e,3)),{w:1.6,d:'7 5',c:'#55636e'});
+        const x=ang2(P.B,P.C,V.add(P.B,e));f.angle(P.B,x.a1,x.a2,Object.assign({r:0.9,lab:'φ',right:false},BL))}})}},
+    parallel(){const th=rnd(35,145);const val={'α':th,'β':180-th,'γ':th,'δ':180-th};const N=['α','β','γ','δ'];
+      const gv=N[rnd(0,3)],tv=N[rnd(0,3)];const ans=val[tv];
+      const scheitel={'α':'γ','γ':'α','β':'δ','δ':'β'};
+      let steps;if(tv===gv)steps=String.raw`\[${tv}'=${tv}=${val[gv]}^\circ\quad\text{(Stufenwinkel)}\]`;
+      else if(scheitel[gv]===tv)steps=String.raw`\[${tv}=${gv}=${val[gv]}^\circ\quad\text{(Scheitelwinkel)}\]\[${tv}'=${tv}=${ans}^\circ\quad\text{(Stufenwinkel)}\]`;
+      else steps=String.raw`\[${tv}=180^\circ-${gv}=180^\circ-${val[gv]}^\circ=${ans}^\circ\quad\text{(Nebenwinkel)}\]\[${tv}'=${tv}=${ans}^\circ\quad\text{(Stufenwinkel)}\]`;
+      const tex=s=>({'α':'\\alpha','β':'\\beta','γ':'\\gamma','δ':'\\delta'}[s]);
+      steps=steps.replace(/[αβγδ]/g,m=>tex(m)+' ');
+      return{titel:'Winkel an Parallelen',
+        q:String.raw`<p>Es gilt \(h_1\parallel h_2\). An \(h_2\) misst \(${tex(gv)}=${val[gv]}^\circ\). Berechne \(${tex(tv)}'\) an \(h_1\).</p>`,ziel:String.raw`\(${tex(tv)}'=\)`,ans,
+        sol:steps+String.raw`<p>Kurzweg über Wechsel- oder Gegenwinkel ist ebenso richtig.</p>`,
+        draw:f=>{const td=V.dir(th/DEG),S1=lineX({x:0,y:0},td,{x:0,y:1.3},{x:1,y:0}),S2=lineX({x:0,y:0},td,{x:0,y:-1.3},{x:1,y:0});
+          const sec=(S)=>{const hd={x:1,y:0},a=x=>V.ang(x),m=(p,q)=>{let A1=a(p),A2=a(q);while(A2<=A1)A2+=2*PI;return[A1,A2]};return{'α':m(V.mul(hd,-1),V.mul(td,-1)),'β':m(V.mul(td,-1),hd),'γ':m(hd,td),'δ':m(td,V.mul(hd,-1))}};
+          const [a,b]=sec(S2)[gv];f.angle(S2,a,b,Object.assign({r:0.9,lab:gv,lr:1.3,right:false},BL));
+          const [c,d]=sec(S1)[tv];f.angle(S1,c,d,Object.assign({r:0.9,lab:tv+"'",lr:1.3,right:false},OR));
+          f.line({x:0,y:1.3},{x:1,y:0},{w:2.2});f.line({x:0,y:-1.3},{x:1,y:0},{w:2.2});f.line({x:0,y:0},td,{w:2.2});
+          f.text({x:f.xmax-0.6,y:1.72},'h_1');f.text({x:f.xmax-0.6,y:-0.88},'h_2');f.text(f.inView(V.add(S1,V.add(V.mul(td,2.6),V.mul(V.perp(td),-0.4)))),'g');f.dot(S1,3.4);f.dot(S2,3.4)}}},
+    hoehe(){const al=rnd(20,70),ep=90-al;return{titel:'Rechtwinkliges Dreieck mit Höhe',
+      q:String.raw`<p>Im Dreieck \(ABC\) ist \(\gamma=90^\circ\) und \(\alpha=${al}^\circ\). Die Höhe \(h_c\) hat den Fusspunkt \(H_c\). Berechne den Winkel \(\varepsilon=\angle ACH_c\).</p>`,ziel:String.raw`\(\varepsilon=\)`,ans:ep,
+      sol:String.raw`<p>Betrachte das Teildreieck \(AH_cC\). Es hat bei \(H_c\) einen rechten Winkel.</p>\[\alpha+90^\circ+\varepsilon=180^\circ\]\[\varepsilon=90^\circ-\alpha=90^\circ-${al}^\circ=${ep}^\circ\]<p>(Ebenso gilt \(\varepsilon=\beta\).)</p>`,
+      draw:f=>sketchTri(f,triFromAngles(al,90-al),{A:'b'},{sides:false,after:(P)=>{const H=footOf(P.C,P.A,P.B).p;f.rmark(P.C,ang2(P.C,P.A,P.B).a1,0.55);f.seg(P.C,H,{w:2,c:C.rot});
+        const u=V.norm(V.sub(P.C,H)),d=V.norm(V.sub(P.B,P.A));f.rmark(H,V.cross(d,u)>0?V.ang(d):V.ang(u),0.4,C.rot);f.dot(H,3,C.rot);f.text(V.add(H,{x:0.1,y:-0.45}),'H_c','lbl sm',{fill:C.rot});
+        f.text(V.add(V.mid(P.C,H),V.mul(d,0.38)),'h_c','lbl sm',{fill:C.rot});
+        const x=ang2(P.C,P.A,H);f.angle(P.C,x.a1,x.a2,Object.assign({r:1.1,lab:'ε',right:false},OR))}})}},
+    wh(){let al=rnd(30,80),be=rnd(30,140-al);if((180-al-be)%2)be+=1;const ga=180-al-be,de=180-al-ga/2;return{titel:'Dreieck mit Winkelhalbierender',
+      q:String.raw`<p>Im Dreieck \(ABC\) ist \(\alpha=${al}^\circ\) und \(\beta=${be}^\circ\). Die Winkelhalbierende \(w_\gamma\) schneidet die Seite \(c\) im Punkt \(D\). Berechne \(\delta=\angle ADC\).</p>`,ziel:String.raw`\(\delta=\)`,ans:de,
+      sol:String.raw`\[\gamma=180^\circ-\alpha-\beta=180^\circ-${al}^\circ-${be}^\circ=${ga}^\circ\]\[\tfrac{\gamma}{2}=${ga/2}^\circ\]<p>Im Teildreieck \(ADC\):</p>\[\delta=180^\circ-\alpha-\tfrac{\gamma}{2}=180^\circ-${al}^\circ-${ga/2}^\circ=${de}^\circ\]`,
+      draw:f=>sketchTri(f,triFromAngles(al,be),{A:'b',B:'b'},{sides:false,after:(P)=>{const w=ang2(P.C,P.A,P.B),m=(w.a1+w.a2)/2,D=lineX(P.C,V.dir(m),P.A,V.sub(P.B,P.A));
+        f.wedge(P.C,w.a1,m,0.8,{c:C.gr,f:C.grh});f.wedge(P.C,m,w.a2,0.8,{c:C.gr,f:C.grh});f.seg(P.C,D,{w:2,c:C.gr});f.dot(D,3.4,C.gr);f.text(V.add(D,{x:0,y:-0.45}),'D','lbl',{fill:C.gr});
+        const x=ang2(D,P.A,P.C);f.angle(D,x.a1,x.a2,Object.assign({r:0.8,lab:'δ',right:false},OR));f.text(V.add(V.lerp(P.C,D,0.55),V.mul(V.perp(V.norm(V.sub(D,P.C))),0.35)),'w_γ','lbl sm',{fill:C.gr})}})}}
+  };
+  const keys=Object.keys(GEN);let cur=null,tries=0,right=0,done=false,last=null;
+  const $=id=>document.getElementById(id);
+  const typeset=el=>{if(window.MathJax&&MathJax.typesetPromise)MathJax.startup.promise.then(()=>MathJax.typesetPromise([el]));};
+  function neu(){const t=$('utyp').value;let k=t;if(t==='mix'){do{k=keys[rnd(0,keys.length-1)]}while(k===last&&keys.length>1)}last=k;cur=GEN[k]();done=false;
+    $('utitel').textContent=cur.titel;$('uq').innerHTML=cur.q;$('uziel').innerHTML=cur.ziel;$('ul').innerHTML=cur.sol;$('ul').classList.remove('on');$('ufb').textContent='';$('uin').value='';
+    typeset($('uq'));typeset($('uziel'));typeset($('ul'));
+    const host=$('uf');host.querySelector('svg')?.remove();const f=new Fig(host,{w:560,h:340,s:32});f.draw=()=>cur.draw(f);f.render()}
+  function check(){const v=parseFloat($('uin').value.replace(',','.'));if(isNaN(v)){$('ufb').innerHTML='<span class="warn">Bitte eine Zahl eingeben.</span>';return}
+    if(!done){tries++}
+    if(Math.abs(v-cur.ans)<0.01){if(!done){right++;done=true}$('ufb').innerHTML='<span class="ok">Richtig!</span>'}
+    else $('ufb').innerHTML='<span class="warn">Noch nicht richtig. Schau dir die Skizze nochmals an oder öffne den Lösungsweg.</span>';
+    $('uscore').textContent=`${right} richtig gelöst`}
+  $('uneu').addEventListener('click',neu);$('utyp').addEventListener('change',neu);$('ucheck').addEventListener('click',check);
+  $('uin').addEventListener('keydown',e=>{if(e.key==='Enter')check()});
+  $('usol').addEventListener('click',()=>{$('ul').classList.toggle('on');done=true});
+  neu();
+})();
+
+(function(){
+  const host=document.getElementById('f11');const f=new Fig(host,{h:460,snap:0.5});
+  const GV={ms:{A:{x:-3,y:-1},B:{x:3,y:0.5}},lot:{G1:{x:-6,y:-1},G2:{x:5,y:0},P:{x:-0.5,y:3}},err:{G1:{x:-6,y:-2},G2:{x:5,y:-1},P:{x:0,y:-1.5}},
+    wh:{S:{x:-4.5,y:-3},P:{x:4,y:-2},Q:{x:0,y:4}},par:{G1:{x:-6,y:-3},G2:{x:5,y:-1.5},P:{x:-1,y:1}},w60:{S:{x:-4,y:-3},P:{x:3,y:-2.5}},w30:{S:{x:-4,y:-3},P:{x:3,y:-2.5}}};
+  let mode='ms',variant='zl',k=0,stop=null,orts=false;const OX={X:{x:0,y:0}};let xt=2.5;
+  for(const m in GV)for(const key in GV[m]){const opt={check:p=>KON[m].check(Object.assign({},GV[m],{[key]:p}))};
+    if(m==='err'&&key==='P')opt.constrain=p=>footOf(p,GV.err.G1,GV.err.G2).p;
+    const h=f.handle(GV[m],key,opt);h.mode=m}
+  let cons=null;
+  const hx=f.handle(OX,'X',{constrain:p=>{if(!cons||!cons.orts)return null;const o=cons.orts,d=o.dir;let t=V.dot(V.sub(p,o.on),d);
+    if(o.ray)t=Math.max(t,0.6);xt=t;return V.add(o.on,V.mul(d,t))}});hx.mode='X';
+  const ol=document.getElementById('ksteps'),cap=document.getElementById('cap11');
+  function buildList(){cons=KON[mode].build(GV[mode],variant);
+    ol.innerHTML=cons.steps.map(st=>`<li><span class="rep">\\(${st.rep}\\)</span></li>`).join('');
+    [...ol.children].forEach((li,i)=>li.addEventListener('click',()=>play(i,i+1)));typesetEl(ol);
+    document.getElementById('k11t').textContent=KON[mode].titel+(variant==='geo'?' – mit Geodreieck':' – mit Zirkel und Lineal');
+    document.getElementById('w11').innerHTML=cons.warum;document.getElementById('h11').textContent=KON[mode].hint;
+    document.getElementById('c11orts').style.display=cons.orts?'':'none'}
+  f.draw=()=>{if(mode==='err')GV.err.P=footOf(GV.err.P,GV.err.G1,GV.err.G2).p;cons=KON[mode].build(GV[mode],variant);const N=cons.steps.length;
+    drawCons(f,cons,k,true);
+    const showO=orts&&cons.orts&&k>=N;
+    for(const h of f.handles)h.hidden=h.mode==='X'?!showO:h.mode!==mode;
+    const ob=document.getElementById('o11box');ob.hidden=!showO;
+    if(showO){OX.X=V.add(cons.orts.on,V.mul(cons.orts.dir,xt));document.getElementById('o11').innerHTML=cons.orts.draw(f,OX.X)}
+    const cur=Math.min(N-1,Math.max(0,Math.ceil(k-1e-6)-1));
+    [...ol.children].forEach((li,i)=>{li.classList.toggle('done',i<Math.floor(k+1e-6));li.classList.toggle('cur',k<N&&i===cur&&k>0)});
+    const st=cons.steps[cur];const html=k<=0?'Starte die Konstruktion mit ▶ oder klicke auf eine Zeile des Konstruktionsberichts.':k>=N?'Fertig. Ziehe die gegebenen Punkte: Die Konstruktion passt sich an.':`<b>Schritt ${cur+1}:</b> ${st.tool?TOOLTXT[st.tool]:''}${st.cap}`;
+    if(cap.dataset.h!==html){cap.dataset.h=html;cap.innerHTML=`<p>${html}</p>`}};
+  function play(a,b){if(stop)stop();k=a;stop=tween(Math.max(300,(b-a)*1900),t=>{k=a+(b-a)*t;f.render()},()=>{stop=null})}
+  function restart(){if(stop)stop();orts=false;document.getElementById('c11orts').classList.remove('on');buildList();xt=mode==='wh'?2:2.5;k=0;f.render()}
+  btnGroup('#c11m [data-m]','m',m=>{mode=m;restart()});
+  btnGroup('#c11v [data-v]','v',v=>{variant=v;restart()});
+  document.getElementById('c11play').addEventListener('click',()=>play(0,cons.steps.length));
+  document.getElementById('c11step').addEventListener('click',()=>{const N=cons.steps.length;let a=Math.floor(k+1e-6);if(a>=N)a=0;play(a,a+1)});
+  document.getElementById('c11all').addEventListener('click',()=>{if(stop)stop();k=cons.steps.length;f.render()});
+  document.getElementById('c11orts').addEventListener('click',e=>{orts=!orts;e.target.classList.toggle('on',orts);if(orts){if(stop)stop();k=cons.steps.length;xt=mode==='wh'?2:2.5}f.render()});
+  buildList();k=0;f.render();
+})();
+
+/* ======================= Konstruktionsaufgaben fürs Heft (mit PDF) ======================= */
+(function(){
+  const rnd=(a,b)=>a+Math.floor(Math.random()*(b-a+1));const $=id=>document.getElementById(id);
+  const mn=v=>String(v).replace('-','−'),kx=v=>mn(fmt(v,1)),pt=p=>`(${kx(p.x)}; ${kx(p.y)})`,ptI=p=>`(${mn(p.x)}; ${mn(p.y)})`;
+  function tri(){for(;;){const A={x:rnd(-5,-2),y:rnd(-3,-1)},B={x:rnd(2,5),y:rnd(-3,-1)},Cc={x:rnd(-2,2),y:rnd(2,4)};const a=TRI.angles(A,B,Cc);
+    if(Math.min(a.al,a.be,a.ga)>30&&Math.max(a.al,a.be,a.ga)<100)return{A,B,C:Cc}}}
+  const TASKS={
+    umkreis:{t:'Umkreis',q:'Konstruiere die drei Mittelsenkrechten, den Umkreismittelpunkt <i>U</i> und den Umkreis. Lies die Koordinaten von <i>U</i> ab und miss den Radius <i>r</i>.',mess:'<i>U</i> = ( ______ ; ______ ) &nbsp;&nbsp; <i>r</i> = ______ cm',
+      sol(T){const U=TRI.U(T.A,T.B,T.C);return{txt:`<i>U</i> ≈ ${pt(U)}, &nbsp; <i>r</i> ≈ ${cm(V.dist(U,T.A))}<br>Prüfe: Der Kreis muss genau durch alle drei Ecken gehen.`,draw(f){for(const [X,Y] of[[T.A,T.B],[T.B,T.C],[T.C,T.A]]){const M=V.mid(X,Y);f.line(M,V.perp(V.sub(Y,X)),{c:C.or,w:1.4,d:'6 4'});f.dot(M,2.6,C.or)}f.circ(U,V.dist(U,T.A),{c:C.or,w:2});f.dot(U,4,C.or);f.text(V.add(U,{x:0.35,y:0.35}),'U','lbl',{fill:C.or})}}}},
+    inkreis:{t:'Inkreis',q:'Konstruiere die drei Winkelhalbierenden, den Inkreismittelpunkt <i>I</i> und den Inkreis. Den Radius <i>ρ</i> erhältst du, indem du von <i>I</i> das Lot auf eine Seite fällst. Miss <i>ρ</i>.',mess:'<i>I</i> = ( ______ ; ______ ) &nbsp;&nbsp; <i>ρ</i> = ______ cm',
+      sol(T){const I=TRI.I(T.A,T.B,T.C),F=footOf(I,T.A,T.B).p,r=V.dist(I,F);return{txt:`<i>I</i> ≈ ${pt(I)}, &nbsp; <i>ρ</i> ≈ ${cm(r)}<br>Prüfe: Der Kreis muss alle drei Seiten berühren, ohne sie zu schneiden.`,draw(f){for(const v of[T.A,T.B,T.C])f.seg(v,V.add(v,V.mul(V.norm(V.sub(I,v)),V.dist(v,I)+1)),{c:C.gr,w:1.4,d:'6 4'});f.seg(I,F,{c:C.gr,w:1.6});f.circ(I,r,{c:C.gr,w:2});f.dot(I,4,C.gr);f.text(V.add(I,{x:0.35,y:0.35}),'I','lbl',{fill:C.gr})}}}},
+    schwer:{t:'Schwerpunkt',q:`Bestimme die Seitenmitten <i>M<sub>a</sub></i>, <i>M<sub>b</sub></i>, <i>M<sub>c</sub></i> mit der Mittelsenkrechten-Konstruktion. Zeichne die drei Seitenhalbierenden und bestimme den Schwerpunkt <i>S</i>. Miss ${OV('AS')} und ${OV('SM<sub>a</sub>')}.`,mess:`<i>S</i> = ( ______ ; ______ ) &nbsp;&nbsp; ${OV('AS')} = ______ cm &nbsp;&nbsp; ${OV('SM<sub>a</sub>')} = ______ cm`,
+      sol(T){const S=TRI.S(T.A,T.B,T.C),Ma=V.mid(T.B,T.C);return{txt:`<i>M<sub>a</sub></i> = ${pt(Ma)}, <i>M<sub>b</sub></i> = ${pt(V.mid(T.C,T.A))}, <i>M<sub>c</sub></i> = ${pt(V.mid(T.A,T.B))}<br><i>S</i> ≈ ${pt(S)}<br>${OV('AS')} ≈ ${cm(V.dist(T.A,S))}, &nbsp; ${OV('SM<sub>a</sub>')} ≈ ${cm(V.dist(S,Ma))} &nbsp; (Verhältnis 2 : 1)`,
+        draw(f){for(const [v,X,Y] of[[T.A,T.B,T.C],[T.B,T.C,T.A],[T.C,T.A,T.B]]){const M=V.mid(X,Y);f.seg(v,M,{c:C.vi,w:1.8});f.dot(M,3,C.vi)}f.dot(S,4,C.vi);f.text(V.add(S,{x:0.4,y:-0.35}),'S','lbl',{fill:C.vi})}}}},
+    hoehen:{t:'Höhenschnittpunkt',q:'Fälle von jeder Ecke das Lot auf die gegenüberliegende Seite (bzw. ihre Verlängerung). Bestimme den Höhenschnittpunkt <i>H</i> und miss die Höhe <i>h<sub>c</sub></i>. Berechne damit den Flächeninhalt <i>A</i> = ½ · <i>c</i> · <i>h<sub>c</sub></i>.',mess:'<i>H</i> = ( ______ ; ______ ) &nbsp;&nbsp; <i>h<sub>c</sub></i> = ______ cm &nbsp;&nbsp; <i>A</i> = ______ cm²',
+      sol(T){const H=TRI.H(T.A,T.B,T.C),Fc=footOf(T.C,T.A,T.B).p,hc=V.dist(T.C,Fc),c=V.dist(T.A,T.B),Ar=Math.abs(TRI.area2(T.A,T.B,T.C))/2;
+        return{txt:`<i>H</i> ≈ ${pt(H)}<br><i>h<sub>c</sub></i> ≈ ${cm(hc)}, &nbsp; <i>c</i> ≈ ${cm(c)}<br><i>A</i> = ½ · ${fmt(c,1)} cm · ${fmt(hc,1)} cm ≈ ${fmt(Ar,1)} cm²`,
+        draw(f){for(const [v,X,Y] of[[T.A,T.B,T.C],[T.B,T.C,T.A],[T.C,T.A,T.B]]){const F=footOf(v,X,Y).p;f.seg(v,F,{c:C.rot,w:1.8});rmarkBetween(f,F,V.norm(V.sub(Y,X)),V.norm(V.sub(v,F)),0.35,C.rot)}
+          f.dot(H,4,C.rot);f.text(V.add(H,{x:0.4,y:0.35}),'H','lbl',{fill:C.rot})}}}},
+    lot:{t:'Lot fällen und Abstand messen',q:`Fälle das Lot vom Punkt <i>C</i> auf die Gerade <i>AB</i>. Bezeichne den Lotfusspunkt mit <i>F</i> und miss den Abstand <i>d</i> = ${OV('CF')}.`,mess:'<i>F</i> = ( ______ ; ______ ) &nbsp;&nbsp; <i>d</i> = ______ cm',
+      sol(T){const F=footOf(T.C,T.A,T.B).p;return{txt:`<i>F</i> ≈ ${pt(F)}, &nbsp; <i>d</i> ≈ ${cm(V.dist(T.C,F))}`,draw(f){f.seg(T.C,F,{c:C.or,w:2});rmarkBetween(f,F,V.norm(V.sub(T.B,T.A)),V.norm(V.sub(T.C,F)),0.4,C.or);f.dot(F,3.6,C.or);f.text(V.add(F,{x:0.35,y:-0.42}),'F','lbl',{fill:C.or})}}}},
+    wh:{t:'Winkel halbieren',q:'Miss die Winkel <i>α</i>, <i>β</i> und <i>γ</i>. Halbiere den Winkel <i>γ</i> mit Zirkel und Lineal; die Winkelhalbierende schneidet <i>c</i> im Punkt <i>D</i>. Miss den Winkel <i>δ</i> = ∠<i>ADC</i> und kontrolliere ihn mit einer Rechnung.',mess:'<i>α</i> = ______° &nbsp; <i>β</i> = ______° &nbsp; <i>γ</i> = ______° &nbsp;&nbsp; <i>δ</i> = ______°',
+      sol(T){const a=TRI.angles(T.A,T.B,T.C),w=ang2(T.C,T.A,T.B),m=(w.a1+w.a2)/2,D=lineX(T.C,V.dir(m),T.A,V.sub(T.B,T.A)),de=180-a.al-a.ga/2;
+        return{txt:`<i>α</i> ≈ ${gr(a.al)}, <i>β</i> ≈ ${gr(a.be)}, <i>γ</i> ≈ ${gr(a.ga)}<br><i>D</i> ≈ ${pt(D)}<br><i>δ</i> = 180° − <i>α</i> − <i>γ</i>/2 ≈ ${gr(de)}`,
+        draw(f){f.seg(T.C,D,{c:C.gr,w:2});f.wedge(T.C,w.a1,m,0.8,{c:C.gr,f:C.grh});f.wedge(T.C,m,w.a2,0.8,{c:C.gr,f:C.grh});f.dot(D,3.6,C.gr);f.text(V.add(D,{x:0.3,y:-0.45}),'D','lbl',{fill:C.gr});
+          const x=ang2(D,T.A,T.C);f.angle(D,x.a1,x.a2,{r:0.7,c:C.or,f:C.orh,lab:'δ',right:false})}}}},
+    par:{t:'Parallele und Senkrechte',q:'Konstruiere die Parallele <i>p</i> zu <i>AB</i> durch <i>C</i> und die Senkrechte <i>s</i> zu <i>AB</i> im Punkt <i>A</i>. Bestimme den Schnittpunkt <i>E</i> von <i>p</i> und <i>s</i>. Errichte auch in <i>B</i> die Senkrechte; sie schneidet <i>p</i> in <i>F</i>. Was für ein Viereck ist <i>ABFE</i>?',mess:'<i>E</i> = ( ______ ; ______ ) &nbsp;&nbsp; <i>F</i> = ( ______ ; ______ ) &nbsp;&nbsp; Viereck: ______________',
+      sol(T){const d=V.norm(V.sub(T.B,T.A)),n=V.perp(d);const E=lineX(T.C,d,T.A,n),E2=lineX(T.C,d,T.B,n);
+        return{txt:`<i>E</i> ≈ ${pt(E)}, &nbsp; <i>F</i> ≈ ${pt(E2)}<br><i>ABFE</i> ist ein <b>Rechteck</b>: vier rechte Winkel, gegenüberliegende Seiten parallel.`,
+        draw(f){f.line(T.C,d,{c:C.or,w:2});f.line(T.A,n,{c:C.blau,w:2});f.line(T.B,n,{c:C.blau,w:1.4,d:'6 4'});const nn=V.dot(n,V.sub(T.C,T.A))>0?n:V.mul(n,-1);rmarkBetween(f,T.A,d,nn,0.4,C.blau);
+          f.dot(E2,3.6,C.blau);f.text(V.add(E2,{x:0.4,y:0.38}),'F','lbl',{fill:C.blau});f.dot(E,4,C.or);f.text(V.add(E,{x:-0.4,y:0.38}),'E','lbl',{fill:C.or});f.text(f.inView(V.add(T.C,V.add(V.mul(d,4),{x:0,y:0.4}))),'p','lbl',{fill:C.or})}}}}
+  };
+  function axes(f){f.seg({x:f.xmin,y:0},{x:f.xmax-0.1,y:0},{c:'#55636e',w:1.3,me:'k'});f.seg({x:0,y:f.ymin},{x:0,y:f.ymax-0.1},{c:'#55636e',w:1.3,me:'k'});
+    for(let x=Math.ceil(f.xmin+0.4);x<f.xmax-0.7;x++){if(!x)continue;f.seg({x,y:-0.1},{x,y:0.1},{c:'#55636e',w:1.2});if(x%2===0)f.text({x,y:-0.38},mn(x),'ann')}
+    for(let y=Math.ceil(f.ymin+0.4);y<f.ymax-0.7;y++){if(!y)continue;f.seg({x:-0.1,y},{x:0.1,y},{c:'#55636e',w:1.2});if(y%2===0)f.text({x:-0.38,y},mn(y),'ann')}
+    f.text({x:f.xmax-0.3,y:-0.4},'x','lbl sm');f.text({x:0.35,y:f.ymax-0.3},'y','lbl sm')}
+  function triDraw(f,T){f.poly([T.A,T.B,T.C],{w:0,f:'rgba(47,120,168,.05)',c:'none'});for(const [p,q] of[[T.A,T.B],[T.B,T.C],[T.C,T.A]])f.seg(p,q,{w:2.4});for(const p of[T.A,T.B,T.C])f.dot(p,3.8);triLabels(f,T,{sides:true})}
+  const keys=Object.keys(TASKS);
+  function makeTask(k){return{k,task:TASKS[k],T:tri()}}
+  let cur=null,fig=null,showSol=false;
+  function neu(){const v=$('ktyp').value;cur=makeTask(v==='mix'?keys[rnd(0,keys.length-1)]:v);showSol=false;const {task,T}=cur;
+    $('kt').textContent=task.t;$('kq').innerHTML=`<p>Gegeben ist das Dreieck <i>A</i>${ptI(T.A)}, <i>B</i>${ptI(T.B)}, <i>C</i>${ptI(T.C)}.</p><p>${task.q}</p>`;
+    const s=task.sol(T);$('kl').innerHTML=`<p><b>Kontrollwerte</b><br>${s.txt}</p>`;$('kl').classList.remove('on');$('kshow').textContent='Kontrolle anzeigen';
+    const host=$('kf');host.querySelector('svg')?.remove();fig=new Fig(host,{w:560,h:380,s:30,oy:205});
+    fig.draw=()=>{axes(fig);triDraw(fig,T);if(showSol)s.draw(fig);for(const p of[T.A,T.B,T.C])fig.dot(p,3.8)};fig.render()}
+  $('kneu').addEventListener('click',neu);$('ktyp').addEventListener('change',neu);
+  $('kshow').addEventListener('click',()=>{showSol=!showSol;$('kl').classList.toggle('on',showSol);$('kshow').textContent=showSol?'Kontrolle ausblenden':'Kontrolle anzeigen';fig.render()});
+  neu();
+
+  /* ---- PDF-Arbeitsblätter ---- */
+  const PX=96/2.54; // CSS-Pixel pro cm
+  function printFig(holder,T,pre,solDraw){const f=new Fig(holder,{w:17*PX,h:14*PX,s:PX,ox:8.5*PX,oy:7.5*PX});f.draw=()=>{axes(f);if(pre||solDraw)triDraw(f,T);if(solDraw)solDraw(f);if(pre||solDraw)for(const p of[T.A,T.B,T.C])f.dot(p,3.8)};f.render();
+    f.svg.style.cssText=`display:block;width:${17*PX}px;height:${14*PX}px;margin:0 auto`;return f.svg}
+  function inlineSvg(svg){svg.querySelectorAll('[class]').forEach(el=>{const cs=getComputedStyle(el);
+    for(const p of['stroke','stroke-width','fill','font-family','font-size','font-style','font-weight','paint-order','stroke-linejoin'])el.style.setProperty(p,cs.getPropertyValue(p))})}
+  function page(inner,no,total){const pg=document.createElement('div');pg.className='pg';
+    pg.innerHTML=`<div class="pg-kopf"><span>IDM EA Mathematik · Klasse EA2025</span><span>Geometrie 1.3 · Konstruktionen</span></div>${inner}<div class="pg-fuss"><span>Raphael Arnold Kohler</span><span>Seite ${no} / ${total}</span></div>`;return pg}
+  function taskInner(t,i){const {task,T}=t;return`<div class="pg-name"><span>Name: ______________________________</span><span>Datum: ______________</span></div>
+    <h2 class="pg-h">Aufgabe ${i+1}: ${task.t}</h2><p>Gegeben ist das Dreieck <i>A</i>${ptI(T.A)}, <i>B</i>${ptI(T.B)}, <i>C</i>${ptI(T.C)}.</p><p>${task.q}</p>
+    <p class="pg-klein">Hilfsmittel: Bleistift, Zirkel, Lineal bzw. Geodreieck. Konstruktionslinien stehen lassen. 1 Einheit = 1 cm (beim Drucken «Tatsächliche Grösse / 100 %» wählen).</p><div class="pg-fig"></div><p class="pg-mess"><b>Messwerte:</b> ${task.mess}</p>`}
+  function solInner(t,i){const s=t.task.sol(t.T);return`<h2 class="pg-h">Lösung zu Aufgabe ${i+1}: ${t.task.t}</h2><p>Dreieck <i>A</i>${ptI(t.T.A)}, <i>B</i>${ptI(t.T.B)}, <i>C</i>${ptI(t.T.C)}</p><div class="pg-fig"></div><div class="pg-sol"><b>Kontrollwerte</b><br>${s.txt}</div>`}
+  const PRINTCSS=`@page{size:A4;margin:0}body{margin:0;background:#e6eaee;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.bar{position:sticky;top:0;z-index:5;background:#3d7ea7;color:#fff;font:15px "Source Sans 3",sans-serif;padding:10px 16px;display:flex;gap:14px;align-items:center}
+.bar button{font:600 15px "Source Sans 3",sans-serif;background:#fff;color:#3d7ea7;border:0;border-radius:5px;padding:6px 14px;cursor:pointer}
+.pg{width:210mm;height:296.5mm;overflow:hidden;margin:12px auto;box-shadow:0 2px 10px rgba(0,0,0,.18);padding:52px 64px 0;box-sizing:border-box;position:relative;background:#fff;color:#1f2a33;font:15px/1.5 "Source Serif 4",Georgia,serif}
+.pg p{margin:0 0 8px}.ov{text-decoration:overline;font-style:italic}
+.pg-kopf{display:flex;justify-content:space-between;border-bottom:1.5px solid #1f2a33;padding-bottom:4px;margin-bottom:14px;font:600 13px "Source Sans 3",sans-serif}
+.pg-name{display:flex;justify-content:space-between;margin:0 0 14px;font:14px "Source Sans 3",sans-serif}
+.pg-h{font:700 20px "Source Sans 3",sans-serif;margin:0 0 8px}
+.pg-klein{font:12.5px "Source Sans 3",sans-serif;color:#55636e}
+.pg-fig{margin:10px 0 12px}.pg-mess{font-size:15px;margin-top:6px}
+.pg-sol{border:1px solid #c9d6df;border-radius:6px;padding:8px 12px;font-size:15px}
+.pg-fuss{position:absolute;left:64px;right:64px;bottom:38px;display:flex;justify-content:space-between;border-top:1px solid #9aa7b1;padding-top:4px;font:12px "Source Sans 3",sans-serif;color:#55636e}
+@media print{.bar{display:none}body{background:#fff}.pg{margin:0;box-shadow:none;break-after:page}}`;
+  function buildPrintHtml(list,withSol,pre,title){
+    const specs=[];list.forEach((t,i)=>specs.push({inner:taskInner(t,i),t,sol:false}));if(withSol)list.forEach((t,i)=>specs.push({inner:solInner(t,i),t,sol:true}));
+    const holder=document.createElement('div');holder.style.cssText='position:fixed;left:-20000px;top:0;';document.body.appendChild(holder);let body='';
+    specs.forEach((sp,i)=>{holder.innerHTML='';const pg=page(sp.inner,i+1,specs.length);holder.appendChild(pg);
+      const svg=printFig(pg.querySelector('.pg-fig'),sp.t.T,pre,sp.sol?sp.t.task.sol(sp.t.T).draw:null);inlineSvg(svg);svg.querySelectorAll('.hd').forEach(e=>e.remove());body+=pg.outerHTML});
+    holder.remove();
+    return`<!DOCTYPE html><html lang="de-CH"><head><meta charset="utf-8"><title>${title}</title><link rel="stylesheet" href="${new URL('schriften.css',location.href).href}"><style>${PRINTCSS}</style></head><body>
+<div class="bar"><button onclick="window.print()">⎙ Drucken</button><span>${title} · ${specs.length} Seiten · Im Druckdialog <b>beidseitig (lange Kante)</b> und <b>«Tatsächliche Grösse / 100 %»</b> wählen, dann stimmt 1 Einheit = 1 cm. (Falls der Knopf nicht reagiert: Ctrl+P bzw. ⌘P.)</span></div>
+${body}<script>document.fonts&&document.fonts.ready.then(()=>setTimeout(()=>{try{window.print()}catch(e){}},500))<\/script></body></html>`}
+  async function makeHtml(list,withSol,pre,title,filename){const st=$('kstat');
+    const html=buildPrintHtml(list,withSol,pre,title);let w=null;
+    try{const url=URL.createObjectURL(new Blob([html],{type:'text/html'}));w=window.open(url,'_blank')}catch(e){w=null}
+    if(w){st.innerHTML='<span class="ok">Druckseite in neuem Tab geöffnet.</span>';return}
+    try{const dl=window.claude&&claude.use?await claude.use('downloads'):null;
+      if(!dl){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([html],{type:'text/html'}));a.download=filename;document.body.appendChild(a);a.click();a.remove();st.innerHTML='<span class="ok">Druckseite heruntergeladen. Öffne die Datei: Sie erscheint in einem eigenen Tab und lässt sich direkt drucken.</span>';return}
+      st.textContent='Der Browser lässt hier keinen neuen Tab zu. Speichern bestätigen …';await dl.save({filename,data:html});
+      st.innerHTML='<span class="ok">Druckseite gespeichert. Öffne die Datei: Sie erscheint in einem eigenen Tab und lässt sich direkt drucken.</span>'}
+    catch(e){st.innerHTML=e&&e.code==='declined'?'Speichern abgebrochen.':'<span class="warn">Druckseite konnte nicht erstellt werden.</span>'}}
+  $('kprint').addEventListener('click',()=>{const v=$('ktyp').value;let k2=cur.k;
+    if(v==='mix'){const rest=keys.filter(k=>k!==cur.k);k2=rest[rnd(0,rest.length-1)]}
+    let t2=makeTask(k2);for(let n=0;n<20&&JSON.stringify(t2.T)===JSON.stringify(cur.T);n++)t2=makeTask(k2);
+    const name=v==='mix'?'Konstruktionsaufgaben':`Konstruktionsaufgaben_${cur.task.t.replace(/\W+/g,'_')}`;
+    makeHtml([cur,t2],true,true,name.replace(/_/g,' '),name+'.html')});
+})();
+
+
+runQuiz(['13']);
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

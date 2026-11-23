@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.3 Geometrie – Unterrichtsblock 2</title>
+<link rel="stylesheet" href="schriften.css">
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},startup:{typeset:true}};
+</script>
+<script defer src="vendor/mathjax/tex-svg.js"></script>
+<link rel="stylesheet" href="common.css">
+<style>
+.prop td:nth-child(n+2){text-align:center;width:13%}
+.prop td.y{color:var(--gr);font-weight:700}.prop td.n{color:#c6d1d9}
+.prop tr.hl td{background:#f3eefa}
+.sld{display:flex;align-items:center;gap:8px;font:600 14px "Source Sans 3",sans-serif;color:var(--kopf-d);margin:4px 0}
+.sld input{width:170px}.sld b{min-width:54px;display:inline-block}
+</style>
+</head>
+<body class="b2g">
+<div class="blocknav"><div class="in"><span class="bl">Block 1</span><a href="index.html">Übersicht</a><a href="1-1.html">1.1</a><a href="1-2.html">1.2</a><a href="1-3.html">1.3</a><span class="bl">Block 2</span><a href="index2.html">Übersicht</a><a href="2-1.html">2.1 Bruchterme</a><a href="2-2.html">2.2 Gleichungen</a><a href="2-3.html" class="on">2.3 Geometrie</a></div></div>
+<header class="kopf">
+  <div class="kopf-in">
+    <div class="crumb">IDM EA Mathematik · Unterrichtsblock 2 · 2.3 Geometrie</div>
+    <h1>Ortslinien, Thaleskreis, Dreiecks- und Viereckskonstruktionen, Kreis</h1>
+    <p class="lead">Aufbauend auf den Grundkonstruktionen aus <a href="1-3.html#konstruktionen" style="color:#fff">1.3</a>. Punkte mit <span style="color:#cfe0f5">blauem Ring</span> lassen sich ziehen. Das Raster entspricht Heftkaros: 1 Häuschen = 5 mm, 2 Häuschen = 1 cm. Konstruktionen starten erst auf Klick: Überlege zuerst, wie du vorgehen würdest.</p>
+  </div>
+</header>
+<nav class="top"><div class="in">
+  <a href="#ortslinien">1 Ortslinien</a><a href="#thales">2 Thaleskreis</a><a href="#kongruenz">3 Abbildungen</a><a href="#dreieck">4 Dreiecke</a><a href="#vierecke">5 Vierecke</a><a href="#flaechen">6 Berechnungen</a><a href="#kreis">7 Kreis</a><a href="#heft">8 Aufgaben drucken</a><a href="#training">9 Trainer</a><a href="#quiz">10 Quiz</a>
+</div></nav>
+<div class="register">Geometrie</div>
+<main>
+
+<!-- ================= 1 ORTSLINIEN ================= -->
+<section id="ortslinien">
+<h2><span class="nr">1</span>Ortslinien</h2>
+<div class="kasten">
+  <h3>Ortslinien entdecken: Ziehe den Punkt P</h3>
+  <div class="inhalt">
+    <div class="fig" id="f1">
+      <div class="ctrl"><button class="btn on" data-o="k">Kreis</button><button class="btn" data-o="m">Mittelsenkrechte</button><button class="btn" data-o="w">Winkelhalbierende</button><button class="btn" data-o="p">Parallelenpaar</button></div>
+      <div class="ctrl"><button class="btn play" id="o1show">▶ Ortslinie zeigen</button><button class="btn" id="o1clr">Spur löschen</button></div>
+    </div>
+    <div class="txt">
+      <p>Eine <b>Ortslinie</b> ist die Menge <b>aller</b> Punkte, die eine bestimmte Bedingung erfüllen. Ziehe P. Erfüllt P die Bedingung, wird er grün und hinterlässt eine Spur. Welche Linie entsteht?</p>
+      <div class="tw"><table class="t" id="o1tab">
+        <tr data-o="k"><td><b>Kreis</b> \(k(M;\,r)\)</td><td>alle Punkte mit dem Abstand \(r\) von \(M\)</td></tr>
+        <tr data-o="m"><td><b>Mittelsenkrechte</b> \(m_{AB}\)</td><td>alle Punkte, die von \(A\) und \(B\) gleich weit entfernt sind</td></tr>
+        <tr data-o="w"><td><b>Winkelhalbierende</b> \(w_1,\,w_2\)</td><td>alle Punkte, die von zwei sich schneidenden Geraden \(g\) und \(h\) gleich weit entfernt sind (bei einem Winkel: von den beiden Schenkeln)</td></tr>
+        <tr data-o="p"><td><b>Parallelenpaar</b> \(p_1,\,p_2\)</td><td>alle Punkte mit dem Abstand \(d\) von der Geraden \(g\)</td></tr>
+      </table></div>
+      <div class="live"><span class="k">Messung</span><span id="r1">–</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Punkte mit zwei Bedingungen: zwei Ortslinien schneiden</h3>
+  <div class="inhalt">
+    <div class="fig" id="f2">
+      <div class="ctrl"><select class="sel" id="o2sel"></select><button class="btn play" id="o2step">Schritt ›</button><button class="btn" id="o2back">von vorn</button></div>
+    </div>
+    <div class="txt">
+      <p id="o2q" style="font-size:17px"></p>
+      <p class="sans" style="font-weight:700;color:var(--kopf-d);margin:8px 0 2px">Konstruktionsbericht</p>
+      <ol class="ksteps" id="o2rep"></ol>
+      <p class="hint">Jede Bedingung liefert eine Ortslinie. Die gesuchten Punkte liegen auf <b>beiden</b> Ortslinien, also in ihrem Schnitt \(\cap\). Es kann keine, eine oder mehrere Lösungen geben.</p>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Winkel konstruieren</h3>
+  <div class="inhalt voll">
+    <p>Mit Zirkel und Lineal lassen sich \(90^\circ\) (Senkrechte) und \(60^\circ\) (gleichseitiges Dreieck) konstruieren. Durch <b>Halbieren</b>, <b>Addieren</b> und <b>Subtrahieren</b> entstehen viele weitere Winkel. Die Animationen zu \(90^\circ\), \(60^\circ\) und \(30^\circ\) findest du in <a href="1-3.html#konstruktionen">1.3 Grundkonstruktionen</a>.</p>
+    <div class="tw"><table class="t">
+      <tr><th>Winkel</th><th>Konstruktion</th><th>Winkel</th><th>Konstruktion</th></tr>
+      <tr><td>\(90^\circ\)</td><td>Senkrechte errichten</td><td>\(120^\circ\)</td><td>\(180^\circ-60^\circ\) (Nebenwinkel) oder \(2\cdot60^\circ\)</td></tr>
+      <tr><td>\(60^\circ\)</td><td>gleichseitiges Dreieck</td><td>\(135^\circ\)</td><td>\(90^\circ+45^\circ\)</td></tr>
+      <tr><td>\(45^\circ\)</td><td>\(90^\circ\) halbieren</td><td>\(150^\circ\)</td><td>\(180^\circ-30^\circ\)</td></tr>
+      <tr><td>\(30^\circ\)</td><td>\(60^\circ\) halbieren</td><td>\(75^\circ\)</td><td>\(60^\circ+15^\circ\) oder \(45^\circ+30^\circ\)</td></tr>
+      <tr><td>\(15^\circ\)</td><td>\(30^\circ\) halbieren</td><td>\(105^\circ\)</td><td>\(90^\circ+15^\circ\) oder \(60^\circ+45^\circ\)</td></tr>
+    </table></div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-23.html#ortslinien" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 2 THALES ================= -->
+<section id="thales">
+<h2><span class="nr">2</span>Der Thaleskreis</h2>
+<div class="kasten">
+  <h3>Satz des Thales: Ziehe den Punkt C</h3>
+  <div class="inhalt">
+    <div class="fig" id="f3">
+      <div class="ctrl"><button class="btn play" id="t3step">▶ Beweis Schritt ›</button><button class="btn" id="t3back">Beweis ausblenden</button></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Satz des Thales:</b> Liegt ein Punkt \(C\) auf dem Kreis mit dem Durchmesser \(\overline{AB}\), so ist der Winkel \(\angle BCA=\gamma=90^\circ\).</p>
+      <p class="def"><b>Umkehrung:</b> Hat das Dreieck \(ABC\) bei \(C\) einen rechten Winkel, so liegt \(C\) auf dem Kreis über \(\overline{AB}\).</p>
+      <p>Liegt \(C\) <b>innerhalb</b> des Kreises, ist \(\gamma>90^\circ\), liegt \(C\) <b>ausserhalb</b>, ist \(\gamma<90^\circ\).</p>
+      <div class="live"><span class="k">Messung und Beweis</span><span id="r3">–</span></div>
+    </div>
+  </div>
+</div>
+<div class="kasten">
+  <h3>Anwendung: Tangenten von einem Punkt an einen Kreis</h3>
+  <div class="inhalt">
+    <div class="fig" id="f4">
+      <div class="ctrl"><button class="btn play" id="t4step">Schritt ›</button><button class="btn" id="t4back">von vorn</button></div>
+    </div>
+    <div class="txt">
+      <p>Gegeben: Kreis \(k(M;\,r)\) und Punkt \(P\) ausserhalb. Gesucht: die Tangenten von \(P\) an \(k\). Ziehe \(P\) und \(M\).</p>
+      <p class="def"><b>Idee:</b> Eine Tangente steht im Berührpunkt \(T\) senkrecht auf dem Radius \(\overline{MT}\). Also ist \(\angle MTP=90^\circ\), und \(T\) liegt auf dem Thaleskreis über \(\overline{MP}\).</p>
+      <p class="sans" style="font-weight:700;color:var(--kopf-d);margin:8px 0 2px">Konstruktionsbericht</p>
+      <ol class="ksteps" id="t4rep"></ol>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-23.html#thales" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 3 KONGRUENZABBILDUNGEN ================= -->
+<section id="kongruenz">
+<h2><span class="nr">3</span>Kongruenzabbildungen <span style="font-size:.6em;color:var(--grau)">(freiwillig)</span></h2>
+<div class="kasten">
+  <h3>Spiegeln, drehen, verschieben: Ziehe das Dreieck und die blauen Punkte</h3>
+  <div class="inhalt">
+    <div class="fig" id="f12">
+      <div class="ctrl"><button class="btn on" data-g="as">Achsenspiegelung</button><button class="btn" data-g="ps">Punktspiegelung</button><button class="btn" data-g="dr">Drehung</button><button class="btn" data-g="vs">Verschiebung</button></div>
+      <div id="g12sl"></div>
+      <div class="ctrl"><button class="btn play" id="g12go">▶ abbilden</button><button class="btn" id="g12k">Konstruktion zeigen</button></div>
+    </div>
+    <div class="txt">
+      <p>Eine <b>Kongruenzabbildung</b> ordnet jedem Punkt \(P\) einen Bildpunkt \(P'\) zu. Bild und Original sind <b>deckungsgleich</b> (kongruent): gleiche Seitenlängen, gleiche Winkel.</p>
+      <div class="tw"><table class="t" id="g12tab">
+        <tr data-g="as"><td><b>Achsenspiegelung</b> an \(g\)</td><td>\(PP'\perp g\), \(g\) halbiert \(\overline{PP'}\). \(g\) ist die Mittelsenkrechte von \(\overline{PP'}\). Umlaufsinn wird umgekehrt.</td></tr>
+        <tr data-g="ps"><td><b>Punktspiegelung</b> an \(Z\)</td><td>\(Z\) ist der Mittelpunkt von \(\overline{PP'}\). Gleich wie eine Drehung um \(180^\circ\). Umlaufsinn bleibt.</td></tr>
+        <tr data-g="dr"><td><b>Drehung</b> um \(Z\) mit \(\varphi\)</td><td>\(|\overline{ZP}|=|\overline{ZP'}|\) und \(\angle PZP'=\varphi\) (Gegenuhrzeigersinn positiv). Umlaufsinn bleibt.</td></tr>
+        <tr data-g="vs"><td><b>Verschiebung</b> um \(\vec v\)</td><td>Alle Punkte werden gleich weit in die gleiche Richtung verschoben: \(PP'\parallel\vec v\), \(|\overline{PP'}|=|\vec v|\). Umlaufsinn bleibt.</td></tr>
+      </table></div>
+      <div class="live"><span class="k">Beobachtung</span><span id="r12">–</span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-23.html#kongruenz" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 4 DREIECKSKONSTRUKTIONEN ================= -->
+<section id="dreieck">
+<h2><span class="nr">4</span>Dreieckskonstruktionen</h2>
+<div class="kasten">
+  <h3>Aus drei Stücken ein Dreieck konstruieren</h3>
+  <div class="inhalt">
+    <div class="fig" id="f5">
+      <div class="ctrl"><button class="btn on" data-k="sss">SSS</button><button class="btn" data-k="sws">SWS</button><button class="btn" data-k="wsw">WSW</button><button class="btn" data-k="ssw">SsW</button></div>
+      <div id="d5sl"></div>
+      <div class="ctrl"><button class="btn play" id="d5step">Schritt ›</button><button class="btn" id="d5all">ganze Konstruktion</button><button class="btn" id="d5back">von vorn</button></div>
+    </div>
+    <div class="txt">
+      <p id="d5q" style="font-size:17px"></p>
+      <p class="sans" style="font-weight:700;color:var(--kopf-d);margin:8px 0 2px">Konstruktionsbericht</p>
+      <ol class="ksteps" id="d5rep"></ol>
+      <div class="tw"><table class="t">
+        <tr><th>Kongruenzsatz</th><th>gegeben</th></tr>
+        <tr><td><b>SSS</b></td><td>drei Seiten (Dreiecksungleichung: zwei Seiten zusammen länger als die dritte)</td></tr>
+        <tr><td><b>SWS</b></td><td>zwei Seiten und der eingeschlossene Winkel</td></tr>
+        <tr><td><b>WSW</b></td><td>eine Seite und die zwei anliegenden Winkel</td></tr>
+        <tr><td><b>SsW</b></td><td>zwei Seiten und der Winkel, der der <b>grösseren</b> Seite gegenüberliegt</td></tr>
+      </table></div>
+      <p class="hint">Liegt der gegebene Winkel der <b>kleineren</b> Seite gegenüber, ist SsW kein Kongruenzsatz: Je nach Länge der Gegenseite schneidet der Kreis den Strahl zweimal (zwei Lösungen), berührt ihn (eine Lösung) oder erreicht ihn nicht (keine Lösung). Probiere es mit dem Schieber aus.</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-23.html#dreieck" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 4 VIERECKE ================= -->
+<section id="vierecke">
+<h2><span class="nr">5</span>Vierecksarten und ihre Eigenschaften</h2>
+<div class="kasten">
+  <h3>Das Haus der Vierecke (anklickbar)</h3>
+  <div class="inhalt">
+    <div>
+      <div class="fig" id="f6a"></div>
+      <div class="fig" id="f6"><div class="ctrl"><button class="btn play" id="v6show">▶ Eigenschaften zeigen</button></div></div>
+    </div>
+    <div class="txt">
+      <p>Klicke im Haus auf eine Vierecksart. Überlege zuerst, welche Eigenschaften sie hat, dann klicke auf <b>▶ Eigenschaften zeigen</b>. Jede Vierecksart hat alle Eigenschaften der Arten, die <b>über</b> ihr stehen.</p>
+      <p class="hint">Bezeichnung (Formelbuch): Ecken \(A,B,C,D\) im Gegenuhrzeigersinn, Seiten \(a=\overline{AB}\), \(b=\overline{BC}\), \(c=\overline{CD}\), \(d=\overline{DA}\), Diagonalen \(e=\overline{AC}\), \(f=\overline{BD}\), Winkel \(\alpha,\beta,\gamma,\delta\) bei \(A,B,C,D\).</p>
+      <div class="tw"><table class="t prop" id="v6tab"></table></div>
+    </div>
+  </div>
+</div>
+<div class="kasten">
+  <h3>Winkelsumme im Viereck: Ziehe die Ecken</h3>
+  <div class="inhalt">
+    <div class="fig" id="f7"><div class="ctrl"><button class="btn play" id="v7show">▶ Begründung</button></div></div>
+    <div class="txt">
+      <p class="def">In jedem Viereck gilt: \(\alpha+\beta+\gamma+\delta=360^\circ\).</p>
+      <p>Warum? Überlege zuerst selbst, dann klicke auf <b>▶ Begründung</b>.</p>
+      <div class="live"><span class="k">Messung</span><span id="r7">–</span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-23.html#vierecke" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 5 FLÄCHEN ================= -->
+<section id="flaechen">
+<h2><span class="nr">6</span>Berechnungen an Vierecken</h2>
+<div class="kasten">
+  <h3>Flächenformeln verstehen: zerschneiden und neu zusammensetzen</h3>
+  <div class="inhalt">
+    <div class="fig" id="f8">
+      <div class="ctrl"><button class="btn on" data-f="re">Rechteck</button><button class="btn" data-f="pa">Parallelogramm</button><button class="btn" data-f="tr">Trapez</button><button class="btn" data-f="dr">Drachen</button><button class="btn" data-f="ra">Raute</button></div>
+      <div id="a8sl"></div>
+      <div class="ctrl"><button class="btn play" id="a8play">▶ Herleitung</button></div>
+    </div>
+    <div class="txt">
+      <div id="a8txt"></div>
+      <div class="live"><span class="k">Berechnung</span><span id="r8">–</span></div>
+      <p class="hint">Masse in cm. Die Höhe \(h\) steht immer senkrecht auf der Grundseite. Umfang: Summe aller Seiten.</p>
+      <p class="def"><b>Variante mit Pythagoras</b> (Vorgriff auf Block 3): Im rechtwinkligen Dreieck gilt \(c^2=a^2+b^2\) (\(c\): Hypotenuse). Damit lassen sich die schräge Seite des Parallelogramms und die Seite der Raute berechnen statt messen.</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-23.html#flaechen" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 6 KREIS ================= -->
+<section id="kreis">
+<h2><span class="nr">7</span>Kreis: Geraden, Winkel und Berechnungen</h2>
+<div class="kasten">
+  <h3>Geraden am Kreis: Ziehe den Punkt H</h3>
+  <div class="inhalt">
+    <div class="fig" id="f9"></div>
+    <div class="txt">
+      <p>\(H\) ist der Punkt der Geraden, der \(M\) am nächsten liegt. Der Abstand der Geraden vom Mittelpunkt ist \(|\overline{MH}|\).</p>
+      <div class="tw"><table class="t" id="k9tab">
+        <tr data-g="p"><td><b>Passante</b> \(p\)</td><td>Abstand \(>r\): kein gemeinsamer Punkt</td></tr>
+        <tr data-g="t"><td><b>Tangente</b> \(t\)</td><td>Abstand \(=r\): ein Berührpunkt \(T\). Die Tangente steht senkrecht auf dem Radius \(\overline{MT}\).</td></tr>
+        <tr data-g="s"><td><b>Sekante</b> \(g\)</td><td>Abstand \(\lt r\): zwei Schnittpunkte. Das Stück dazwischen ist die <b>Sehne</b> \(s\).</td></tr>
+        <tr data-g="d"><td><b>Durchmesser</b> \(d\)</td><td>Sehne durch \(M\): die längste Sehne, \(d=2r\)</td></tr>
+      </table></div>
+      <div class="live"><span class="k">Messung</span><span id="r9">–</span></div>
+    </div>
+  </div>
+</div>
+<div class="kasten">
+  <h3>Kreiswinkelsätze (freiwillig): Ziehe A, B und C auf dem Kreis</h3>
+  <div class="inhalt">
+    <div class="fig" id="f10"><div class="ctrl"><button class="btn play" id="k10show">▶ Winkel messen</button><button class="btn" id="k10c2">zweiter Peripheriewinkel</button></div></div>
+    <div class="txt">
+      <p class="def"><b>Zentriwinkel</b> \(\varphi\): Scheitel im Mittelpunkt \(M\). <b>Peripheriewinkel</b> \(\gamma\): Scheitel \(C\) auf der Kreislinie. Beide stehen über dem Bogen \(b\) (blau).</p>
+      <p class="def"><b>Peripheriewinkelsatz:</b> Alle Peripheriewinkel über demselben Bogen sind gleich gross: \(\gamma=\gamma'\).</p>
+      <p class="def"><b>Zentriwinkelsatz:</b> \(\gamma=\dfrac{\varphi}{2}\).</p>
+      <p class="def">Liegt ein zweiter Punkt \(D\) auf dem Ergänzungsbogen \(b'\), gilt für seinen Peripheriewinkel \(\delta\): \(\gamma+\delta=180^\circ\). Der Thaleskreis ist der Spezialfall \(\varphi=180^\circ\).</p>
+      <div class="live"><span class="k">Messung</span><span id="r10">Vermute zuerst: Wie hängen γ und φ zusammen?</span></div>
+    </div>
+  </div>
+</div>
+<div class="kasten">
+  <h3>Umfang, Fläche, Bogen und Sektor</h3>
+  <div class="inhalt">
+    <div class="fig" id="f11">
+      <div class="ctrl"><button class="btn on" data-c="kr">Kreis</button><button class="btn" data-c="se">Sektor und Bogen</button><button class="btn" data-c="ri">Kreisring</button></div>
+      <div id="c11sl"></div>
+      <div class="ctrl"><button class="btn play" id="c11go">▶ berechnen</button></div>
+    </div>
+    <div class="txt">
+      <p class="def">\(u=2\pi r=\pi d\qquad A=\pi r^2\)</p>
+      <p class="def"><b>Bogen</b> und <b>Sektor</b> sind der Anteil \(\dfrac{\varphi}{360^\circ}\) des ganzen Kreises:<br>\(b=2\pi r\cdot\dfrac{\varphi}{360^\circ}\) &emsp; \(A_{\text{Sektor}}=\pi r^2\cdot\dfrac{\varphi}{360^\circ}=\dfrac{b\,r}{2}\)</p>
+      <p class="def"><b>Kreisring:</b> \(A=\pi R^2-\pi r^2=\pi(R^2-r^2)\)</p>
+      <div class="live"><span class="k">Berechnung</span><span id="r11">–</span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-23.html#kreis" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 8 KONSTRUKTIONSAUFGABEN ================= -->
+<section id="heft">
+<h2><span class="nr">8</span>Konstruktionsaufgaben fürs Heft</h2>
+<div class="kasten">
+  <h3>Aufgaben am Bildschirm oder auf Papier</h3>
+  <div class="inhalt voll">
+    <p style="margin:0 0 10px">Der Druckknopf erstellt ein doppelseitiges Blatt mit der angezeigten und einer weiteren Aufgabe der gewählten Art, dazu ein Lösungsblatt (ebenfalls doppelseitig). Arbeite mit Bleistift, Zirkel und Lineal (1 Häuschen = 5 mm). Lass die Konstruktionslinien stehen und schreibe den Konstruktionsbericht. Messgenauigkeit: etwa ±1 mm bzw. ±1°.</p>
+    <div class="ctrl" style="margin:0 0 12px">
+      <select class="sel" id="ktyp">
+        <option value="mix">alle Aufgaben gemischt</option>
+        <option value="sss">Dreieck SSS</option>
+        <option value="sws">Dreieck SWS</option>
+        <option value="wsw">Dreieck WSW</option>
+        <option value="ssw">Dreieck SsW</option>
+        <option value="thales">Rechtwinkliges Dreieck (Thales)</option>
+        <option value="tang">Tangenten an einen Kreis</option>
+        <option value="orts">Punkte mit zwei Bedingungen</option>
+        <option value="para">Parallelogramm</option>
+        <option value="spieg">Kongruenzabbildung (freiwillig)</option>
+      </select>
+      <button class="btn play" id="kneu">Neue Aufgabe</button>
+      <button class="btn" id="kshow">Kontrolle anzeigen</button>
+      <button class="btn play" id="kprint" style="margin-left:auto" title="Druckt die angezeigte und eine weitere Aufgabe der gewählten Art auf Vorder- und Rückseite, dazu ein Lösungsblatt">⎙ 2 Aufgaben drucken (doppelseitig)</button>
+    </div>
+    <p class="hint" id="kstat" style="margin:-6px 0 10px;text-align:right"></p>
+    <div class="uebung">
+      <div class="fig" id="kf"><p class="hint">Vorlage (1 Einheit = 1 cm). Die Kontrolle zeigt das Ergebnis der Konstruktion.</p></div>
+      <div>
+        <p class="sans" style="font-weight:700;color:var(--kopf-d);margin:0 0 4px" id="kt"></p>
+        <div id="kq"></div>
+        <div class="loesung" id="kl"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ================= 7 TRAINER ================= -->
+<section id="training">
+<h2><span class="nr">9</span>Trainer: Berechnungen</h2>
+<div class="kasten">
+  <h3>Unbegrenzt viele Aufgaben mit Lösungsweg</h3>
+  <div class="inhalt voll">
+    <div class="ctrl" style="margin:0 0 12px"><select class="sel" id="ttyp"></select><button class="btn play" id="tneu">Neue Aufgabe</button><span class="score" id="tscore"></span></div>
+    <p class="sans" style="font-weight:700;color:var(--kopf-d);margin:0 0 4px" id="ttitel"></p>
+    <div id="tq" class="trainer-q"></div>
+    <div class="antwort"><span id="tziel"></span><input id="tin" class="inp w" autocomplete="off" style="width:200px"><button class="btn" id="tcheck">Prüfen</button><button class="btn" id="tsol">Lösungsweg</button></div>
+    <div class="fb" id="tfb"></div>
+    <div class="loesung" id="tl"></div>
+    <p class="hint">Dezimalpunkt verwenden. Bei Kreisberechnungen auf 2 Dezimalstellen runden (π mit dem Taschenrechner).</p>
+  </div>
+</div>
+</section>
+
+<!-- ================= 8 QUIZ ================= -->
+<section id="quiz">
+<h2><span class="nr">10</span>Quiz</h2>
+<div class="kasten">
+  <h3>Quiz zu allen Bereichen von 2.3</h3>
+  <div class="inhalt voll">
+    <div class="ctrl" style="margin:0 0 4px"><select class="sel" id="qarea"></select>
+      <select class="sel" id="qn"><option value="5">5 Fragen</option><option value="10" selected>10 Fragen</option><option value="15">15 Fragen</option><option value="20">20 Fragen</option></select>
+      <button class="btn play" id="qneu">Neue Runde</button><span class="score" id="qstat" style="margin-left:auto"></span></div>
+    <div class="bar"><div id="qbar" style="width:0"></div></div>
+    <div class="uebung">
+      <div><div class="ctrl" id="qsk" style="margin:0 0 6px"></div><div class="qbox" id="qbox"></div><p class="hint" id="qhint"></p></div>
+      <div><p class="qtopic" id="qtop"></p><div id="qq"></div><div class="opts" id="qo"></div><div id="qfb"></div><div class="ctrl"><button class="btn" id="qnext" hidden>Nächste Frage ›</button></div></div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+<footer><span>Raphael Arnold Kohler</span><span>IDM EA Mathematik · Klasse EA2025 · Lehrplan 2.3 Geometrie</span></footer>
+
+<script src="common.js"></script>
+<script src="b2.js"></script>
+<script src="quiz-23.js"></script>
+<script src="2-3.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

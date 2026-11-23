@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.2 Algebra – Unterrichtsblock 1</title>
+<link rel="stylesheet" href="schriften.css">
+<script>
+window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},startup:{typeset:true}};
+</script>
+<script defer src="vendor/mathjax/tex-svg.js"></script>
+<link rel="stylesheet" href="common.css">
+<style>
+body.alg{--kopf:#5b7f95;--kopf-d:#46677d;--titel:#2f5f7c}
+.steps-k .sl{display:none;margin:4px 0}.steps-k .sl.on{display:block;animation:fadein .4s}
+.steps-k .why{font:14px "Source Sans 3",sans-serif;color:#a65b12;margin-left:8px}
+.pairs td.hit{background:#e3f3ea;font-weight:700}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:8px 0}
+.flow div{background:#fff;border:2px solid var(--kopf);border-radius:8px;padding:8px 10px;font-size:15px;position:relative}
+.flow div b{display:block;font:700 13px "Source Sans 3",sans-serif;color:var(--kopf-d);text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+@media (max-width:860px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.flow{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body class="alg">
+<div class="blocknav"><div class="in"><span class="bl">Block 1</span><a href="index.html">Übersicht</a><a href="1-1.html">1.1 Grundoperationen</a><a href="1-2.html" class="on">1.2 Algebra</a><a href="1-3.html">1.3 Geometrie</a><span class="bl">Block 2</span><a href="index2.html">Übersicht</a><a href="2-1.html">2.1</a><a href="2-2.html">2.2</a><a href="2-3.html">2.3</a></div></div>
+<header class="kopf">
+  <div class="kopf-in">
+    <div class="crumb">IDM EA Mathematik · Unterrichtsblock 1 · 1.2 Algebra</div>
+    <h1>Terme umformen, binomische Formeln und Faktorisieren</h1>
+    <p class="lead">Rechnen mit Variablen: Terme mit den vier Grundoperationen umformen, binomische Formeln verstehen und Terme in Faktoren zerlegen. Knöpfe mit <b>▶</b> spielen Animationen ab.</p>
+  </div>
+</header>
+<nav class="top"><div class="in">
+  <a href="#begriffe">1 Terme</a><a href="#klammern">2 Addition und Klammern</a><a href="#mult">3 Multiplikation</a><a href="#div">4 Division</a><a href="#binom">5 Binomische Formeln</a><a href="#faktor">6 Faktorisieren</a><a href="#training">7 Trainer</a><a href="#quiz">8 Quiz</a>
+</div></nav>
+<div class="register">Algebra</div>
+<main>
+
+<div class="kasten">
+  <h3>Lernziele</h3>
+  <div class="inhalt voll">
+    <ul class="lz">
+      <li>Ich kenne die Begriffe Term, Variable, Koeffizient und gleichartige Terme und kann Termwerte berechnen.</li>
+      <li>Ich kann Terme addieren und subtrahieren und Klammern korrekt auflösen, auch verschachtelte.</li>
+      <li>Ich kann Terme multiplizieren («jedes Glied mit jedem») und durch ein Monom dividieren.</li>
+      <li>Ich kenne die drei binomischen Formeln, kann sie begründen und in beide Richtungen anwenden.</li>
+      <li>Ich kann Terme in Faktoren zerlegen: ausklammern, binomische Formeln, Zweiklammeransatz.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ================= 1 TERME ================= -->
+<section id="begriffe">
+<h2><span class="nr">1</span>Terme und Begriffe</h2>
+<div class="kasten">
+  <h3>Gleichartige Terme zusammenfassen (Algebra-Kacheln)</h3>
+  <div class="inhalt">
+    <div class="fig" id="f1">
+      <div class="ctrl"><button class="btn" id="c1rnd">neue Terme</button><button class="btn play" id="c1play">▶ zusammenfassen</button></div>
+      <p class="hint">Kacheln: <span style="color:#2f78a8">■</span> \(x^2\) · <span style="color:#2f8f5f">▮</span> \(x\) · <span style="color:#d9822b">▪</span> 1. Rote Kacheln sind negativ. Eine positive und eine negative Kachel gleicher Art bilden ein Nullpaar: Zusammen ergeben sie null. Was übrig bleibt, ist das Resultat.</p>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Term:</b> sinnvoller Rechenausdruck aus Zahlen, Variablen, Rechenzeichen und Klammern, z. B. \(3x^2-5x+7\).</p>
+      <p class="def"><b>Variable:</b> Platzhalter für eine Zahl, meist ein Kleinbuchstabe (\(x,\ a,\ b,\ \ldots\)).</p>
+      <p class="def"><b>Koeffizient:</b> der Zahlenfaktor vor der Variablen: In \(-5x\) ist \(-5\) der Koeffizient.</p>
+      <p class="def"><b>Gleichartige Terme</b> haben die gleichen Variablen mit den gleichen Exponenten: \(4x^2\) und \(-x^2\) sind gleichartig, \(4x^2\) und \(4x\) nicht. Nur gleichartige Terme kann man addieren: \(4x^2-x^2=3x^2\).</p>
+      <div class="live"><span class="k">Rechnung</span><span id="r1"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Termwert berechnen (Einsetzen)</h3>
+  <div class="inhalt">
+    <div>
+      <p style="font-size:20px;text-align:center;margin:4px 0">\(T(x)=3x^2-5x+7\)</p>
+      <div class="ctrl" style="justify-content:center"><label class="hint" style="margin:0">\(x\) = <input type="range" id="c2x" min="-4" max="4" value="-2" step="1" style="vertical-align:middle"> <b id="c2xv">−2</b></label></div>
+      <div class="term" id="t2" style="font-size:21px;text-align:left"></div>
+      <div class="ctrl" style="justify-content:center"><button class="btn play" id="c2go">Schritt ›</button></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Einsetzen:</b> Jede Variable wird durch die Zahl ersetzt. Negative Zahlen setzt man <b>in Klammern</b> ein.</p>
+      <p class="def">Danach gelten die Operationsstufen aus <a href="1-1.html#stufen">1.1</a>: Potenz vor Punkt vor Strich.</p>
+      <p><b>Häufiger Fehler:</b> \(3\cdot(-2)^2=3\cdot4=12\), nicht \(3\cdot(-4)\).</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-12.html#begriffe" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 2 KLAMMERN ================= -->
+<section id="klammern">
+<h2><span class="nr">2</span>Addition, Subtraktion und Klammern</h2>
+<div class="kasten">
+  <h3>Klammern auflösen: Schritt für Schritt</h3>
+  <div class="inhalt">
+    <div>
+      <div class="ctrl"><select class="sel" id="c3sel"></select><button class="btn play" id="c3step">Schritt ›</button><button class="btn" id="c3all">alle Schritte</button><button class="btn" id="c3back">von vorn</button></div>
+      <div class="term steps-k" id="t3" style="text-align:left;font-size:20px"></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Plus vor der Klammer:</b> Die Klammer kann weggelassen werden: \(a+(b-c)=a+b-c\)</p>
+      <p class="def"><b>Minus vor der Klammer:</b> Beim Weglassen der Klammer werden <b>alle</b> Vorzeichen in der Klammer umgekehrt: \(a-(b-c)=a-b+c\)</p>
+      <p class="def"><b>Zahl vor der Klammer:</b> mit jedem Glied multiplizieren (Distributivgesetz): \(-3(y+1)=-3y-3\)</p>
+      <p class="def"><b>Verschachtelte Klammern</b> löst man von <b>innen nach aussen</b> auf. Am Schluss werden gleichartige Terme zusammengefasst.</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-12.html#klammern" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 3 MULTIPLIKATION ================= -->
+<section id="mult">
+<h2><span class="nr">3</span>Multiplikation</h2>
+<div class="kasten">
+  <h3>Jedes Glied mit jedem: das Flächenmodell</h3>
+  <div class="inhalt">
+    <div class="fig" id="f4">
+      <div class="ctrl"><button class="btn" id="c4rnd">neues Beispiel</button><button class="btn play" id="c4play">▶ ausmultiplizieren</button></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Monom mal Monom:</b> Koeffizienten multiplizieren, gleiche Variablen: Exponenten addieren. \(3x^2\cdot4x^3=12x^{5}\)</p>
+      <p class="def"><b>Monom mal Summe:</b> mit jedem Glied multiplizieren: \(2a(3a-5)=6a^2-10a\)</p>
+      <p class="def"><b>Summe mal Summe:</b> jedes Glied der ersten Klammer mit jedem Glied der zweiten multiplizieren, danach zusammenfassen:
+      \[(a+b)(c+d)=ac+ad+bc+bd\]</p>
+      <p class="def"><b>Vorzeichenregel:</b> \((+)\cdot(+)=+\), \((-)\cdot(-)=+\), \((+)\cdot(-)=-\)</p>
+      <div class="live"><span class="k">Rechnung</span><span id="r4"></span></div>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-12.html#mult" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 4 DIVISION ================= -->
+<section id="div">
+<h2><span class="nr">4</span>Division</h2>
+<div class="kasten">
+  <h3>Division durch ein Monom</h3>
+  <div class="inhalt">
+    <div>
+      <div class="ctrl"><select class="sel" id="c5sel"></select><button class="btn play" id="c5step">Schritt ›</button><button class="btn" id="c5all">alle Schritte</button></div>
+      <div class="term steps-k" id="t5" style="text-align:left;font-size:20px"></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>Regel:</b> Jedes Glied wird durch das Monom dividiert: \((a+b):c=a:c+b:c\)</p>
+      <p class="def"><b>Monom durch Monom:</b> Koeffizienten dividieren, gleiche Variablen: Exponenten subtrahieren. \(12x^5:4x^2=3x^{3}\)</p>
+      <p class="def"><b>Probe:</b> Ergebnis mal Divisor muss wieder den Dividenden ergeben.</p>
+      <p>Durch 0 darf nicht dividiert werden: Im Beispiel muss \(x\neq0\) gelten.</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-12.html#div" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 5 BINOMISCHE FORMELN ================= -->
+<section id="binom">
+<h2><span class="nr">5</span>Binomische Formeln</h2>
+<div class="kasten">
+  <h3>Die drei binomischen Formeln am Quadrat</h3>
+  <div class="inhalt">
+    <div class="fig" id="f6">
+      <div class="ctrl" id="c6m"><button class="btn on" data-m="1">1. Formel \((a+b)^2\)</button><button class="btn" data-m="2">2. Formel \((a-b)^2\)</button><button class="btn" data-m="3">3. Formel \((a+b)(a-b)\)</button></div>
+      <div class="ctrl kv"><label class="hint" style="margin:0">\(a\) = <input type="range" id="c6a" min="4" max="7" value="6"></label><label class="hint" style="margin:0">\(b\) = <input type="range" id="c6b" min="1" max="3" value="2"></label><button class="btn play" id="c6play">▶ Animation</button></div>
+      <div class="cap" id="cap6"></div>
+    </div>
+    <div class="txt">
+      <p class="def"><b>1. binomische Formel:</b> \((a+b)^2=a^2+2ab+b^2\)</p>
+      <p class="def"><b>2. binomische Formel:</b> \((a-b)^2=a^2-2ab+b^2\)</p>
+      <p class="def"><b>3. binomische Formel:</b> \((a+b)(a-b)=a^2-b^2\)</p>
+      <p><b>Häufiger Fehler:</b> \((a+b)^2\neq a^2+b^2\). Es fehlen die beiden Rechtecke \(2ab\), siehe Figur.</p>
+      <div class="live"><span class="k">Mit Zahlen</span><span id="r6"></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Formeln anwenden: Was ist \(a\), was ist \(b\)?</h3>
+  <div class="inhalt">
+    <div>
+      <div class="ctrl"><button class="btn" id="c7rnd">neues Beispiel</button><button class="btn" id="c7rev">rückwärts (faktorisieren)</button><button class="btn play" id="c7sol">▶ Lösung</button></div>
+      <div class="term" id="t7" style="font-size:20px;text-align:left"></div>
+    </div>
+    <div class="txt">
+      <p class="def">Oft sind \(a\) und \(b\) selbst Produkte. Beispiel: \((3x-2y)^2\) mit \(a=3x\), \(b=2y\):
+      \[(3x-2y)^2=(3x)^2-2\cdot3x\cdot2y+(2y)^2=9x^2-12xy+4y^2\]</p>
+      <p class="def"><b>Klammern um \(a\) und \(b\) setzen</b>, bevor man quadriert: \((3x)^2=9x^2\), nicht \(3x^2\).</p>
+      <p>Rückwärts gelesen helfen die Formeln beim Faktorisieren (Abschnitt 6).</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-12.html#binom" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 6 FAKTORISIEREN ================= -->
+<section id="faktor">
+<h2><span class="nr">6</span>Faktorisieren (Faktorzerlegung)</h2>
+<div class="kasten">
+  <h3>Vorgehen beim Zerlegen in ein Produkt</h3>
+  <div class="inhalt voll">
+    <div class="flow">
+      <div><b>1. Ausklammern</b>Gemeinsamen Faktor (ggT der Koeffizienten und gemeinsame Variablen) vor die Klammer: \(6x^2y+9xy^2=3xy(2x+3y)\)</div>
+      <div><b>2. Binomische Formel?</b>\(a^2-b^2=(a+b)(a-b)\)<br>\(a^2\pm2ab+b^2=(a\pm b)^2\)<br>z. B. \(25a^2-4=(5a+2)(5a-2)\)</div>
+      <div><b>3. Zweiklammeransatz</b>\(x^2+px+q=(x+m)(x+n)\) mit \(m+n=p\) und \(m\cdot n=q\)<br>z. B. \(x^2+7x+12=(x+3)(x+4)\)</div>
+      <div><b>4. Kontrolle</b>Ist jede Klammer weiter zerlegbar? Ausmultiplizieren muss den Ausgangsterm ergeben: \(3x^2-12=3(x^2-4)=3(x+2)(x-2)\)</div>
+    </div>
+  </div>
+</div>
+
+<div class="kasten">
+  <h3>Zweiklammeransatz: Kacheln zu einem Rechteck legen</h3>
+  <div class="inhalt">
+    <div class="fig" id="f8">
+      <div class="ctrl kv"><span>\(x^2+\)</span><input class="inp" id="c8p" value="7" style="width:60px"><span>\(x+\)</span><input class="inp" id="c8q" value="12" style="width:60px"><button class="btn play" id="c8go">▶ zerlegen</button><button class="btn" id="c8rnd">Zufall</button></div>
+    </div>
+    <div class="txt">
+      <p class="def">Gesucht sind zwei Zahlen \(m\) und \(n\) mit <b>Produkt \(q\)</b> und <b>Summe \(p\)</b>. Man sucht zuerst alle Zerlegungen von \(q\) in zwei Faktoren und prüft die Summe.</p>
+      <div class="tw"><table class="t pairs" id="t8"></table></div>
+      <div class="live"><span class="k">Ergebnis</span><span id="r8"></span></div>
+      <p class="hint">Mit negativen Zahlen (z. B. \(x^2+2x-15\)) funktioniert die Suche genauso; das Kachelbild zeigt nur Fälle mit positiven \(p\) und \(q\).</p>
+    </div>
+  </div>
+</div>
+<p class="auflink"><a href="aufgaben-12.html#faktor" target="_blank" rel="noopener">✎ Übungsaufgaben mit Lösungen zu diesem Abschnitt (neuer Tab)</a></p>
+</section>
+
+<!-- ================= 7 TRAINER ================= -->
+<section id="training">
+<h2><span class="nr">7</span>Trainer: Aufgaben wie an der Aufnahmeprüfung</h2>
+<div class="kasten">
+  <h3>Unbegrenzt viele Aufgaben mit Lösungsweg</h3>
+  <div class="inhalt voll">
+    <div class="ctrl" style="margin:0 0 12px"><select class="sel" id="ttyp"></select><button class="btn play" id="tneu">Neue Aufgabe</button><span class="score" id="tscore"></span></div>
+    <p class="sans" style="font-weight:700;color:var(--kopf-d);margin:0 0 4px" id="ttitel"></p>
+    <div id="tq" class="trainer-q"></div>
+    <div class="antwort"><span id="tziel"></span><input id="tin" class="inp w" autocomplete="off" style="width:320px"><button class="btn" id="tcheck">Prüfen</button><button class="btn" id="tsol">Lösungsweg</button></div>
+    <div class="fb" id="tfb"></div>
+    <div class="loesung" id="tl"></div>
+    <p class="hint">Eingabe: Potenzen mit <code>^</code> (z. B. <code>3x^2-2x+1</code>), Mal-Zeichen darf fehlen (<code>2(x+3)(x-3)</code>). Der Trainer prüft, ob der Term gleichwertig ist und ob er vollständig vereinfacht bzw. vollständig zerlegt ist.</p>
+  </div>
+</div>
+</section>
+
+<!-- ================= 8 QUIZ ================= -->
+<section id="quiz">
+<h2><span class="nr">8</span>Quiz</h2>
+<div class="kasten">
+  <h3>Quiz zu allen Bereichen von 1.2</h3>
+  <div class="inhalt voll">
+    <div class="ctrl" style="margin:0 0 4px"><select class="sel" id="qarea"></select>
+      <select class="sel" id="qn"><option value="5">5 Fragen</option><option value="10" selected>10 Fragen</option><option value="15">15 Fragen</option><option value="20">20 Fragen</option></select>
+      <button class="btn play" id="qneu">Neue Runde</button><span class="score" id="qstat" style="margin-left:auto"></span></div>
+    <div class="bar"><div id="qbar" style="width:0"></div></div>
+    <div class="uebung">
+      <div><div class="ctrl" id="qsk" style="margin:0 0 6px"></div><div class="qbox" id="qbox"></div><p class="hint" id="qhint"></p></div>
+      <div><p class="qtopic" id="qtop"></p><div id="qq"></div><div class="opts" id="qo"></div><div id="qfb"></div><div class="ctrl"><button class="btn" id="qnext" hidden>Nächste Frage ›</button></div></div>
+    </div>
+  </div>
+</div>
+</section>
+</main>
+<footer><span>Raphael Arnold Kohler</span><span>IDM EA Mathematik · Klasse EA2025 · Lehrplan 1.2 Algebra</span></footer>
+
+<script src="common.js"></script>
+<script src="alg.js"></script>
+<script src="quiz-12.js"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const X=Poly.v('x');
+
+/* ======================= 1 Algebra-Kacheln ======================= */
+(function(){
+  const f=new Fig($('f1'),{h:440,s:40,oy:180,grid:false});let P1=[2,-3,4],P2=[-1,1,-2],k=0,tiles=[];
+  const SIZE={2:{w:1.5,h:1.5},1:{w:0.5,h:1.5},0:{w:0.5,h:0.5}},COL={2:['#2f78a8','#cfe3f1'],1:['#2f8f5f','#cde8d8'],0:['#d9822b','#f9e0c3']},LAB={2:'x²',1:'x',0:'1'};
+  const TOP0=-0.6,LAB0=-4.05,TOPR=-4.5;  // Oberkante der Nullpaare, Zeile der Nullen, Oberkante Ergebnis
+  function layout(){tiles=[];
+    const row=(P,y,src)=>{let x=-7.3;[2,1,0].forEach((d,ti)=>{const n=Math.abs(P[ti]);for(let i=0;i<n;i++){tiles.push({d,neg:P[ti]<0,src,p0:{x:x+SIZE[d].w/2,y:y+0.75-SIZE[d].h/2}});x+=SIZE[d].w+0.12}x+=0.45})};
+    row(P1,3.2,1);row(P2,1.1,2);
+    // Nullpaare: positive Kachel oben, negative direkt darunter; Rest in die Ergebniszeile
+    let x=-7.3,xr=-7.3;[2,1,0].forEach(d=>{const h=SIZE[d].h,w=SIZE[d].w;const pos=tiles.filter(t=>t.d===d&&!t.neg),neg=tiles.filter(t=>t.d===d&&t.neg);const z=Math.min(pos.length,neg.length);
+      for(let i=0;i<z;i++){const cx=x+w/2;pos[i].p1={x:cx,y:TOP0-h/2};neg[i].p1={x:cx,y:TOP0-h-0.12-h/2};pos[i].zero=neg[i].zero=true;x+=w+0.2}
+      if(z)x+=0.45;
+      const rest=pos.length>z?pos.slice(z):neg.slice(z);rest.forEach(t=>{t.p1={x:xr+w/2,y:TOPR-h/2};xr+=w+0.12});if(rest.length)xr+=0.45})}
+  function drawTile(t,p,op){const s=SIZE[t.d],c=COL[t.d];f.poly([{x:p.x-s.w/2,y:p.y-s.h/2},{x:p.x+s.w/2,y:p.y-s.h/2},{x:p.x+s.w/2,y:p.y+s.h/2},{x:p.x-s.w/2,y:p.y+s.h/2}],{c:t.neg?C.rot:c[0],w:1.6,f:t.neg?'#f6d2cf':c[1],o:op});
+    f.text(p,(t.neg?'−':'')+LAB[t.d],'ann',{fill:t.neg?C.rot:c[0],opacity:op,fontSize:t.d===2?'14px':'12px',fontWeight:'700'})}
+  const termTex=P=>{const p=X.pow(2).scale(P[0]).add(X.scale(P[1])).add(Poly.c(P[2]));return p.tex()};
+  f.draw=()=>{f.text({x:-7.7,y:3.2},'①','ann',{fontSize:'14px'});f.text({x:-7.7,y:1.1},'②','ann',{fontSize:'14px'});
+    if(k>0){f.seg({x:-7.9,y:0.05},{x:7.9,y:0.05},{c:'#c9d6df',w:1,d:'4 4'});f.text({x:-7.7,y:-2.1},'0','ann',{fontSize:'13px',fill:C.grau});f.text({x:-7.7,y:TOPR-0.75},'=','ann',{fontSize:'16px'});f.seg({x:-7.9,y:-4.3},{x:7.9,y:-4.3},{c:'#c9d6df',w:1,d:'4 4'})}
+    if(k>0)tiles.forEach(t=>drawTile(t,t.p0,0.22*clamp(k*3,0,1)));  // Ausgangslage bleibt blass sichtbar
+    tiles.forEach(t=>{const p=V.lerp(t.p0,t.p1,ease(clamp(k,0,1)));const op=t.zero?1-clamp(k-1,0,1)*0.8:1;drawTile(t,p,op)});
+    if(k>=1.5)tiles.filter(t=>t.zero&&!t.neg).forEach(t=>f.text({x:t.p1.x,y:TOP0-2*SIZE[t.d].h-0.5},'0','ann',{fill:C.grau,fontSize:'13px'}));
+    if(k>=2&&!tiles.some(t=>!t.zero))f.text({x:-6.8,y:TOPR-0.75},'0','lbl',{fontStyle:'normal'})};
+  function show(final){const r=[P1[0]+P2[0],P1[1]+P2[1],P1[2]+P2[2]];const sg=v=>v<0?`- ${-v}`:`+ ${v}`;
+    $('r1').innerHTML=`\\((${termTex(P1)})+(${termTex(P2)})\\)`+(final?`<br>\\(=(${P1[0]}${sg(P2[0])})x^2+(${P1[1]}${sg(P2[1])})x+(${P1[2]}${sg(P2[2])})\\)<br>\\(=${termTex(r)}\\)`:'');typesetEl($('r1'))}
+  $('c1rnd').addEventListener('click',()=>{const r=()=>pick([-3,-2,-1,1,2,3]);do{P1=[rnd(1,3),r(),r()];P2=[r(),r(),r()]}while(P1.some((v,i)=>Math.abs(v+P2[i])>4));k=0;layout();f.render();show(false)});
+  $('c1play').addEventListener('click',()=>{k=0;tween(2600,t=>{k=t*2;f.render()},()=>show(true))});
+  layout();f.render();show(false);
+})();
+
+/* ======================= Termwert ======================= */
+(function(){
+  let L=[],n=1;
+  function upd(){const x=+$('c2x').value;$('c2xv').textContent=mn(x);const xs=x<0?`(${mn(x)})`:x;const a=3*x*x,b=-5*x;
+    L=[`T(${mn(x)}) = ?`,`T(${mn(x)}) = 3 · ${xs}<sup>2</sup> − 5 · ${xs} + 7 &nbsp;<span class="hint">einsetzen</span>`,`= 3 · ${x*x} ${b<0?'−':'+'} ${Math.abs(b)} + 7 &nbsp;<span class="hint">Potenz und Vorzeichen</span>`,`= ${a} ${b<0?'−':'+'} ${Math.abs(b)} + 7 = <b>${mn(a+b+7)}</b>`];n=1;show()}
+  function show(){$('t2').innerHTML=(n===1?L[0]:L.slice(1,n).join('<br>'))}
+  $('c2x').addEventListener('input',upd);$('c2go').addEventListener('click',()=>{if(n<L.length){n=n===1?2:n+1;show()}});upd();
+})();
+
+/* ======================= 2 Klammern auflösen ======================= */
+function stepper(selId,boxId,stepId,allId,backId,EX){
+  const sel=$(selId);sel.innerHTML=EX.map((e,i)=>`<option value="${i}">${e.name}</option>`).join('');let n=0;
+  function load(){const e=EX[+sel.value];n=0;$(boxId).innerHTML=e.lines.map((l,i)=>`<div class="sl${i===0?' on':''}">\\(${i?'=':''}${l[0]}\\)${l[1]?`<span class="why">← ${l[1]}</span>`:''}</div>`).join('');typesetEl($(boxId))}
+  function step(){const ls=$(boxId).querySelectorAll('.sl');if(n<ls.length-1){n++;ls[n].classList.add('on')}}
+  sel.addEventListener('change',load);$(stepId).addEventListener('click',step);$(allId).addEventListener('click',()=>{const ls=$(boxId).querySelectorAll('.sl');ls.forEach(l=>l.classList.add('on'));n=ls.length-1});
+  if(backId)$(backId).addEventListener('click',load);load()}
+stepper('c3sel','t3','c3step','c3all','c3back',[
+  {name:'3c − (2(c − 3) − 5c)',lines:[['3c-\\big(2(c-3)-5c\\big)'],['3c-\\big(2c-6-5c\\big)','innere Klammer: 2 mit jedem Glied multiplizieren'],['3c-\\big(-3c-6\\big)','in der Klammer zusammenfassen'],['3c+3c+6','Minus vor der Klammer: alle Vorzeichen umkehren'],['6c+6','gleichartige Terme zusammenfassen']]},
+  {name:'5a − (3a − 2b) + (a − 4b)',lines:[['5a-(3a-2b)+(a-4b)'],['5a-3a+2b+a-4b','− vor Klammer: Vorzeichen umkehren; + vor Klammer: weglassen'],['3a-2b','zusammenfassen: 5a − 3a + a = 3a, 2b − 4b = −2b']]},
+  {name:'2x − [3 − (4x − 1)] + 5',lines:[['2x-\\big[3-(4x-1)\\big]+5'],['2x-\\big[3-4x+1\\big]+5','innerste Klammer zuerst: Vorzeichen umkehren'],['2x-\\big[4-4x\\big]+5','in der eckigen Klammer zusammenfassen'],['2x-4+4x+5','Minus vor der eckigen Klammer: Vorzeichen umkehren'],['6x+1','zusammenfassen']]},
+  {name:'−(2y − 7) − 3(y + 1)',lines:[['-(2y-7)-3(y+1)'],['-2y+7-3y-3','Vorzeichen umkehren; −3 mit jedem Glied multiplizieren'],['-5y+4','zusammenfassen']]},
+  {name:'4(m − 2n) − 3(2m − n)',lines:[['4(m-2n)-3(2m-n)'],['4m-8n-6m+3n','ausmultiplizieren: −3 · (−n) = +3n'],['-2m-5n','zusammenfassen']]}]);
+
+/* ======================= 3 Multiplikation: jedes mit jedem ======================= */
+(function(){
+  const f=new Fig($('f4'),{h:400,s:36,grid:false});let m=3,n=2,sm=1,sn=1,k=0;
+  const XL=4;
+  f.draw=()=>{const M=sm*m,N=sn*n;const term=v=>v<0?`− ${-v}`:`+ ${v}`;
+    // Ausdruck oben
+    const y=3.7,px=[-4.2,-2.4,0.6,2.4];f.text({x:-5.0,y},'(','lbl',{fontSize:'30px',fontStyle:'normal'});f.text({x:-1.6,y},')','lbl',{fontSize:'30px',fontStyle:'normal'});f.text({x:-0.2,y},'(','lbl',{fontSize:'30px',fontStyle:'normal'});f.text({x:3.2,y},')','lbl',{fontSize:'30px',fontStyle:'normal'});
+    f.text({x:px[0],y},'x','lbl',{fontSize:'26px'});f.text({x:px[1],y},term(M),'lbl',{fontSize:'24px',fontStyle:'normal'});f.text({x:px[2],y},'x','lbl',{fontSize:'26px'});f.text({x:px[3],y},term(N),'lbl',{fontSize:'24px',fontStyle:'normal'});
+    const pairs=[[0,2,'x · x = x²',C.blau],[0,3,`x · ${N<0?'('+mn(N)+')':N} = ${mn(N)}x`,C.gr],[1,2,`${M<0?'('+mn(M)+')':M} · x = ${mn(M)}x`,C.or],[1,3,`${M<0?'('+mn(M)+')':M} · ${N<0?'('+mn(N)+')':N} = ${mn(M*N)}`,C.vi]];
+    pairs.forEach(([a,b,lab,c],i)=>{const fi=clamp(k-i,0,1);if(fi<=0)return;const h=0.55+i*0.28,xa=px[a],xb=px[b];
+      const pts=[];for(let t=0;t<=fi;t+=0.05){const xx=xa+(xb-xa)*t;pts.push(f.S({x:xx,y:y+0.45+h*Math.sin(Math.PI*t)}))}f.path('M'+pts.map(p=>p.join(',')).join(' L'),{c,w:2});
+      if(fi>=1)f.text({x:2.2,y:1.4-i*0.62},lab,'lbl sm',{fill:c,fontStyle:'normal',textAnchor:'start'})});
+    // Flächenmodell
+    const pos=M>0&&N>0,x0=-6.6,y0=-5.0;const W=XL+M*0.6,H=XL+N*0.6,a=XL,b=M*0.6,c=XL,d=N*0.6;
+    if(!pos){f.text({x:-1,y:-1.5},'Flächenmodell nur mit positiven Zahlen','ann',{fontSize:'14px'});return}
+    const rects=[[x0,y0+d,a,c,C.blau,'x²'],[x0,y0,a,d,C.gr,`${N}x`],[x0+a,y0+d,b,c,C.or,`${M}x`],[x0+a,y0,b,d,C.vi,`${M*N}`]];
+    rects.forEach(([rx,ry,w,h,col,lab],i)=>{const fi=clamp(k-i,0,1);f.poly([{x:rx,y:ry},{x:rx+w,y:ry},{x:rx+w,y:ry+h},{x:rx,y:ry+h}],{c:col,w:1.8,f:fi>0?col:'#fff',o:fi>0?0.25+0.1*fi:1});f.poly([{x:rx,y:ry},{x:rx+w,y:ry},{x:rx+w,y:ry+h},{x:rx,y:ry+h}],{c:col,w:1.8});if(fi>0.5)f.text({x:rx+w/2,y:ry+h/2},lab,'lbl sm',{fill:col})});
+    f.text({x:x0+a/2,y:y0+H+0.35},'x','lbl sm');f.text({x:x0+a+b/2,y:y0+H+0.35},String(M),'lbl sm',{fontStyle:'normal'});f.text({x:x0-0.35,y:y0+d+c/2},'x','lbl sm');f.text({x:x0-0.35,y:y0+d/2},String(N),'lbl sm',{fontStyle:'normal'})};
+  function txt(){const M=sm*m,N=sn*n;const p=X.add(Poly.c(M)).mul(X.add(Poly.c(N)));const sgn=v=>v<0?`-${-v}`:`+${v}`;
+    $('r4').innerHTML=`\\((x${sgn(M)})(x${sgn(N)})=x^2${sgn(N)}x${sgn(M)}x${sgn(M*N)}\\)<br>\\(=${p.tex()}\\)`;typesetEl($('r4'))}
+  $('c4play').addEventListener('click',()=>{k=0;$('r4').innerHTML='';tween(4400,t=>{k=t*4;f.render()},txt)});
+  const ask=()=>{const sgn=v=>v<0?`-${-v}`:`+${v}`;$('r4').innerHTML=`\\((x${sgn(sm*m)})(x${sgn(sn*n)})=\\;?\\)`;typesetEl($('r4'))};
+  $('c4rnd').addEventListener('click',()=>{m=rnd(1,5);n=rnd(1,5);sm=Math.random()<0.3?-1:1;sn=Math.random()<0.3?-1:1;k=0;f.render();ask()});
+  k=0;f.render();ask();
+})();
+
+/* ======================= 4 Division ======================= */
+stepper('c5sel','t5','c5step','c5all',null,[
+  {name:'(12x³ − 8x² + 4x) : 4x',lines:[['(12x^3-8x^2+4x):4x'],['12x^3:4x-8x^2:4x+4x:4x','jedes Glied durch 4x teilen'],['3x^2-2x+1','Koeffizienten dividieren, Exponenten subtrahieren'],['\\text{Probe: }4x\\cdot(3x^2-2x+1)=12x^3-8x^2+4x\\ \\checkmark','']]},
+  {name:'(15a²b − 10ab²) : 5ab',lines:[['(15a^2b-10ab^2):5ab'],['15a^2b:5ab-10ab^2:5ab','jedes Glied durch 5ab teilen'],['3a-2b','a² : a = a, b : b = 1 usw.']]},
+  {name:'(−6y⁴ + 9y²) : (−3y²)',lines:[['(-6y^4+9y^2):(-3y^2)'],['(-6y^4):(-3y^2)+9y^2:(-3y^2)','jedes Glied durch −3y² teilen'],['2y^2-3','Vorzeichenregel: (−) : (−) = +, (+) : (−) = −']]}]);
+
+/* ======================= 5 Binomische Formeln ======================= */
+(function(){
+  const f=new Fig($('f6'),{h:420,s:34,ox:120,oy:380});let mode=1,k=4;
+  const cap=$('cap6');
+  const R=(x,y,w,h,col,lab,o=1,lc)=>{f.poly([{x,y},{x:x+w,y},{x:x+w,y:y+h},{x,y:y+h}],{c:col,w:2,f:col,o:0.28*o});f.poly([{x,y},{x:x+w,y},{x:x+w,y:y+h},{x,y:y+h}],{c:col,w:2,o});if(lab&&o>0.5)f.text({x:x+w/2,y:y+h/2},lab,'lbl sm',{fill:lc||col})};
+  f.draw=()=>{const a=+$('c6a').value,b=+$('c6b').value;const s1=clamp(k,0,1),s2=clamp(k-1,0,1),s3=clamp(k-2,0,1),s4=clamp(k-3,0,1);
+    if(mode===1){const S=a+b;f.poly([{x:0,y:0},{x:S,y:0},{x:S,y:S},{x:0,y:S}],{c:C.ink,w:2.4});
+      if(s1>0)R(0,b,a,a,C.blau,'a²',s1);if(s2>0)R(a,b,b,a,C.or,'ab',s2);if(s3>0)R(0,0,a,b,C.or,'ab',s3);if(s4>0)R(a,0,b,b,C.gr,'b²',s4);
+      f.text({x:a/2,y:S+0.4},'a','lbl');f.text({x:a+b/2,y:S+0.4},'b','lbl');f.text({x:-0.4,y:b+a/2},'a','lbl');f.text({x:-0.4,y:b/2},'b','lbl')}
+    if(mode===2){f.poly([{x:0,y:0},{x:a,y:0},{x:a,y:a},{x:0,y:a}],{c:C.ink,w:2.4,f:'rgba(47,120,168,.08)'});f.text({x:a/2,y:a+0.4},'a','lbl');f.text({x:-0.4,y:a/2},'a','lbl');
+      if(s1>0)R(0,b,a-b,a-b,C.vi,'(a − b)²',s1);
+      if(s2>0){R(a-b,0,b,a,C.or,'',s2);f.text({x:a-b/2,y:a/2},'− ab','lbl sm',{fill:C.or,opacity:s2})}
+      if(s3>0){R(0,0,a,b,C.rot,'',s3);f.text({x:(a-b)/2,y:b/2},'− ab','lbl sm',{fill:C.rot,opacity:s3})}
+      if(s4>0){R(a-b,0,b,b,C.gr,'+ b²',s4,C.gr)}
+      f.text({x:(a-b)/2,y:-0.4},'a − b','lbl sm');f.text({x:a-b/2,y:-0.4},'b','lbl sm')}
+    if(mode===3){const t=s2*0+clamp(k-1,0,2)/2;// 0..1
+      f.poly([{x:0,y:0},{x:a-b,y:0},{x:a-b,y:a},{x:0,y:a}],{c:C.blau,w:2,f:'rgba(47,120,168,.25)'});
+      if(s1<1||k<1){f.poly([{x:a-b,y:a-b},{x:a,y:a-b},{x:a,y:a},{x:a-b,y:a}],{c:C.rot,w:2,d:'5 4',f:'rgba(192,70,63,'+(0.25*(1-s1))+')'});if(s1<0.5)f.text({x:a-b/2,y:a-b/2},'b²','lbl sm',{fill:C.rot})}
+      else if(t<1){f.poly([{x:a-b,y:a-b},{x:a,y:a-b},{x:a,y:a},{x:a-b,y:a}],{c:C.rot,w:1.4,d:'5 4'});f.text({x:a-b/2,y:a-b/2},'− b²','lbl sm',{fill:C.rot})}
+      // Stück B: [a-b,a]x[0,a-b] -> gedreht oben auf A: [0,a-b]x[a,a+b]
+      const c0={x:a-b/2,y:(a-b)/2},c1={x:(a-b)/2,y:a+b/2},th=-PI/2*t;const cc=V.lerp(c0,c1,ease(t));
+      const pts=[{x:-b/2,y:-(a-b)/2},{x:b/2,y:-(a-b)/2},{x:b/2,y:(a-b)/2},{x:-b/2,y:(a-b)/2}].map(p=>V.add(cc,V.rot(p,{x:0,y:0},th)));
+      f.poly(pts,{c:C.or,w:2,f:'rgba(217,130,43,.3)'});
+      f.text({x:(a-b)/2,y:-0.4},'a − b','lbl sm');f.text({x:-0.45,y:a/2},'a','lbl sm');
+      if(t>=1){f.text({x:-0.45,y:a+b/2},'b','lbl sm');f.poly([{x:0,y:0},{x:a-b,y:0},{x:a-b,y:a+b},{x:0,y:a+b}],{c:C.ink,w:2.6});f.text({x:a-b+0.25,y:(a+b)/2+0.8},'Rechteck','ann',{textAnchor:'start'});f.text({x:a-b+0.25,y:(a+b)/2+0.3},'(a + b)(a − b)','ann',{textAnchor:'start'})}
+      else{f.text({x:a+0.4,y:(a-b)/2},'a − b','lbl sm');f.text({x:a-b/2,y:-0.4},'b','lbl sm')}}
+    const A=a,B=b;const full=k>=(mode===3?3:4);$('r6').innerHTML=!full?`a = ${A}, b = ${B}: ${mode===1?`(${A} + ${B})²`:mode===2?`(${A} − ${B})²`:`(${A} + ${B})(${A} − ${B})`} = ?`:mode===1?`a = ${A}, b = ${B}: (${A} + ${B})² = ${(A+B)**2} &nbsp;und&nbsp; ${A*A} + 2 · ${A*B} + ${B*B} = ${(A+B)**2}<br><span class="warn">aber ${A}² + ${B}² = ${A*A+B*B}</span>`:
+      mode===2?`a = ${A}, b = ${B}: (${A} − ${B})² = ${(A-B)**2} &nbsp;und&nbsp; ${A*A} − 2 · ${A*B} + ${B*B} = ${(A-B)**2}`:`a = ${A}, b = ${B}: (${A} + ${B})(${A} − ${B}) = ${(A+B)*(A-B)} &nbsp;und&nbsp; ${A*A} − ${B*B} = ${A*A-B*B}`};
+  const CAP={1:'Das Quadrat mit Seite a + b besteht aus a², zweimal dem Rechteck ab und b².',2:'Vom Quadrat a² werden zwei Streifen ab weggenommen. Dabei wird das kleine Quadrat b² doppelt abgezogen, also muss es einmal wieder dazugezählt werden.',3:'Vom Quadrat a² wird b² weggenommen. Das orange Reststück wird gedreht und oben angesetzt: Es entsteht ein Rechteck mit den Seiten a + b und a − b.'};
+  btnGroup('#c6m [data-m]','m',v=>{mode=+v;k=0;f.render();cap.innerHTML='<p>Klicke auf ▶ Animation.</p>'});
+  ['c6a','c6b'].forEach(id=>$(id).addEventListener('input',()=>f.render()));
+  $('c6play').addEventListener('click',()=>{k=0;cap.innerHTML='<p>…</p>';tween(mode===3?3400:4000,t=>{k=t*(mode===3?3:4);f.render()},()=>{cap.innerHTML=`<p>${CAP[mode]}</p>`})});
+  k=0;cap.innerHTML='<p>Wie gross ist die Fläche des Quadrats mit der Seite a + b? Klicke auf ▶ Animation.</p>';f.render();
+})();
+
+/* ======================= Formeln anwenden ======================= */
+(function(){
+  let rev=false;
+  function ex(){const v=pick(['x','m','u','r']),w={x:'y',m:'n',u:'v',r:'s'}[v],p=rnd(1,5),q=rnd(1,6),typ=rnd(1,3),withW=Math.random()<0.5;
+    const A=p===1?v:`${p}${v}`,B=withW?(q===1?w:`${q}${w}`):String(q);const Ap=`(${A})`,Bp=withW?`(${B})`:B;
+    const pa=Poly.v(v).scale(p),pb=withW?Poly.v(w).scale(q):Poly.c(q);
+    const res=typ===1?pa.add(pb).pow(2):typ===2?pa.sub(pb).pow(2):pa.add(pb).mul(pa.sub(pb));
+    const lhs=typ===1?`(${A}+${B})^2`:typ===2?`(${A}-${B})^2`:`(${A}+${B})(${A}-${B})`;
+    const mid=typ===1?`${p===1?A+'^2':Ap+'^2'}+2\\cdot ${A}\\cdot ${B}+${withW&&q!==1?Bp:B}^2`:typ===2?`${p===1?A+'^2':Ap+'^2'}-2\\cdot ${A}\\cdot ${B}+${withW&&q!==1?Bp:B}^2`:`${p===1?A+'^2':Ap+'^2'}-${withW&&q!==1?Bp:B}^2`;
+    return{lhs,mid,res:res.tex(),A,B,typ}}
+  let n=0;
+  function step(){const ls=[...$('t7').querySelectorAll('.st7')];if(n<ls.length){ls[n].style.display='';n++}}
+  function show(){n=0;const e=ex();const col=`\\color{#2f78a8}{a=${e.A}},\\quad\\color{#d9822b}{b=${e.B}}`;
+    $('t7').innerHTML=rev?`<p>Faktorisiere: \\(${e.res}\\)</p><p class="hint">Welche Formel passt? Was ist \\(a\\), was ist \\(b\\)?</p><p class="st7" style="display:none">\\(${e.typ===3?'a^2-b^2':'a^2'+(e.typ===1?'+':'-')+'2ab+b^2'}\\) mit \\(${col}\\)</p><p class="st7" style="display:none">\\(${e.res}=${e.lhs}\\)</p>`
+      :`<p>\\(${e.lhs}=\\;?\\)</p><p class="st7" style="display:none">${e.typ}. binomische Formel mit \\(${col}\\)</p><p class="st7" style="display:none">\\(=${e.mid}\\)</p><p class="st7" style="display:none">\\(=${e.res}\\)</p>`;typesetEl($('t7'))}
+  document.getElementById('c7sol').addEventListener('click',step);
+  $('c7rnd').addEventListener('click',()=>{rev=false;show()});$('c7rev').addEventListener('click',()=>{rev=true;show()});show();
+})();
+
+/* ======================= 6 Zweiklammeransatz ======================= */
+(function(){
+  const f=new Fig($('f8'),{h:380,s:34,grid:false});let p=7,q=12,m=3,n=4,k=0,ok=true;
+  f.draw=()=>{if(!ok||p<=0||q<=0){f.text({x:0,y:0},'Kachelbild nur für positive p und q','ann',{fontSize:'14px'});return}
+    const XL=3,u=0.5,x0=-6.5,y0=-5;// Rechteck (x+m) breit, (x+n) hoch
+    const s1=clamp(k,0,1),s2=clamp(k-1,0,1),s3=clamp(k-2,0,1),s4=clamp(k-3,0,1);
+    const tile=(x,y,w,h,col,fc,o,lab)=>{f.poly([{x,y},{x:x+w,y},{x:x+w,y:y+h},{x,y:y+h}],{c:col,w:1.4,f:fc,o});if(lab&&o>0.6)f.text({x:x+w/2,y:y+h/2},lab,'ann',{fill:col,fontSize:'11px'})};
+    // Ausgangslage links oben: Kacheln als Haufen (gestapelt), Ziel: Rechteck
+    const tl=[];tl.push({t:2,to:{x:x0,y:y0+n*u}});for(let i=0;i<m;i++)tl.push({t:1,to:{x:x0+XL+i*u,y:y0+n*u},rot:false});for(let i=0;i<n;i++)tl.push({t:1,to:{x:x0,y:y0+i*u},rot:true});
+    for(let i=0;i<m;i++)for(let j=0;j<n;j++)tl.push({t:0,to:{x:x0+XL+i*u,y:y0+j*u}});
+    tl.forEach((t,i)=>{const from={x:1.5+(i%9)*0.62,y:3.6-Math.floor(i/9)*0.8};const ph=t.t===2?s1:t.t===1?(t.rot?s3:s2):s4;const P=V.lerp(from,t.to,ease(ph));
+      if(t.t===2)tile(P.x,P.y,XL,XL,C.blau,'#cfe3f1',1,'x²');else if(t.t===1)tile(P.x,P.y,t.rot?XL:u,t.rot?u:XL,C.gr,'#cde8d8',1,'x');else tile(P.x,P.y,u,u,C.or,'#f9e0c3',1)});
+    if(k>=4){f.poly([{x:x0,y:y0},{x:x0+XL+m*u,y:y0},{x:x0+XL+m*u,y:y0+XL+n*u},{x:x0,y:y0+XL+n*u}],{c:C.ink,w:2.6});
+      f.text({x:x0+XL/2,y:y0+XL+n*u+0.4},'x','lbl sm');f.text({x:x0+XL+m*u/2,y:y0+XL+n*u+0.4},String(m),'lbl sm',{fontStyle:'normal'});
+      f.text({x:x0-0.35,y:y0+n*u+XL/2},'x','lbl sm');f.text({x:x0-0.35,y:y0+n*u/2},String(n),'lbl sm',{fontStyle:'normal'});
+      f.text({x:x0+XL+m*u+0.4,y:y0+(XL+n*u)/2},`Breite x + ${m}, Höhe x + ${n}`,'ann',{textAnchor:'start'})}};
+  function go(reveal=true){p=parseInt($('c8p').value);q=parseInt($('c8q').value);if(!Number.isInteger(p)||!Number.isInteger(q)||Math.abs(q)>200){$('r8').innerHTML='<span class="warn">Bitte ganze Zahlen eingeben.</span>';return}
+    const pairs=[];for(let a=-Math.abs(q);a<=Math.abs(q);a++){if(a===0||q%a!==0)continue;const b=q/a;if(a<=b)pairs.push([a,b])}
+    const hit=pairs.find(([a,b])=>a+b===p);ok=!!hit;const sg=v=>v<0?`-${-v}`:`+${v}`;
+    $('t8').innerHTML=`<tr><th>\\(m\\)</th><th>\\(n\\)</th><th>\\(m\\cdot n\\)</th><th>\\(m+n\\)</th></tr>`+pairs.map(([a,b])=>`<tr${a+b===p?' class="hit"':''}><td>${mn(a)}</td><td>${mn(b)}</td><td>${mn(q)}</td><td>${reveal?mn(a+b)+(a+b===p?' ✓':''):'?'}</td></tr>`).join('');if(!reveal)$('t8').querySelectorAll('tr.hit').forEach(r=>r.classList.remove('hit'));typesetEl($('t8'));
+    if(!reveal){k=0;m=hit?hit[0]:1;n=hit?hit[1]:1;f.render();$('r8').innerHTML=`\\(x^2${sg(p)}x${sg(q)}=(x\\;?\\;)(x\\;?\\;)\\)`;typesetEl($('r8'));return}
+    if(hit){[m,n]=hit;$('r8').innerHTML=`\\(x^2${sg(p)}x${sg(q)}=(x${sg(m)})(x${sg(n)})\\)`;k=0;if(p>0&&q>0)tween(4200,t=>{k=t*4;f.render()});else f.render()}
+    else{$('r8').innerHTML=`Keine ganzzahligen \\(m\\), \\(n\\) gefunden: \\(x^2${sg(p)}x${sg(q)}\\) lässt sich so nicht zerlegen.`;f.render()}typesetEl($('r8'))}
+  $('c8go').addEventListener('click',()=>go(true));['c8p','c8q'].forEach(id=>$(id).addEventListener('input',()=>go(false)));$('c8rnd').addEventListener('click',()=>{const a=rnd(1,5),b=rnd(1,5),neg=Math.random()<0.35;const A=a,B=neg?-b:b;$('c8p').value=A+B;$('c8q').value=A*B;go(false)});go(false);
+})();
+
+/* ======================= 7 Trainer ======================= */
+(function(){
+  const sg=v=>v<0?`-${-v}`:`+${v}`;const co=(c,v)=>c===1?v:c===-1?'-'+v:c+v;
+  const L=()=>pick(['x','a','b','c','y','m']);
+  const tex=p=>p.tex();
+  const T={
+    vereinf:{label:'Terme addieren und subtrahieren',gen(){const v=L();const r=()=>pick([-5,-4,-3,-2,-1,1,2,3,4,5,6]);const A=[rnd(1,6),r(),r()],B=[rnd(1,4),r(),r()];
+      const pa=Poly.v(v,2).scale(A[0]).add(Poly.v(v).scale(A[1])).add(Poly.c(A[2])),pb=Poly.v(v,2).scale(B[0]).add(Poly.v(v).scale(B[1])).add(Poly.c(B[2]));const res=pa.sub(pb);
+      return{q:`<p>Vereinfachen Sie so weit als möglich.</p>\\[(${tex(pa)})-(${tex(pb)})\\]`,ziel:'=',ph:'z. B. 2x^2+3x-1',check:s=>checkAlg(s,res,'vereinfacht'),
+        sol:`\\[\\begin{aligned}&(${tex(pa)})-(${tex(pb)})\\\\=\\;&${tex(pa)}${tex(pb.neg()).replace(/^(?!-)/,'+')}\\quad\\text{(Vorzeichen umkehren)}\\\\=\\;&${tex(res)}\\end{aligned}\\]`}}},
+    klammern:{label:'Klammern auflösen und vereinfachen',gen(){const v=L();const a=rnd(2,6),b=rnd(2,4),c=rnd(1,6),d=rnd(2,7);
+      if(Math.random()<0.5){const inner=Poly.v(v).scale(b).sub(Poly.c(b*c)).sub(Poly.v(v).scale(d));const res=Poly.v(v).scale(a).sub(inner);
+        return{q:`<p>Lösen Sie die Klammern auf und vereinfachen Sie so weit als möglich.</p>\\[${a}${v}-\\big(${b}(${v}-${c})-${d}${v}\\big)\\]`,ziel:'=',check:s=>checkAlg(s,res,'vereinfacht'),
+          sol:`\\[\\begin{aligned}&${a}${v}-\\big(${b}(${v}-${c})-${d}${v}\\big)\\\\=\\;&${a}${v}-\\big(${b}${v}-${b*c}-${d}${v}\\big)\\\\=\\;&${a}${v}-\\big(${tex(inner)}\\big)\\\\=\\;&${a}${v}${tex(inner.neg()).replace(/^(?!-)/,'+')}\\\\=\\;&${tex(res)}\\end{aligned}\\]`}}
+      const e=rnd(2,9);const inner=Poly.c(b).sub(Poly.v(v).scale(c).sub(Poly.c(d)));const res=Poly.v(v).scale(a).sub(inner).add(Poly.c(e));
+      return{q:`<p>Lösen Sie die Klammern auf und vereinfachen Sie so weit als möglich.</p>\\[${a}${v}-\\big[${b}-(${c===1?'':c}${v}-${d})\\big]+${e}\\]`,ziel:'=',check:s=>checkAlg(s,res,'vereinfacht'),
+        sol:`\\[\\begin{aligned}&${a}${v}-\\big[${b}-(${c===1?'':c}${v}-${d})\\big]+${e}\\\\=\\;&${a}${v}-\\big[${b}-${c===1?'':c}${v}+${d}\\big]+${e}\\\\=\\;&${a}${v}-\\big[${tex(inner)}\\big]+${e}\\\\=\\;&${a}${v}${tex(inner.neg()).replace(/^(?!-)/,'+')}+${e}\\\\=\\;&${tex(res)}\\end{aligned}\\]`}}},
+    ausmult:{label:'Ausmultiplizieren und vereinfachen',gen(){const v=L();const a=rnd(1,6),b=pick([-7,-5,-3,-2,2,3,4,5,7]),c=rnd(1,9),d=pick([-6,-5,-4,-3,-2,2,3,4,6]);
+      const P1=Poly.v(v).scale(a).add(Poly.c(b)),P2=Poly.c(c).add(Poly.v(v).scale(d));const res=P1.mul(P2);
+      const parts=[Poly.v(v).scale(a).mul(Poly.c(c)),Poly.v(v).scale(a).mul(Poly.v(v).scale(d)),Poly.c(b).mul(Poly.c(c)),Poly.c(b).mul(Poly.v(v).scale(d))];
+      return{q:`<p>Multiplizieren Sie aus und vereinfachen Sie so weit als möglich.</p>\\[(${co(a,v)}${sg(b)})(${c}${d<0?'-':'+'}${co(Math.abs(d),v)})\\]`,ziel:'=',check:s=>checkAlg(s,res,'vereinfacht'),
+        sol:`<p>Jedes Glied mit jedem multiplizieren:</p>\\[\\begin{aligned}&(${co(a,v)}${sg(b)})(${c}${d<0?'-':'+'}${co(Math.abs(d),v)})\\\\=\\;&${parts.map((p,i)=>{const t=tex(p);return i&&!t.startsWith('-')?'+'+t:t}).join('')}\\\\=\\;&${tex(res)}\\end{aligned}\\]`}}},
+    binom:{label:'Binomische Formeln anwenden',gen(){const v=L(),w=pick(['y','b','z','n'].filter(q=>q!==v));const p=rnd(1,6),q=rnd(1,7),typ=rnd(1,3),withW=Math.random()<0.4;
+      const pa=Poly.v(v).scale(p),pb=withW?Poly.v(w).scale(q):Poly.c(q);const A=tex(pa),B=tex(pb);
+      const res=typ===1?pa.add(pb).pow(2):typ===2?pa.sub(pb).pow(2):pa.add(pb).mul(pa.sub(pb));const lhs=typ===1?`(${A}+${B})^2`:typ===2?`(${A}-${B})^2`:`(${A}+${B})(${A}-${B})`;
+      return{q:`<p>Multiplizieren Sie aus (binomische Formel).</p>\\[${lhs}\\]`,ziel:'=',check:s=>checkAlg(s,res,'vereinfacht'),
+        sol:`<p>${typ}. binomische Formel mit \\(a=${A}\\), \\(b=${B}\\):</p>\\[${lhs}=${typ===3?`(${A})^2-(${B})^2`:`(${A})^2${typ===1?'+':'-'}2\\cdot ${A}\\cdot ${B}+(${B})^2`}=${tex(res)}\\]`}}},
+    division:{label:'Division durch ein Monom',gen(){const v=L();const c=rnd(2,6),e=rnd(1,2);const q=[rnd(1,5),pick([-4,-3,-2,2,3,4]),pick([-5,-3,-1,1,2,4])];
+      const quot=Poly.v(v,2).scale(q[0]).add(Poly.v(v).scale(q[1])).add(Poly.c(q[2]));const mono=Poly.v(v,e).scale(c);const dvd=quot.mul(mono);
+      return{q:`<p>Dividieren Sie und vereinfachen Sie.</p>\\[(${tex(dvd)}):${tex(mono)}\\]`,ziel:'=',check:s=>checkAlg(s,quot,'vereinfacht'),
+        sol:`<p>Jedes Glied durch \\(${tex(mono)}\\) teilen:</p>\\[(${tex(dvd)}):${tex(mono)}=${tex(quot)}\\]<p>Probe: \\(${tex(mono)}\\cdot(${tex(quot)})=${tex(dvd)}\\)</p>`}}},
+    faktor:{label:'Zerlegen Sie in ein Produkt',gen(){const v=L();const typ=pick(['aus','aus2','b3','b12','zk','komb']);let res,sol,lin;
+      if(typ==='aus'){const g=rnd(2,6),a=rnd(1,5),b=pick([-7,-5,-3,-1,1,2,3,5,7]);if(gcd(a,b)!==1)return this.gen();const inner=Poly.v(v).scale(a).add(Poly.c(b));res=inner.mul(Poly.v(v).scale(g));lin=2;
+        sol=`<p>Gemeinsamer Faktor: \\(${g}${v}\\)</p>\\[${tex(res)}=${g}${v}(${tex(inner)})\\]`}
+      else if(typ==='aus2'){const w=pick(['y','b','z'].filter(q=>q!==v));const g=rnd(2,5),a=rnd(1,4),b=pick([-5,-3,-2,2,3,5]);if(gcd(a,b)!==1)return this.gen();const mono=Poly.v(v).mul(Poly.v(w)).scale(g);const inner=Poly.v(v).scale(a).add(Poly.v(w).scale(b));res=mono.mul(inner);lin=3;
+        sol=`<p>Gemeinsamer Faktor: \\(${tex(mono)}\\)</p>\\[${tex(res)}=${tex(mono)}(${tex(inner)})\\]`}
+      else if(typ==='b3'){const a=rnd(1,6),b=rnd(1,9);if(gcd(a,b)!==1)return this.gen();const pa=Poly.v(v).scale(a);res=pa.pow(2).sub(Poly.c(b*b));lin=2;
+        sol=`<p>3. binomische Formel mit \\(a=${tex(pa)}\\), \\(b=${b}\\):</p>\\[${tex(res)}=(${tex(pa)}+${b})(${tex(pa)}-${b})\\]`}
+      else if(typ==='b12'){const a=rnd(1,4),b=rnd(1,7),s=pick([1,-1]);if(gcd(a,b)!==1)return this.gen();const pa=Poly.v(v).scale(a);const inner=pa.add(Poly.c(s*b));res=inner.pow(2);lin=2;
+        sol=`<p>${s>0?'1.':'2.'} binomische Formel mit \\(a=${tex(pa)}\\), \\(b=${b}\\): Das mittlere Glied ist \\(${s>0?'+':'-'}2\\cdot ${tex(pa)}\\cdot ${b}\\).</p>\\[${tex(res)}=(${tex(inner)})^2\\]`}
+      else if(typ==='zk'){let m=pick([-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,8,10,20]),n=pick([-8,-5,-4,-3,-2,2,3,4,5,6,7]);if(m===-n)n++;const P1=Poly.v(v).add(Poly.c(m)),P2=Poly.v(v).add(Poly.c(n));res=P1.mul(P2);lin=2;
+        sol=`<p>Zweiklammeransatz: gesucht \\(m\\), \\(n\\) mit \\(m\\cdot n=${m*n}\\) und \\(m+n=${m+n}\\) → \\(m=${m}\\), \\(n=${n}\\).</p>\\[${tex(res)}=(${tex(P1)})(${tex(P2)})\\]`}
+      else{const g=rnd(2,5),b=rnd(1,5);const inner=Poly.v(v).pow(2).sub(Poly.c(b*b));res=inner.scale(g);lin=2;
+        sol=`<p>Zuerst ausklammern, dann 3. binomische Formel:</p>\\[${tex(res)}=${g}(${tex(inner)})=${g}(${v}+${b})(${v}-${b})\\]`}
+      return{q:`<p>Zerlegen Sie in ein Produkt.</p>\\[${tex(res)}\\]`,ziel:'=',ph:'z. B. 2(x+3)(x-3)',check:s=>checkAlg(s,res,'faktor',lin),sol}}}
+  };
+  runTrainer(T);
+})();
+runQuiz(['12']);
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
