@@ -18,7 +18,7 @@
 
   /* ---------- «Über»-Inhalte (Autor, Lizenz) — Texte wie sek1-mathe ---------- */
   const UEBER_AUTOR=`<div class="meta-titel">Autor</div>
-    <img class="meta-portrait" src="autor.jpg" width="96" height="96" loading="lazy" alt="Porträt von Raphael Arnold Kohler (Aquarell)">
+    <img class="meta-portrait" src="autor.jpg" width="112" height="112" loading="lazy" alt="Porträt von Raphael Arnold Kohler (Aquarell)">
     <p><strong>Autor:</strong> Raphael Arnold Kohler, Elektroingenieur und BM-Fachlehrperson für Mathematik und Physik mit über 30 Jahren Unterrichtserfahrung.</p>
     <p>Bei der Erstellung und technischen Umsetzung wurden KI-Werkzeuge eingesetzt. Alle veröffentlichten Inhalte werden redaktionell geprüft; die Verantwortung für die Veröffentlichung liegt bei Raphael Arnold Kohler.</p>`;
   const UEBER_LIZENZ=`<div class="meta-titel">Lizenz</div>
@@ -28,31 +28,52 @@
     <p><a href="https://creativecommons.org/licenses/by-nc/4.0/deed.de" target="_blank" rel="noopener" class="meta-link">→ Lizenztext (CC BY-NC 4.0)</a></p>
     <p><a href="https://github.com/go4exercises/ea-mathe" target="_blank" rel="noopener" class="meta-link">→ Quelltext und Inhalte des Lehrmittels (GitHub)</a></p>`;
 
-  /* ---------- obere Leiste ---------- */
+  /* ---------- obere Leiste (Aufbau wie sek1-mathe: Logo · Menüs · Trennstrich · Über) ---------- */
   const bar=document.querySelector('.blocknav');
   if(bar){
-    let h='<div class="in"><a class="bn-home" href="index.html" title="Startseite">IDM EA Mathematik</a>';
+    const nr=t=>t.split(' ')[0], tit=t=>t.slice(t.indexOf(' ')+1);
+    let dd='',mn='';
     for(const b of BLOCKS){const ready=!!b.home;
-      h+=`<div class="bn-dd${b===curB?' on':''}${ready?'':' later'}"><button type="button" class="bn-b" aria-haspopup="true" aria-expanded="false">Block ${b.n}<span class="bn-car">▾</span></button><div class="bn-m" role="menu">`;
-      h+=`<div class="bn-head">Unterrichtsblock ${b.n}<small>${b.t}</small></div>`;
-      if(ready)h+=`<a role="menuitem" href="${b.home}"${page===b.home?' class="cur"':''}>Übersicht und Gesamtquiz</a>`;
+      dd+=`<div class="dd-gruppe"><div class="dd-gruppe-titel">Block ${b.n}<small>${b.t}</small></div>`;
+      mn+=`<details class="mn-lg"${b===curB?' open':''}><summary>Block ${b.n} · ${b.t}</summary><div class="mn-body">`;
+      if(ready){dd+=`<a href="${b.home}"${page===b.home?' class="dd-aktiv"':''}><span class="dd-nr">${b.n}</span><span class="dd-tit">Übersicht und Gesamtquiz</span></a>`;
+        mn+=`<a href="${b.home}"${page===b.home?' class="mn-aktiv"':''}>Übersicht und Gesamtquiz</a>`}
       for(const c of b.ch){
-        if(!c.p){h+=`<span class="dis">${c.t}<small>in Vorbereitung</small></span>`;continue}
-        h+=`<a role="menuitem" href="${c.p}"${c===curC&&!isAuf?' class="cur"':''}>${c.t}</a>`;
-        if(c.a)h+=`<a role="menuitem" class="sub${c===curC&&isAuf?' cur':''}" href="${c.a}" target="_blank" rel="noopener">✎ Übungsaufgaben ${c.t.split(' ')[0]}</a>`}
-      h+='</div></div>'}
-    h+=`<span class="bn-sep" aria-hidden="true"></span><div class="bn-dd bn-ueber"><button type="button" class="bn-b" aria-haspopup="true" aria-expanded="false">Über<span class="bn-car">▾</span></button><div class="bn-m bn-m-ueber">
-      <div class="ueber-tabs" role="tablist"><button type="button" class="ueber-tab aktiv" role="tab" data-target="ueber-autor">Autor</button><button type="button" class="ueber-tab" role="tab" data-target="ueber-lizenz">Lizenz</button></div>
-      <div class="ueber-panels"><div class="ueber-panel aktiv" id="ueber-autor" role="tabpanel">${UEBER_AUTOR}</div><div class="ueber-panel" id="ueber-lizenz" role="tabpanel">${UEBER_LIZENZ}</div></div></div></div></div>`;
-    bar.innerHTML=h;
-    const dds=[...bar.querySelectorAll('.bn-dd')];
-    const close=except=>dds.forEach(d=>{if(d!==except){d.classList.remove('open');d.querySelector('.bn-b').setAttribute('aria-expanded','false')}});
-    dds.forEach(d=>{const b=d.querySelector('.bn-b');b.addEventListener('click',e=>{e.stopPropagation();const o=!d.classList.contains('open');close(d);d.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o))})});
-    document.addEventListener('click',e=>{if(!bar.contains(e.target))close(null)});
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')close(null)});
-    bar.querySelectorAll('.ueber-tab').forEach(t=>t.addEventListener('click',e=>{e.stopPropagation();const w=t.closest('.bn-m-ueber');
+        if(!c.p){dd+=`<span class="dd-dis"><span class="dd-nr">${nr(c.t)}</span><span class="dd-tit">${tit(c.t)} <small>in Vorbereitung</small></span></span>`;mn+=`<span class="mn-dis">${c.t} · in Vorbereitung</span>`;continue}
+        dd+=`<a href="${c.p}"${c===curC&&!isAuf?' class="dd-aktiv"':''}><span class="dd-nr">${nr(c.t)}</span><span class="dd-tit">${tit(c.t)}</span></a>`;
+        mn+=`<a href="${c.p}"${c===curC&&!isAuf?' class="mn-aktiv"':''}>${c.t}</a>`;
+        if(c.a){dd+=`<a class="dd-sub${c===curC&&isAuf?' dd-aktiv':''}" href="${c.a}" target="_blank" rel="noopener"><span class="dd-nr"></span><span class="dd-tit">✎ Übungsaufgaben ${nr(c.t)}</span></a>`;
+          mn+=`<a class="mn-sub${c===curC&&isAuf?' mn-aktiv':''}" href="${c.a}" target="_blank" rel="noopener">✎ Übungsaufgaben ${nr(c.t)}</a>`}}
+      dd+='</div>';mn+='</div></details>'}
+    bar.innerHTML=`<header class="site-hdr">
+  <a href="index.html" class="logo">IDM EA Mathematik</a>
+  <nav class="site-nav">
+    <div class="dropdown"><button type="button" class="nav-btn${curC?' aktiv':''}" data-dd="dd-bl">Unterrichtsblöcke ▾</button>
+      <div class="dd-menu dd-menu-gross" id="dd-bl">${dd}</div></div>
+    <span class="nav-sep" aria-hidden="true"></span>
+    <div class="dropdown"><button type="button" class="nav-btn nav-meta" data-dd="dd-ueber">Über ▾</button>
+      <div class="dd-menu dd-menu-ueber" id="dd-ueber">
+        <div class="ueber-tabs" role="tablist"><button type="button" class="ueber-tab aktiv" role="tab" data-target="ueber-autor">Autor</button><button type="button" class="ueber-tab" role="tab" data-target="ueber-lizenz">Lizenz</button></div>
+        <div class="ueber-panels"><div class="ueber-panel aktiv" id="ueber-autor" role="tabpanel">${UEBER_AUTOR}</div><div class="ueber-panel" id="ueber-lizenz" role="tabpanel">${UEBER_LIZENZ}</div></div>
+      </div></div>
+  </nav>
+  <button type="button" class="burger" aria-label="Navigation">☰</button>
+</header>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="index.html" class="mn-direkt">← Übersicht</a>
+  <details class="mn-sektion" open><summary>Unterrichtsblöcke</summary><div class="mn-body">${mn}</div></details>
+  <details class="mn-sektion"><summary>Über dieses Lehrmittel</summary><div class="mn-body">
+    <details class="mn-meta"><summary>Autor</summary><div class="mn-meta-body">${UEBER_AUTOR}</div></details>
+    <details class="mn-meta"><summary>Lizenz</summary><div class="mn-meta-body">${UEBER_LIZENZ}</div></details></div></details>
+</div>`;
+    const menus=[...bar.querySelectorAll('.dd-menu')];
+    const closeAll=except=>menus.forEach(m=>{if(m!==except)m.classList.remove('open')});
+    bar.querySelectorAll('[data-dd]').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();const m=document.getElementById(btn.dataset.dd);const o=!m.classList.contains('open');closeAll(m);m.classList.toggle('open',o)}));
+    document.addEventListener('click',e=>{if(!e.target.closest('.blocknav .dropdown'))closeAll(null)});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll(null)});
+    bar.querySelector('.burger').addEventListener('click',()=>bar.querySelector('.mobile-nav').classList.toggle('open'));
+    bar.querySelectorAll('.ueber-tab').forEach(t=>t.addEventListener('click',()=>{const w=t.closest('.dd-menu-ueber');
       w.querySelectorAll('.ueber-tab').forEach(x=>x.classList.toggle('aktiv',x===t));w.querySelectorAll('.ueber-panel').forEach(p=>p.classList.toggle('aktiv',p.id===t.dataset.target))}));
-    bar.querySelector('.bn-m-ueber').addEventListener('click',e=>e.stopPropagation());
   }
 
   /* ---------- Kapitelmenü rechts (folgt beim Scrollen mit) ---------- */

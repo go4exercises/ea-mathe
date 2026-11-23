@@ -16,9 +16,10 @@ Vorbild für Hosting und Repo-Aufbau: `~/sek1-mathe` (sek1-mathe.begreifbar.ch).
 - `common.css`, `common.js` (Geometrie-Helfer, SVG-Figuren, Quiz-Gerüst `QZ`), `quiz-<kapitel>.js`
   (Quizfragen je Kapitel), dazu kapitelspezifische Skripte (`2-1.js`, `2-2.js`, `2-3.js`, `alg.js`,
   `b2.js`, `kon.js`, `rat.js`).
-- **Kopfleiste** (`.blocknav`, gebaut von `nav.js`) im Stil von sek1-mathe: weiss, Serif-Logo
-  «IDM EA Mathematik», Block-Menüs, Trennstrich, «Über ▾» mit Reitern Autor/Lizenz (`UEBER_AUTOR`,
-  `UEBER_LIZENZ` in `nav.js`, Texte aus sek1-mathe angepasst; Porträt `autor.jpg`).
+- **Kopfleiste** (`.blocknav` → `header.site-hdr`, gebaut von `nav.js`) mit Massen, Schrift und Farben
+  von sek1-mathe (`.site-hdr`, 54 px, Serif-Logo «IDM EA Mathematik»): ein Menü «Unterrichtsblöcke ▾»
+  (gruppiert nach `BLOCKS`), Trennstrich, «Über ▾» mit Reitern Autor/Lizenz (`UEBER_AUTOR`,
+  `UEBER_LIZENZ`; Porträt `autor.jpg`). Unter 1024 px Burger-Menü. Akzentfarbe `--titel` statt Petrol.
 - Keine Klassenbezeichnung auf den Seiten (Entscheid Auftraggeber 24.11.2026).
 - `CNAME` (genau `ea-mathe.begreifbar.ch`), `.nojekyll` (leer) — nicht entfernen.
 

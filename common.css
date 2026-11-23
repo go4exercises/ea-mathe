@@ -186,52 +186,68 @@ body.b2t{--kopf:#4f8a86;--kopf-d:#3d6f6b;--titel:#2e5b58}
 g.mj-kipp{transform-box:fill-box;transform-origin:center;animation:kipp 1s ease .15s}
 @keyframes kipp{0%{transform:scaleY(1)}45%{transform:scaleY(0)}100%{transform:scaleY(1)}}
 .seg-b{font:600 13px "Source Sans 3",sans-serif}
-/* ======================= Kopfleiste (nav.js) — wie sek1-mathe: weiss, Serif-Logo, Menüknöpfe, Trennstrich, «Über» ======================= */
-.blocknav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:2.5px solid var(--titel);box-shadow:0 1px 4px rgba(20,40,60,.06)}
-.blocknav .in{display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding:8px 32px;min-height:36px}
-.blocknav .bn-home{font:700 16px "Source Serif 4",Georgia,serif;color:var(--ink);text-decoration:none;white-space:nowrap;margin-right:28px}
-.blocknav .bn-home:hover{color:var(--titel)}
-.bn-dd{position:relative}
-.bn-b{font:600 13px "Source Sans 3",sans-serif;color:#55636e;background:none;border:0;border-radius:6px;padding:6px 10px;cursor:pointer;display:flex;align-items:center;gap:4px}
-.bn-b:hover,.bn-dd.open .bn-b,.bn-dd.on .bn-b{background:#e4f0f8;color:var(--titel)}
-.bn-dd.later .bn-b{opacity:.6}
-.bn-car{font-size:10px}
-.bn-sep{width:1px;height:22px;background:var(--linie);margin:0 8px}
-.bn-ueber .bn-b{font-weight:500;font-size:12.5px}
-.bn-m{display:none;position:absolute;left:0;top:100%;margin-top:6px;min-width:270px;background:#fff;border:1px solid var(--linie);border-radius:8px;box-shadow:0 8px 28px rgba(20,40,60,.18);padding:6px;z-index:60}
-.bn-dd.open .bn-m{display:block}
-@media (hover:hover){.bn-dd:hover .bn-m{display:block}.bn-dd:hover .bn-b{background:#e4f0f8;color:var(--titel)}
-  .bn-dd:hover::after{content:"";position:absolute;left:0;right:0;top:100%;height:8px}}
-.bn-head{font:700 13px "Source Sans 3",sans-serif;color:var(--titel);padding:6px 10px;border-bottom:1px solid var(--linie);margin-bottom:4px}
-.bn-head small{display:block;font-weight:400;color:#6b7a86;font-size:12.5px}
-.bn-m a,.bn-m .dis{display:block;padding:6px 10px;border-radius:5px;color:var(--ink);text-decoration:none;font:600 14px "Source Sans 3",sans-serif;white-space:nowrap}
-.bn-m a:hover{background:var(--papier)}
-.bn-m a.cur{background:#e4f0f8;color:var(--titel)}
-.bn-m a.sub{font-weight:400;font-size:13px;padding:3px 10px 5px 26px;color:#55636e}
-.bn-m .dis{color:#9aa7b1;font-weight:400}.bn-m .dis small{margin-left:8px;font-size:11.5px;font-style:italic}
+/* ======================= Kopfleiste (nav.js) — Masse, Schrift und Farben wie sek1-mathe (style.css .site-hdr) ======================= */
+.blocknav{position:sticky;top:0;z-index:200;--hk-tinte:#1c1a17;--hk-tinte2:#5a5040;--hk-linie:#d8d0c4;--hk-papier:#f8f6f1;--hk-akz:var(--titel);--hk-akz-hell:#e1eef6}
+.site-hdr{background:#fff;border-bottom:2.5px solid var(--hk-akz);padding:0 32px;height:54px;display:flex;align-items:center;gap:24px;box-shadow:0 2px 10px rgba(28,26,23,.08);font-family:"Source Sans 3",system-ui,sans-serif;line-height:1.7}
+.site-hdr .logo{font:700 16px "Source Serif 4",Georgia,serif;color:var(--hk-tinte);text-decoration:none;white-space:nowrap}
+.site-nav{display:flex;align-items:center;gap:4px;flex:1}
+.site-nav>a{font-size:13.1px;font-weight:600;color:var(--hk-tinte2);padding:5px 10px;border-radius:6px;text-decoration:none;white-space:nowrap}
+.site-nav>a:hover{background:var(--hk-akz-hell);color:var(--hk-akz)}
+.blocknav .dropdown{position:relative}
+.nav-btn{font:600 13.1px "Source Sans 3",system-ui,sans-serif;color:var(--hk-tinte2);background:none;border:0;cursor:pointer;padding:5px 10px;border-radius:6px;white-space:nowrap;line-height:1.7}
+.nav-btn:hover,.nav-btn.aktiv{background:var(--hk-akz-hell);color:var(--hk-akz)}
+.nav-btn.nav-meta{font-weight:500;font-size:12.5px}
+.nav-btn.nav-meta:hover{background:var(--hk-papier);color:var(--hk-tinte)}
+.nav-sep{width:1px;height:22px;background:var(--hk-linie);margin:0 6px;flex-shrink:0}
+.dd-menu{display:none;position:absolute;top:calc(100% + 6px);left:0;background:#fff;border:1px solid var(--hk-linie);border-radius:10px;box-shadow:0 4px 22px rgba(28,26,23,.13);min-width:300px;padding:6px;z-index:300}
+.dd-menu.open{display:block}
+.dd-menu-gross{min-width:380px;max-width:460px;max-height:70vh;overflow-y:auto}
+.dd-gruppe{padding:6px 0;border-top:1px solid var(--hk-linie)}
+.dd-gruppe:first-child{border-top:0}
+.dd-gruppe-titel{font:700 10.5px "Source Sans 3",sans-serif;letter-spacing:1.5px;text-transform:uppercase;color:var(--hk-tinte2);padding:4px 12px 6px}
+.dd-gruppe-titel small{display:block;letter-spacing:0;text-transform:none;font-weight:400;font-size:12px}
+.dd-menu a,.dd-menu .dd-dis{display:flex;align-items:baseline;gap:8px;padding:6px 12px;border-radius:6px;text-decoration:none}
+.dd-menu a:hover{background:var(--hk-papier)}
+.dd-menu a.dd-aktiv{background:var(--hk-akz-hell)}
+.dd-nr{font:600 11px "Source Sans 3",sans-serif;font-variant-numeric:tabular-nums;color:var(--hk-akz);min-width:26px}
+.dd-tit{font-size:13.1px;color:var(--hk-tinte);font-weight:600;flex:1;line-height:1.4}
+.dd-menu a.dd-sub{padding:2px 12px 6px}.dd-sub .dd-tit{font-weight:400;font-size:12.5px;color:var(--hk-tinte2)}
+.dd-dis .dd-tit{color:#a39a8c;font-weight:400}.dd-dis small{font-style:italic;font-size:11.5px;color:#a39a8c}
 /* «Über»: Reiter links, Inhalt rechts */
-.bn-m-ueber{left:auto;right:0;width:540px;padding:0;overflow:hidden}
-.bn-dd.open .bn-m-ueber{display:flex}
-@media (hover:hover){.bn-ueber:hover .bn-m-ueber{display:flex}}
-.ueber-tabs{flex:0 0 130px;display:flex;flex-direction:column;background:var(--papier);border-right:1px solid var(--linie);padding:8px 6px}
-.ueber-tab{background:none;border:0;cursor:pointer;font:600 12.5px "Source Sans 3",sans-serif;color:#55636e;text-align:left;padding:8px 11px;border-radius:6px;margin-bottom:2px}
-.ueber-tab:hover{background:#fff;color:var(--ink)}
-.ueber-tab.aktiv{background:#fff;color:var(--titel);box-shadow:inset 3px 0 0 var(--titel)}
-.ueber-panels{flex:1;padding:16px 18px 14px;font:13.5px/1.55 "Source Sans 3",sans-serif;color:var(--ink);max-height:70vh;overflow-y:auto}
+.dd-menu-ueber{display:none;min-width:560px;max-width:640px;padding:0;left:0;right:auto;overflow:hidden}
+.dd-menu-ueber.open{display:flex}
+.ueber-tabs{flex:0 0 160px;display:flex;flex-direction:column;background:var(--hk-papier);border-right:1px solid var(--hk-linie);padding:8px 6px}
+.ueber-tab{background:none;border:0;cursor:pointer;font:600 12.5px "Source Sans 3",sans-serif;color:var(--hk-tinte2);text-align:left;padding:8px 11px;border-radius:6px;margin-bottom:2px}
+.ueber-tab:hover{background:#fff;color:var(--hk-tinte)}
+.ueber-tab.aktiv{background:#fff;color:var(--hk-akz);box-shadow:inset 3px 0 0 var(--hk-akz)}
+.ueber-panels{flex:1;padding:16px 18px 14px;font-size:13.1px;color:var(--hk-tinte);line-height:1.55;max-height:70vh;overflow-y:auto}
 .ueber-panel{display:none}.ueber-panel.aktiv{display:block}
-.ueber-panel .meta-titel{font:700 15px "Source Serif 4",Georgia,serif;margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--linie)}
-.ueber-panel p{margin:0 0 8px}.ueber-panel p:last-child{margin-bottom:0}
-.ueber-panel a.meta-link{display:inline;padding:0;border-radius:0;white-space:normal;font:600 13.5px/1.55 "Source Sans 3",sans-serif;color:var(--titel);text-decoration:none;background:none}.ueber-panel a.meta-link:hover{text-decoration:underline;background:none}
-.meta-portrait{float:left;width:96px;height:96px;margin:2px 14px 6px 0;border-radius:50%;object-fit:cover;border:1.5px solid var(--kopf)}
-@media (max-width:760px){
-  .blocknav .in{padding:6px 10px;gap:2px}
-  .blocknav .bn-home{flex:1 0 100%;margin:0 0 2px 6px;font-size:15px}
-  .bn-b{padding:5px 7px}.bn-sep{margin:0 3px}
-  .bn-m,.bn-m-ueber{position:fixed;left:8px;right:8px;top:78px;width:auto;min-width:0}
-  .bn-m-ueber{flex-direction:column}
-  .ueber-tabs{flex:0 0 auto;flex-direction:row;border-right:0;border-bottom:1px solid var(--linie)}
-  .ueber-tab{flex:1 1 auto;text-align:center}.ueber-tab.aktiv{box-shadow:inset 0 -2px 0 var(--titel)}
-  .meta-portrait{width:72px;height:72px}}
+.meta-titel{font:700 15.2px "Source Serif 4",Georgia,serif;color:var(--hk-tinte);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--hk-linie)}
+.ueber-panel p,.mn-meta-body p{margin:0 0 8px}
+.ueber-panel em{color:var(--hk-tinte2)}
+.blocknav a.meta-link{display:inline;padding:0;color:var(--hk-akz);font-weight:600;text-decoration:none;background:none}
+.blocknav a.meta-link:hover{text-decoration:underline}
+.meta-portrait{float:left;width:112px;height:112px;margin:2px 14px 6px 0;border-radius:50%;object-fit:cover;border:1.5px solid var(--kopf);box-shadow:0 2px 10px rgba(28,26,23,.08)}
+/* Burger und Mobilmenü */
+.burger{display:none;background:none;border:0;cursor:pointer;font-size:20.8px;color:var(--hk-tinte);margin-left:auto;padding:4px 8px}
+.mobile-nav{display:none;flex-direction:column;background:#fff;border-bottom:1px solid var(--hk-linie);padding:12px 16px;gap:2px;max-height:calc(100vh - 54px);overflow-y:auto;font-family:"Source Sans 3",system-ui,sans-serif}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-size:13.6px;color:var(--hk-tinte2);text-decoration:none;padding:7px 10px;border-radius:6px}
+.mobile-nav a:hover,.mobile-nav a.mn-aktiv{background:var(--hk-akz-hell);color:var(--hk-akz)}
+.mobile-nav a.mn-sub{padding:2px 10px 6px 26px;font-size:12.8px}
+.mobile-nav .mn-dis{font-size:13.6px;color:#a39a8c;padding:7px 10px}
+.mobile-nav .mn-direkt{font-size:14.4px;font-weight:700;color:var(--hk-tinte);padding:10px}
+.mobile-nav details{margin:0 4px;border-top:1px solid var(--hk-linie)}
+.mobile-nav summary{list-style:none;cursor:pointer;font-size:14.4px;font-weight:700;color:var(--hk-tinte);padding:10px;border-radius:6px;display:flex;justify-content:space-between;align-items:center}
+.mobile-nav summary::-webkit-details-marker{display:none}
+.mobile-nav summary::after{content:'▾';font-size:11px;color:var(--hk-tinte2);transition:transform .2s}
+.mobile-nav details[open]>summary::after{transform:rotate(180deg)}
+.mobile-nav details details>summary{font-size:12.5px;color:var(--hk-akz);padding:8px 10px}
+.mn-body{display:flex;flex-direction:column;gap:2px;padding:0 0 8px 6px}
+.mn-meta-body{font-size:13.1px;line-height:1.55;color:var(--hk-tinte);padding:4px 10px 10px}
+.mn-meta-body .meta-portrait{width:88px;height:88px}
+@media (max-width:1024px){.site-nav{display:none}.burger{display:block}}
+@media (max-width:640px){.site-hdr{padding:0 16px}}
 /* Kapitelmenü rechts */
 body.has-sn nav.top{display:none}
 body.has-sn .register{display:none}
