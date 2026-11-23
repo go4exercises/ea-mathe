@@ -9,4 +9,4 @@ Bruchterme, Gleichungen, Geometrie. Blöcke 3 und 4 sind in Vorbereitung.
 Statische Website (HTML/CSS/JS, GitHub Pages), ohne Drittanbieter: Schriften und MathJax liegen im Repo.
 Arbeitsanleitung: `CLAUDE.md`.
 
-Inhalte: Raphael Arnold Kohler.
+Inhalte: Raphael Arnold Kohler, CC BY-NC 4.0 (siehe `LICENSE`).
