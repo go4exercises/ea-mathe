@@ -20,6 +20,7 @@ Vorbild für Hosting und Repo-Aufbau: `~/sek1-mathe` (sek1-mathe.begreifbar.ch).
   von sek1-mathe (`.site-hdr`, 54 px, Serif-Logo «IDM EA Mathematik»): ein Menü «Unterrichtsblöcke ▾»
   (gruppiert nach `BLOCKS`), Trennstrich, «Über ▾» mit Reitern Autor/Lizenz (`UEBER_AUTOR`,
   `UEBER_LIZENZ`; Porträt `autor.jpg`). Unter 1024 px Burger-Menü. Akzentfarbe `--titel` statt Petrol.
+  Ganz links Rücklink auf https://begreifbar.ch/ nur als Symbol (`begreifbar.svg` = Favicon von begreifbar.ch).
 - Keine Klassenbezeichnung auf den Seiten (Entscheid Auftraggeber 24.11.2026).
 - `CNAME` (genau `ea-mathe.begreifbar.ch`), `.nojekyll` (leer) — nicht entfernen.
 

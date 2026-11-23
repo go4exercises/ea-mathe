@@ -46,6 +46,7 @@
           mn+=`<a class="mn-sub${c===curC&&isAuf?' mn-aktiv':''}" href="${c.a}" target="_blank" rel="noopener">✎ Übungsaufgaben ${nr(c.t)}</a>`}}
       dd+='</div>';mn+='</div></details>'}
     bar.innerHTML=`<header class="site-hdr">
+  <a href="https://begreifbar.ch/" class="hk-zurueck" title="Zu begreifbar.ch" aria-label="Zu begreifbar.ch"><img src="begreifbar.svg" width="26" height="26" alt=""></a>
   <a href="index.html" class="logo">IDM EA Mathematik</a>
   <nav class="site-nav">
     <div class="dropdown"><button type="button" class="nav-btn${curC?' aktiv':''}" data-dd="dd-bl">Unterrichtsblöcke ▾</button>
