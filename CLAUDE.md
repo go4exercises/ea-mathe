@@ -37,11 +37,20 @@ Vorbild für Hosting und Repo-Aufbau: `~/sek1-mathe` (sek1-mathe.begreifbar.ch).
 - Kontrolle: `grep -rn "https\?://" --include=*.html --include=*.js --exclude-dir=vendor .` zeigt nur
   `http://www.w3.org/2000/svg`. Neue externe Quellen nur nach Rückfrage.
 
-## Sprache & Notation
+## Sprache & Notation (nicht verhandelbar — wie sek1-mathe)
 
-- Schweizer Hochdeutsch, **kein ß**; Du-Form.
-- MathJax-Delimiter `\(…\)` inline, `\[…\]` abgesetzt; nie `$…$`.
+- Schweizer Hochdeutsch. **Kein ß.** Du-Form, kein «wir».
+- **Dezimaltrennzeichen ist der Punkt, nie das Komma** — überall: LaTeX, Aufgabentexte,
+  Live-Anzeigen, JS-Code.
+- MathJax-Delimiter: `\(…\)` inline, `\[…\]` abgesetzt. Niemals `$…$`.
+- **Leere Menge als `\{\,\}`**, nie `\emptyset` oder `∅`.
+- Zahlenmengen in LaTeX als `\mathbb{N}`, `\mathbb{Z}`, `\mathbb{Q}`; im Menü (kein MathJax) als ℕ, ℤ, ℚ.
+- ggT/kgV mit Strichpunkt: `\text{ggT}(12;\ 18)`. Ergebnisse als (unechte) Brüche, keine gemischten Zahlen.
+- Kein Gedankenstrich unmittelbar vor oder nach einer Formel — er liest sich als Minus.
 - Autorname überall «Raphael Arnold Kohler» (Entscheid Auftraggeber 23.11.2026).
+- **Didaktische Farben wie in sek1-mathe:** Blau = Definition/Theorie/Merkkasten · Grün = Beispiel/
+  Lösung/Ergebnis · Orange = Aufgabe/Übung · Rot = Fehler/Achtung · Lila = Beweis/Herleitung.
+  Nie umdeuten.
 
 ## Handybreite
 
@@ -53,10 +62,28 @@ Vorbild für Hosting und Repo-Aufbau: `~/sek1-mathe` (sek1-mathe.begreifbar.ch).
   `PLAYWRIGHT=~/sek1-mathe/node_modules/playwright node scripts/render-check.js`
   — erwartet jede Zeile `sw=375 merr=0`, kein `ERR`, am Schluss `extern: keine`.
 
+## Verifikations-Standard
+
+- **Alle Zahlenwerte vor dem Einbau mit `python3` nachrechnen** — nie aus dem Gedächtnis.
+- Geometrie und Graphen von Animationen vorab in Python durchrechnen.
+- Render-Check bei 1280 px **und** 375 px (`scripts/render-check.js`, Bilder ansehen).
+
+## Andere Repos — lesen ja, schreiben nie
+
+Aus einer Session in diesem Repo wird nur hier geschrieben. `~/sek1-mathe`, `~/begreifbar`,
+`~/tals-mathe` und `~/tals-physik` dürfen gelesen werden (Vorlagen, Werkzeug-Stand vergleichen).
+Was dort hingehört, wird dem Auftraggeber gemeldet (was, wo, warum).
+
 ## Arbeitsweise
 
-- Bei klarem Auftrag direkt umsetzen; Annahmen kurz erwähnen. Keine ungebetene Verbesserungs-Initiative.
+- **Bei klarem Auftrag direkt umsetzen.** Annahme nötig → inline kurz erwähnen.
+- **Keine ungebetene Verbesserungs-Initiative.**
 - Mehr als 3 gleichartige Edits → ein Skript.
-- Vor jedem Commit `scripts/render-check.js` laufen lassen.
-- Aus einer Session hier wird nur in diesem Repo geschrieben; `~/sek1-mathe` und `~/begreifbar`
-  nur lesen.
+
+## Automatik: Commit nach jedem Durchgang
+
+Modus `acceptEdits` (`.claude/settings.json`). Nach jedem abgeschlossenen Auftrag ohne
+Rückfrage: `scripts/render-check.js` über alle Seiten; **nur wenn jede Zeile `sw=375 merr=0`,
+kein `ERR` und `extern: keine`** `git add -A` und `git commit`.
+**Niemals `git push`** — der Push bleibt beim Auftraggeber. Auch GitHub-Einstellungen
+(Pages, Domain, HTTPS) nur auf ausdrücklichen Auftrag.
