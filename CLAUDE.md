@@ -58,6 +58,9 @@ Vorbild für Hosting und Repo-Aufbau: `~/sek1-mathe` (sek1-mathe.begreifbar.ch).
   waagrecht, `common.css`); abgesetzte Formeln scrollen selbst
   (`mjx-container[display="true"]`). Grid-Spalten mit `minmax(0,1fr)`, nicht `1fr`.
   Lange Inline-Formeln in mehrere `\(…\)` teilen, damit sie umbrechen.
+- **Blockübersichten** (`index*.html`, `<body class="idx">`): ab 1600 px Breite kompaktes
+  Zwei-Spalten-Raster (Kapitel | Lehrplan, Zusammenhänge | Gesamtquiz), Ziel: alles inkl.
+  Quiz-Rückmeldung in ~1090 px Höhe (Bildschirm 1920×1200 mit Browserleisten).
 - Prüfen (Playwright aus sek1-mathe):
   `PLAYWRIGHT=~/sek1-mathe/node_modules/playwright node scripts/render-check.js`
   — erwartet jede Zeile `sw=375 merr=0`, kein `ERR`, am Schluss `extern: keine`.

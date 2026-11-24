@@ -275,3 +275,42 @@ body.has-sn .register{display:none}
 @media print{.sn,.blocknav{display:none!important}}
 :target{scroll-margin-top:56px}
 section[id]{scroll-margin-top:56px}
+
+/* ---------- Blockübersicht (index*.html) auf grossen Schirmen: alles auf einen Blick (1920×1200) ---------- */
+@media (min-width:1600px){
+  body.idx .kopf-in{max-width:1760px;padding:8px 40px 6px}
+  body.idx h1{font-size:26px;margin:0}
+  body.idx .lead{max-width:none;font-size:16px}
+  body.idx nav.top,body.idx .sn{display:none}
+  body.idx main{max-width:1760px;padding:4px 40px 20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:32px;
+    grid-template-areas:"kap lp" "map lp" "map quiz";align-items:start}
+  body.idx #kapitel{grid-area:kap}body.idx #lehrplan{grid-area:lp}body.idx #zusammenhang{grid-area:map}body.idx #quiz{grid-area:quiz}
+  body.idx h2{font-size:18px;margin:4px 0 0}
+  body.idx .kasten{margin:6px 0}
+  body.idx .kasten>h3{padding:5px 12px;font-size:14.5px}
+  body.idx .inhalt{padding:10px 12px}
+  body.idx .cards{gap:12px;margin:8px 0 6px}
+  body.idx .card .top{padding:8px 12px 6px}
+  body.idx .card .top h3{font-size:19px}
+  body.idx .card svg.ic{width:88px;height:56px;margin-top:6px}
+  body.idx .card ul{margin:6px 12px 4px;font-size:14.5px}
+  body.idx .card .go{margin:4px 12px 10px}
+  body.idx .auflink{display:inline-block;margin:0 14px 0 0;font-size:15px}
+  body.idx table.t{font-size:13.5px;margin:0}
+  body.idx table.t td{padding:4px 8px}
+  body.idx .hint{font-size:13px;line-height:1.35}
+  body.idx .card ul{line-height:1.35}
+  body.idx table.t td{line-height:1.35}
+  body.idx table.t th{padding:3px 8px}
+  body.idx .qbox{max-width:300px}
+  body.idx .uebung{grid-template-columns:300px minmax(0,1fr);gap:18px}
+  body.idx #qsk .btn{padding:3px 8px;font-size:13px}
+  body.idx #qq p,body.idx .opt{font-size:15.5px;line-height:1.4}
+  body.idx #qfb .expl{font-size:14.5px;line-height:1.4;padding:6px 10px;margin-top:4px}
+  body.idx .bar{margin:2px 0 8px}
+  body.idx .opts{grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin:8px 0}
+  body.idx .opt{padding:6px 12px}
+  body.idx footer{max-width:1760px;padding:4px 40px 6px}
+  body.idx main{padding-bottom:8px}
+  body.idx .map{max-width:700px;margin:0 auto}
+}
